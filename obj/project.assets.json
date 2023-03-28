@@ -1832,19 +1832,19 @@
     ]
   },
   "packageFolders": {
-    "/Users/gumby/.nuget/packages/": {}
+    "/Users/hiltonluu/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/gumby/Documents/GitHub/CPSC481/MyApplication.csproj",
+      "projectUniqueName": "/Users/hiltonluu/Documents/GitHub/CPSC481/MyApplication.csproj",
       "projectName": "MyApplication",
-      "projectPath": "/Users/gumby/Documents/GitHub/CPSC481/MyApplication.csproj",
-      "packagesPath": "/Users/gumby/.nuget/packages/",
-      "outputPath": "/Users/gumby/Documents/GitHub/CPSC481/obj/",
+      "projectPath": "/Users/hiltonluu/Documents/GitHub/CPSC481/MyApplication.csproj",
+      "packagesPath": "/Users/hiltonluu/.nuget/packages/",
+      "outputPath": "/Users/hiltonluu/Documents/GitHub/CPSC481/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/gumby/.nuget/NuGet/NuGet.Config"
+        "/Users/hiltonluu/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
@@ -1895,14 +1895,6 @@
         "warn": true,
         "downloadDependencies": [
           {
-            "name": "Microsoft.AspNetCore.App.Ref",
-            "version": "[6.0.15, 6.0.15]"
-          },
-          {
-            "name": "Microsoft.NETCore.App.Ref",
-            "version": "[6.0.15, 6.0.15]"
-          },
-          {
             "name": "Microsoft.NETCore.App.Runtime.Mono.browser-wasm",
             "version": "[6.0.15, 6.0.15]"
           }
@@ -1912,7 +1904,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.202/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/6.0.407/RuntimeIdentifierGraph.json"
       }
     },
     "runtimes": {
