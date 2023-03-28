@@ -1,31 +1,44 @@
 ﻿@inherits LayoutComponentBase
 
+@inject NavigationManager NavigationManager
+
 <MudThemeProvider />
 <MudDialogProvider />
 <MudSnackbarProvider />
 
 <MudLayout>
     <MudAppBar Elevation="0">
-        <MudIconButton Icon="@Icons.Material.Filled.Menu" Color="Color.Inherit" Edge="Edge.Start" OnClick="@((e) => DrawerToggle())" />
+        <MudIconButton Icon="@Icons.Material.Filled.ShoppingBasket" Color="Color.Inherit" Edge="Edge.Start" OnClick="@((e) => DrawerToggle())" />
+            <h3>View Order</h3>
+            
+        <MudIconButton Icon="@Icons.Material.Filled.Home" Color="Color.Inherit" Edge="Edge.Start" OnClick='() => NavigationManager.NavigateTo("fetchdata")' Class="pa-4 ml-16 mr-8"/>
+        <MudIconButton Icon="@Icons.Material.Filled.Fastfood" Color="Color.Inherit" Edge="Edge.Start" OnClick='() => NavigationManager.NavigateTo("counter")'  Class="pa-4 ml-16 mr-8"/>
+        <MudIconButton Icon="@Icons.Material.Filled.LocalDrink" Color="Color.Inherit" Edge="Edge.Start" OnClick='() => NavigationManager.NavigateTo("counter")'  Class="pa-4 ml-16 mr-8"/>
+        <MudIconButton Icon="@Icons.Material.Filled.Icecream" Color="Color.Inherit" Edge="Edge.Start" OnClick='() => NavigationManager.NavigateTo("counter")'  Class="pa-4 ml-16 mr-8"/>
         <MudSpacer />
         <MudIconButton Icon="@Icons.Custom.Brands.MudBlazor" Color="Color.Inherit" Link="https://mudblazor.com/" Target="_blank" />
         <MudIconButton Icon="@Icons.Custom.Brands.GitHub" Color="Color.Inherit" Link="https://github.com/MudBlazor/MudBlazor/" Target="_blank" />
     </MudAppBar>
-    <MudDrawer @bind-Open="_drawerOpen" Elevation="1">
+
+
+    <MudDrawerContainer Class="mud-height-full">
+    <MudDrawer @bind-Open="_drawerOpen" ClipMode="@DrawerClipMode.Docked" Elevation="1"  Anchor="@Anchor.Left" Width="650px">
         <MudDrawerHeader>
-            <MudText Typo="Typo.h6">MyApplication</MudText>
+            <MudText Typo="Typo.h6">Your Order</MudText>
         </MudDrawerHeader>
         <NavMenu />
     </MudDrawer>
+    </MudDrawerContainer>
+
     <MudMainContent>
-        <MudContainer MaxWidth="MaxWidth.Large" Class="my-16 pt-16">
+        <MudContainer MaxWidth="MaxWidth.Large" Class="pt-4">
             @Body
         </MudContainer>
     </MudMainContent>
 </MudLayout>
 
 @code {
-    bool _drawerOpen = true;
+    bool _drawerOpen = false;
 
     void DrawerToggle()
     {
