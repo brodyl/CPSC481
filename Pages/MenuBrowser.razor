@@ -1,0 +1,55 @@
+@page "/browse"
+
+<PageTitle>Menu Browsing</PageTitle>
+
+<MudText Typo="Typo.h3" GutterBottom="true">Burgers</MudText>
+
+<MudTabs Elevation="4" Rounded="true" Centered="true" Color="@Color.Primary">
+    <MudTabPanel Text="Features"/>
+    <MudTabPanel @onclick="BurgerMenu" Text="Burgers"/>
+    <MudTabPanel Text="Sides"/>
+    <MudTabPanel @onclick="DrinkMenu" Text="Drinks"/>
+</MudTabs>
+
+<MudGrid>
+    <MudItem xs="12">
+        <MudPaper Class="d-flex align-center justify-center mud-width-full py-8">Feature Item of Category</MudPaper>
+    </MudItem>
+    
+    @foreach (var item in currentMenu) {
+        <MudItem xs="4">
+            <MudPaper Class="d-flex align-center justify-center mud-width-full py-8">@item.name</MudPaper>
+        </MudItem>
+    }
+</MudGrid>
+
+
+
+<ul>
+    
+</ul>
+
+@code {
+
+    
+    
+    private List<MenuItem> currentMenu = new();
+
+    private void BurgerMenu() {
+        currentMenu.Clear();
+        currentMenu.Add(new MenuItem() { category = "burger", ID = 1, name = "Schooper Burger", price = 10, image = "" });
+        currentMenu.Add(new MenuItem() { category = "burger", ID = 2, name = "Jr. Schooper Burger", price = 5, image = "" });
+        currentMenu.Add(new MenuItem() { category = "burger", ID = 3, name = "King's Cheeseburger", price = 8, image = "" });
+        currentMenu.Add(new MenuItem() { category = "burger", ID = 1, name = "Schooper Burger", price = 10, image = "" });
+        currentMenu.Add(new MenuItem() { category = "burger", ID = 2, name = "Jr. Schooper Burger", price = 5, image = "" });
+        currentMenu.Add(new MenuItem() { category = "burger", ID = 3, name = "King's Cheeseburger", price = 8, image = "" });
+    }
+
+    private void DrinkMenu() {
+        currentMenu.Clear();
+        currentMenu.Add(new MenuItem() { category = "drink", ID = 1, name = "Water", price = 0, image = "" });
+        currentMenu.Add(new MenuItem() { category = "drink", ID = 2, name = "Soft Drink", price = 2, image = "" });
+        currentMenu.Add(new MenuItem() { category = "drink", ID = 3, name = "Milkshake", price = 5, image = "" });
+    }
+
+}
