@@ -14,23 +14,6 @@
                         </MudListItemText>
                         <MudButton OnClick="@(() => AddCategory())" Variant="Variant.Outlined">Add Category</MudButton>
                     </MudListItem>
-                    <MudTable>
-                        <HeaderContent>
-                            <MudTh>Name</MudTh>
-                            <MudTh>Price</MudTh>
-                            <MudTh>Quantity</MudTh>
-                        </HeaderContent>
-                        <RowTemplate>
-                            @foreach (var item in person.OrderItems)
-                            {
-                                <MudTr @oncontextmenu:preventDefault @ondragenter:preventDefault @ondragover:preventDefault @ondrop="@(() => OnDrop(item, person))" @draggable="true" @ondragstart="@(() => OnDragStart(item))">
-                                    <MudTd>@item.Name</MudTd>
-                                    <MudTd>@item.Price</MudTd>
-                                    <MudTd>@item.Quantity</MudTd>
-                                </MudTr>
-                            }
-                        </RowTemplate>
-                    </MudTable>
                 }
                 <MudListItem>
                     <MudListItemText>
