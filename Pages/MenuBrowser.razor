@@ -2,22 +2,26 @@
 
 <PageTitle>Menu Browsing</PageTitle>
 
+<link href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" rel="stylesheet">
+
 <MudTabs Elevation="4" Rounded="true" Centered="true" Color="@Color.Primary">
-    <MudTabPanel Text="Features"/>
-    <MudTabPanel @onclick="BurgerMenu" Text="Burgers"/>
-    <MudTabPanel @onclick="SidesMenu" Text="Sides"/>
-    <MudTabPanel @onclick="DrinkMenu" Text="Drinks"/>
+    <MudTabPanel Text="Features" Icon="fas fa-grin-stars" Color="Color.Secondary"/> @*brody add your link to feature page here*@
+    <MudTabPanel @onclick="BurgerMenu" Text="Burgers" Icon="fas fa-hamburger" Color="Color.Secondary"/>
+    <MudTabPanel @onclick="SidesMenu" Text="Sides" Icon="fas fa-drumstick-bite" Color="Color.Secondary"/>
+    <MudTabPanel @onclick="DrinkMenu" Text="Drinks" Icon="fas fa-glass-whiskey" Color="Color.Secondary"/>
+    <MudTabPanel Text="Kids Meal" Icon="fas fa-child" Color="Color.Secondary"/>
+    <MudTabPanel Text="Value Deals" Icon="fas fa-piggy-bank" Color="Color.Secondary"/>
 </MudTabs>
 
 <MudGrid Class="d-flex align-center overflow-scroll" Height="100">
     <MudItem xs="12" Class="mt-6">
-        <MudPaper Class="d-flex align-center justify-center mud-width-full py-8">Feature Item of Category</MudPaper>
+        <MudImage Fluid="true" Src="@featureItem" Class="d-block mx-auto rounded-lg"/>
     </MudItem>
     
     @foreach (var item in currentMenu) {
         <MudItem xs="4" Elevation="0">
             <MudCard>
-                <MudCardContent>
+                <MudCardContent> @*link to feature on click here*@
                     <MudImage Fluid="true" Src="@item.image" Class="d-block mx-auto rounded-lg"/>
                     <MudText Typo="Typo.subtitle1" Align="Align.Center" Class="px-5"><b>@item.name</b></MudText>
                     <table Class="mx-auto">
@@ -40,12 +44,22 @@
     }
 </MudGrid>
 
+<table Class="mx-auto">
+    <tr Class="pr-5">
+        <td><MudButton Variant="Variant.Filled" Color="Color.Primary" Style="Width:200px; Height: 50px">Restart</MudButton></td>
+        <td Class="px-16"><MudButton Variant="Variant.Filled" Color="Color.Primary" Style="Width:200px; Height: 50px">View Order</MudButton></td>
+        <td><MudButton Variant="Variant.Filled" Color="Color.Primary" Style="Width:200px; Height: 50px">Checkout</MudButton></td>
+    </tr>
+</table>
+
 @code {
 
     private List<MenuItem> currentMenu = new();
+    private string featureItem;
 
     private void BurgerMenu() {
         currentMenu.Clear();
+        featureItem = "/resources/burgerbanner.png";
         currentMenu.Add(new MenuItem() { category = "burger", ID = 1, name = "Schooper Burger", price = 10, image = "/resources/whopper.png", tags = "popular"});
         currentMenu.Add(new MenuItem() { category = "burger", ID = 2, name = "Jr. Schooper", price = 5, image = "/resources/jrschooper.png", tags = "" });
         currentMenu.Add(new MenuItem() { category = "burger", ID = 3, name = "Spicy King Burger", price = 8, image = "/resources/spicykingburger.png", tags = "spicy" });
@@ -60,6 +74,7 @@
 
     private void DrinkMenu() {
         currentMenu.Clear();
+        featureItem = "/resources/milkshakebanner.png";
         currentMenu.Add(new MenuItem() { category = "drinks", ID = 1, name = "Hersheys Milkshake", price = 5, image = "/resources/chocolatemilkshake.png", tags="popular"});
         currentMenu.Add(new MenuItem() { category = "drinks", ID = 1, name = "Vanilla Milkshake", price = 5, image = "/resources/vanillamilkshake.png", tags=""});
         currentMenu.Add(new MenuItem() { category = "drinks", ID = 1, name = "Oreo Milkshake", price = 5, image = "/resources/oreomilkshake.png", tags="popular"});
@@ -75,6 +90,7 @@
 
     private void SidesMenu() {
         currentMenu.Clear();
+        featureItem = "/resources/chickenfriesbanner.png";
         currentMenu.Add(new MenuItem() { category = "sides", ID = 1, name = "8pc Chicken Nuggets", price = 6, image = "/resources/chickennuggets.png", tags="popular"});
         currentMenu.Add(new MenuItem() { category = "sides", ID = 2, name = "Poutine", price = 7, image = "/resources/poutine.png", tags=""});
         currentMenu.Add(new MenuItem() { category = "sides", ID = 3, name = "Spicy Loaded Poutine", price = 9, image = "/resources/spicyloadedpoutine.png", tags="popular/spicy"});
@@ -85,5 +101,6 @@
         currentMenu.Add(new MenuItem() { category = "sides", ID = 8, name = "Loaded Baked Potato", price = 8, image = "/resources/bakedpotato.png", tags=""});
         currentMenu.Add(new MenuItem() { category = "sides", ID = 9, name = "Signature Chilli", price = 6, image = "/resources/chilli.png", tags=""});
     }
+
 
 }
