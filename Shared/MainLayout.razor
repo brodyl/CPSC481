@@ -8,7 +8,7 @@
 
 <MudLayout>
     <MudAppBar Elevation="0">
-        <MudIconButton Icon="@Icons.Material.Filled.ShoppingBasket" Color="Color.Inherit" Edge="Edge.Start" OnClick="@((e) => DrawerToggle())" />
+        <MudIconButton Icon="@Icons.Material.Filled.ShoppingBasket" Color="Color.Inherit" Edge="Edge.Start" OnClick="@(() => OpenDrawer(Anchor.Bottom))" />
             <h3>View Order</h3>
             
         <MudIconButton Icon="@Icons.Material.Filled.Home" Color="Color.Inherit" Edge="Edge.Start" OnClick='() => NavigationManager.NavigateTo("fetchdata")' Class="pa-4 ml-16 mr-8"/>
@@ -20,28 +20,50 @@
         <MudIconButton Icon="@Icons.Custom.Brands.GitHub" Color="Color.Inherit" Link="https://github.com/MudBlazor/MudBlazor/" Target="_blank" />
     </MudAppBar>
 
-
+@* 
     <MudDrawerContainer Class="mud-height-full">
-    <MudDrawer @bind-Open="_drawerOpen" ClipMode="@DrawerClipMode.Docked" Elevation="1"  Anchor="@Anchor.Left" Width="650px">
+    <MudDrawer @bind-Open="_drawerOpen" ClipMode="@DrawerClipMode.Never" Elevation="1"  Anchor="Anchor.Top" Width="650px" Variant="@DrawerVariant.Responsive">
         <MudDrawerHeader>
             <MudText Typo="Typo.h6">Your Order</MudText>
         </MudDrawerHeader>
         <NavMenu />
     </MudDrawer>
-    </MudDrawerContainer>
+    </MudDrawerContainer> *@
 
+@if (open) {
+    <MudDrawer @bind-Open="@open" Elevation="1" Variant="@DrawerVariant.Persistent" Color="Color.Primary" Anchor="@_anchor" DisableOverlay="true" Style="left: 0; top:auto; bottom: 0; width: 100%; height: auto">
+        <MudNavLink Match="NavLinkMatch.All"  OnClick="@(() => OpenDrawer(Anchor.Bottom))" Dense="true">
+            <MudIconButton Icon="@Icons.Material.Filled.ShoppingBasket" Color="Color.Inherit" Edge="Edge.Start" />
+            View Order
+        </MudNavLink>
+        <OrderItems />
+    </MudDrawer>
+} else {
+    <MudDrawer @bind-Open="@open" Elevation="1" Variant="@DrawerVariant.Mini" Color="Color.Primary" Anchor="@_anchor" DisableOverlay="true" Style="left: 0; top:auto; bottom: 0; width: 100%; height: auto">
+        <MudNavLink Match="NavLinkMatch.All"  OnClick="@(() => OpenDrawer(Anchor.Bottom))" Dense="true">
+            <MudIconButton Icon="@Icons.Material.Filled.ShoppingBasket" Color="Color.Inherit" Edge="Edge.Start" />
+            View Order
+        </MudNavLink>
+    </MudDrawer>
+}
     <MudMainContent>
         <MudContainer MaxWidth="MaxWidth.Large" Class="pt-4">
             @Body
+            <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+            <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
         </MudContainer>
     </MudMainContent>
 </MudLayout>
 
-@code {
-    bool _drawerOpen = false;
 
-    void DrawerToggle()
-    {
-        _drawerOpen = !_drawerOpen;
+
+@code {
+
+    bool open = false;
+    Anchor _anchor;
+
+    void OpenDrawer(Anchor anchor) {
+        open = !open;
+        _anchor = anchor;
     }
 }
