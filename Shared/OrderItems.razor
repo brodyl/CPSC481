@@ -1,22 +1,26 @@
 @using Microsoft.AspNetCore.Components
 @using MudBlazor
+@inject StateContainer StateContainer
+@inject IDialogService DialogService
 
-<MudDropContainer T="DropItem" Items="_items" ItemsSelector="@((item, dropzone) => item.Customer == dropzone)" ItemDropped="ItemUpdated" Elevation="16">
+@* If multiple customers on the order, we create the dyanmic screen with drag/drop and collapsable menu features *@
+@if (@StateContainer._customers.Count > 1)
+{
+<MudDropContainer T="DropItem" Items="@StateContainer._items" ItemsSelector="@((item, dropzone) => item.Customer == dropzone)" ItemDropped="ItemUpdated" Elevation="16">
     <ChildContent>
         <MudPaper MinHeight="500px" Class="d-flex flex-column flex-1">
-
-                    <MudSimpleTable>
-                        <thead>
-                            <tr>
-                                <th style="width: 25%; font-weight: bold;">Patron</th>
-                                <th style="width: 25%; font-weight: bold;">Menu Items</th>
-                                <th style="width: 25%; font-weight: bold;">Quantity</th>
-                                <th style="width: 25%; font-weight: bold; text-align: right; ">Price</th>
-                            </tr>
-                        </thead>
-                    </MudSimpleTable>
-            <MudList>
-                @foreach (var customer in _customers) 
+            <MudSimpleTable>
+                <thead>
+                    <tr>
+                        <th style="width: 25%; font-weight: bold;">Patron</th>
+                        <th style="width: 25%; font-weight: bold;">Menu Items</th>
+                        <th style="width: 25%; font-weight: bold;">Quantity</th>
+                        <th style="width: 25%; font-weight: bold; text-align: right; ">Price</th>
+                    </tr>
+                </thead>
+            </MudSimpleTable>
+            <MudList Style="height: 650px; overflow-y: auto;">
+                @foreach (var customer in @StateContainer._customers) 
                 {
                     <MudListItem Icon="@Icons.Material.Filled.People" Text="@customer.Name" InitiallyExpanded="true" Class="customer-name">
                         <NestedList>
@@ -28,22 +32,20 @@
                         </NestedList>
                     </MudListItem>
                 }
-                    <MudListItem Elevation="6">
-                        <MudSimpleTable>
-                            <thead>
-                                <tr>
-                                    <th style="width: 25%;"><MudTextField @bind-Value="_newCustomerName" Label="Add Patron" /></th>
-                                    <th style="width: 25%;"><MudButton Color="Color.Tertiary" OnClick="AddNewCustomer" Variant="Variant.Filled">Add Patron</MudButton></th>
-                                    <th style="width: 25%; text-align: right;"></th>
-                                    <th style="text-align: right;" class="total-price">
-                                        <MudText style="font-weight: bold; font-size: 24px;">Total: $@($"{GetGrandTotal():C}")</MudText>
-                                        <MudButton Color="Color.Tertiary" Variant="Variant.Filled" EndIcon="@Icons.Material.Filled.Send">Checkout</MudButton>
-                                    </th>
-                                </tr>
-                            </thead>
-                        </MudSimpleTable>
-                    </MudListItem>
             </MudList>
+            <MudSimpleTable>
+                <thead>
+                    <tr>
+                        <th style="width: 25%;"><MudTextField @bind-Value="_newCustomerName" Label="Add Patron" /></th>
+                        <th style="width: 25%;"><MudButton Color="Color.Tertiary" OnClick="AddNewCustomer" Variant="Variant.Filled">Add Patron</MudButton></th>
+                        <th style="width: 25%; text-align: right;"></th>
+                        <th style="text-align: right;" class="total-price">
+                            <MudText style="font-weight: bold; font-size: 24px;">Total: $@($"{GetGrandTotal():C}")</MudText>
+                            <MudButton Color="Color.Tertiary" Variant="Variant.Filled" EndIcon="@Icons.Material.Filled.Send">Checkout</MudButton>
+                        </th>
+                    </tr>
+                </thead>
+            </MudSimpleTable>
         </MudPaper>
     </ChildContent>
     <ItemRenderer>
@@ -51,10 +53,14 @@
             <MudListItemText>
                 <div class="item-info">
                     <span class="blank-cell" style="width: 25%";></span>
-                    <span class="item-name" style="width: 25%">@context.Name</span>
+                    <span class="item-name" style="width: 25%">
+                        <MudIconButton  Variant="Variant.Filled" Color="Color.Secondary" Size="Size.Small">Remove</MudIconButton>
+                        &emsp; &emsp; &emsp; &emsp; &emsp; 
+                        @context.Name 
+                    </span>
                     <span class="item-quantity" style="width: 25%">
                     <MudStack Row="true">
-                        <MudIconButton  Variant="Variant.Filled" Icon="@Icons.Material.Filled.Remove" Color="Color.Secondary" Size="Size.Small" OnClick="@(() => UpdateQuantity(context, context.Quantity - 1))" />
+                        <MudIconButton  Variant="Variant.Filled" Icon="@Icons.Material.Filled.Remove" Color="Color.Secondary" Size="Size.Small" OnClick="@(() => UpdateQuantity(context, context.Quantity > 0 ? context.Quantity - 1 : context.Quantity))" />
                         <MudText style="font-weight: bold; ">@context.Quantity</MudText>
                         <MudIconButton  Variant="Variant.Filled" Icon="@Icons.Material.Filled.Add" Color="Color.Tertiary" Size="Size.Small" OnClick="@(() => UpdateQuantity(context, context.Quantity + 1))" />
                     </MudStack>
@@ -66,59 +72,110 @@
         <MudDivider/>
     </ItemRenderer>
 </MudDropContainer>
+}
+
+
+
+
+
+
+@* Loads the Layout Assuming only one customer is in the order *@
+else
+{
+<MudDropContainer T="DropItem" Items="@StateContainer._items" ItemsSelector="@((item, dropzone) => item.Customer == dropzone)" ItemDropped="ItemUpdated" Elevation="16">
+    <ChildContent>
+        <MudPaper MinHeight="500px" Class="d-flex flex-column flex-1">
+            <MudSimpleTable>
+                <thead>
+                    <tr>
+                        <th style="width: 25%; font-weight: bold;">Patron</th>
+                        <th style="width: 25%; font-weight: bold;">Menu Items</th>
+                        <th style="width: 25%; font-weight: bold;">Quantity</th>
+                        <th style="width: 25%; font-weight: bold; text-align: right; ">Price</th>
+                    </tr>
+                </thead>
+            </MudSimpleTable>
+            <MudList Style="height: 400px; overflow-y: auto;">
+                @foreach (var customer in @StateContainer._customers) 
+                {
+                    <MudListItem Icon="@Icons.Material.Filled.People" Text="@customer.Name" InitiallyExpanded="true" Class="customer-name">
+                        <NestedList>
+                            <MudDropZone T="DropItem" Identifier="@customer.Name">
+                                <MudList>
+                                    <MudListItem Dense="true" Class="pl-8"/>
+                                </MudList>
+                            </MudDropZone>
+                        </NestedList>
+                    </MudListItem>
+                }
+            </MudList>
+            <MudSimpleTable>
+                <thead>
+                    <tr>
+                        <th style="width: 25%;"><MudTextField @bind-Value="_newCustomerName" Label="Add Patron" /></th>
+                        <th style="width: 25%;"><MudButton Color="Color.Tertiary" OnClick="AddNewCustomer" Variant="Variant.Filled">Add Patron</MudButton></th>
+                        <th style="width: 25%; text-align: right;"></th>
+                        <th style="text-align: right;" class="total-price">
+                            <MudText style="font-weight: bold; font-size: 24px;">Total: $@($"{GetGrandTotal():C}")</MudText>
+                            <MudButton Color="Color.Tertiary" Variant="Variant.Filled" EndIcon="@Icons.Material.Filled.Send">Checkout</MudButton>
+                        </th>
+                    </tr>
+                </thead>
+            </MudSimpleTable>
+        </MudPaper>
+    </ChildContent>
+    <ItemRenderer>
+        <MudListItem>
+            <MudListItemText>
+                <div class="item-info">
+                    <span class="blank-cell" style="width: 25%;"></span>
+                    <span class="item-name" style="width: 25%">
+                        <MudIconButton  @onclick="ConfirmRemoveItem" Variant="Variant.Filled" Color="Color.Secondary" Size="Size.Small">Remove</MudIconButton>
+                        &emsp; &emsp; &emsp; &emsp; &emsp; 
+                        @context.Name 
+                    </span>
+                    <span class="item-quantity" style="width: 25%">
+                    <MudStack Row="true">
+                        <MudIconButton  Variant="Variant.Filled" Icon="@Icons.Material.Filled.Remove" Color="Color.Secondary" Size="Size.Small" OnClick="@(() => UpdateQuantity(context, context.Quantity > 0 ? context.Quantity - 1 : context.Quantity))" />
+                        <MudText style="font-weight: bold; ">@context.Quantity</MudText>
+                        <MudIconButton  Variant="Variant.Filled" Icon="@Icons.Material.Filled.Add" Color="Color.Tertiary" Size="Size.Small" OnClick="@(() => UpdateQuantity(context, context.Quantity + 1))" />
+                    </MudStack>
+                    </span>
+                    <span class="item-price" style="width: 25%; text-align: right;">$@context.Price.ToString("C")</span>
+                </div>
+            </MudListItemText>
+        </MudListItem>
+        <MudDivider/>
+    </ItemRenderer>
+</MudDropContainer>
+}
 
 @code {
+    private void ConfirmRemoveItem()
+    {
+        var options = new DialogOptions { CloseOnEscapeKey = true };
+        DialogService.Show<DialogConfirmRemoveItem>("Confirm Remove Dialog", options);
+    }
+
     private void ItemUpdated(MudItemDropInfo<DropItem> dropItem)
     {
         dropItem.Item.Customer = dropItem.DropzoneIdentifier;
     }
 
-    private List<DropItem> _items = new()
-    {
-        new DropItem(){ Name = "Item 1", Price = 12.99m, Quantity = 2, Customer = "Bob" },
-        new DropItem(){ Name = "Item 2", Price = 8.50m, Quantity = 1, Customer = "Bob" },
-        new DropItem(){ Name = "Item 3", Price = 3.99m, Quantity = 4, Customer = "Bob" },
-        new DropItem(){ Name = "Item 4", Price = 15.99m, Quantity = 2, Customer = "Alice" },
-        new DropItem(){ Name = "Item 5", Price = 25.00m, Quantity = 1, Customer = "Alice" },
-        new DropItem(){ Name = "Item 6", Price = 5.99m, Quantity = 3, Customer = "Alice" },
-    };
-
-    public class DropItem
-    {
-        public string Name { get; init; }
-        public decimal Price { get; init; }
-        public int Quantity { get; set; }
-        public string Customer { get; set; }
-    }
-
-
-
-    private class Customer
-    {
-        public string Name { get; set; }
-        public bool InitiallyExpanded { get; set; }
-    }
-
-    private List<Customer> _customers = new()
-    {
-        new Customer { Name = "Bob", InitiallyExpanded = true },
-        new Customer { Name = "Alice", InitiallyExpanded = false }
-    };
-
     private decimal GetGrandTotal()
     {
-        return _items.Sum(item => item.Quantity * item.Price);
+        return @StateContainer._items.Sum(item => item.Quantity * item.Price);
     }
 
     private string _newCustomerName;
 
     private void AddNewCustomer()
     {
-        if (!string.IsNullOrEmpty(_newCustomerName))
-        {
-            _customers.Add(new Customer { Name = _newCustomerName, InitiallyExpanded = true });
-            _newCustomerName = string.Empty;
+        if (_newCustomerName != null) {
+            StateContainer.AddCustomer(new Customer { Name = _newCustomerName, InitiallyExpanded = false });
             StateHasChanged();
+        } else {
+            StateContainer.AddCustomer(new Customer { Name = "Patron" + @StateContainer._customers.Count.ToString(), InitiallyExpanded = false });
         }
     }
 
@@ -127,7 +184,6 @@
         item.Quantity = newQuantity;
         StateHasChanged();
     }
-}
 }
 
 <style>
