@@ -1,93 +1,126 @@
-@page "/OrderItems"
+@using Microsoft.AspNetCore.Components
 @using MudBlazor
-@using MudBlazor.Extensions
 
-<MudGrid>
-    <MudItem xs="12">
-        <MudPaper>
-            <MudList Clickable="false">
-                @foreach (var person in People)
+<MudDropContainer T="DropItem" Items="_items" ItemsSelector="@((item, dropzone) => item.Customer == dropzone)" ItemDropped="ItemUpdated" Elevation="16">
+    <ChildContent>
+        <MudPaper MinHeight="500px" Class="d-flex flex-column flex-1">
+            <MudList>
+                @foreach (var customer in _customers) 
                 {
-                    <MudListItem>
-                        <MudListItemText>
-                            <MudText Typo="Typo.h6">@person.Name</MudText>
-                        </MudListItemText>
-                        <MudButton OnClick="@(() => AddCategory())" Variant="Variant.Outlined">Add Category</MudButton>
+                    <MudListItem Icon="@Icons.Material.Filled.People" Text="@customer.Name" InitiallyExpanded="true">
+                        <NestedList>
+                            <MudDropZone T="DropItem" Identifier="@customer.Name">
+                                <MudList>
+                                    <MudListItem Dense="true" Class="pl-8"/>
+                                </MudList>
+                            </MudDropZone>
+                        </NestedList>
                     </MudListItem>
                 }
-                <MudListItem>
-                    <MudListItemText>
-                        <MudText Typo="Typo.h6">Total Price: @TotalPrice</MudText>
-                    </MudListItemText>
-                </MudListItem>
+                    <MudListItem Elevation="6">
+                        <MudSimpleTable>
+                            <thead>
+                                <tr>
+                                    <th style="width: 25%;"><MudTextField @bind-Value="_newCustomerName" Label="New Customer" /></th>
+                                    <th style="width: 25%;"><MudButton Color="Color.Tertiary" OnClick="AddNewCustomer" Variant="Variant.Filled">Add Friend</MudButton></th>
+                                    <th style="text-align: right;"></th>
+                                    <th style="text-align: right;" class="total-price">
+                                        <MudText>@($"Total: {GetGrandTotal():C}")</MudText>
+                                        <MudButton Color="Color.Tertiary" Variant="Variant.Filled" EndIcon="@Icons.Material.Filled.Send">Checkout</MudButton>
+                                    </th>
+                                </tr>
+                            </thead>
+                        </MudSimpleTable>
+                    </MudListItem>
             </MudList>
         </MudPaper>
-    </MudItem>
-</MudGrid>
+    </ChildContent>
+    <ItemRenderer>
+        <MudListItem>
+            <MudListItemText>
+                <div class="item-info">
+                    <span class="blank-cell"></span>
+                    <span class="item-name">@context.Name</span>
+                    <span class="item-quantity">Quantity: @context.Quantity</span>
+                    <span class="item-price">$@context.Price.ToString("C")</span>
+                </div>
+            </MudListItemText>
+        </MudListItem>
+        <MudDivider/>
+    </ItemRenderer>
+</MudDropContainer>
 
 @code {
-    private List<Person> People { get; set; }
-    private OrderItem DraggedItem { get; set; }
-    private decimal TotalPrice => People.SelectMany(p => p.OrderItems).Sum(item => item.Price * item.Quantity);
-    protected override void OnInitialized()
+    private void ItemUpdated(MudItemDropInfo<DropItem> dropItem)
     {
-        People = new List<Person>
+        dropItem.Item.Customer = dropItem.DropzoneIdentifier;
+    }
+
+    private List<DropItem> _items = new()
+    {
+        new DropItem(){ Name = "Item 1", Price = 12.99m, Quantity = 2, Customer = "Bob" },
+        new DropItem(){ Name = "Item 2", Price = 8.50m, Quantity = 1, Customer = "Bob" },
+        new DropItem(){ Name = "Item 3", Price = 3.99m, Quantity = 4, Customer = "Bob" },
+        new DropItem(){ Name = "Item 4", Price = 15.99m, Quantity = 2, Customer = "Alice" },
+        new DropItem(){ Name = "Item 5", Price = 25.00m, Quantity = 1, Customer = "Alice" },
+        new DropItem(){ Name = "Item 6", Price = 5.99m, Quantity = 3, Customer = "Alice" },
+    };
+
+    public class DropItem
+    {
+        public string Name { get; init; }
+        public decimal Price { get; init; }
+        public int Quantity { get; init; }
+        public string Customer { get; set; }
+    }
+
+
+
+    private class Customer
+    {
+        public string Name { get; set; }
+        public bool InitiallyExpanded { get; set; }
+    }
+
+    private List<Customer> _customers = new()
+    {
+        new Customer { Name = "Bob", InitiallyExpanded = true },
+        new Customer { Name = "Alice", InitiallyExpanded = false }
+    };
+
+    private decimal GetGrandTotal()
+    {
+        return _items.Sum(item => item.Quantity * item.Price);
+    }
+
+    private string _newCustomerName;
+
+    private void AddNewCustomer()
+    {
+        if (!string.IsNullOrEmpty(_newCustomerName))
         {
-            new Person
-            {
-                Name = "Alice",
-                OrderItems = new List<OrderItem>
-                {
-                    new OrderItem { Name = "Apple", Price = 1.5m, Quantity = 3 },
-                    new OrderItem { Name = "Orange", Price = 1.0m, Quantity = 5 }
-                }
-            },
-            new Person
-            {
-                Name = "Bob",
-                OrderItems = new List<OrderItem>
-                {
-                    new OrderItem { Name = "Banana", Price = 0.5m, Quantity = 7 },
-                    new OrderItem { Name = "Grapes", Price = 2.0m, Quantity = 2 }
-                }
-            }
-        };
-    }
-
-    private void AddCategory()
-    {
-        People.Add(new Person { Name = $"Person {People.Count + 1}", OrderItems = new List<OrderItem>() });
-    }
-
-    private void OnDragStart(OrderItem item)
-    {
-        DraggedItem = item;
-    }
-
-    private void OnDrop(OrderItem targetItem, Person targetPerson)
-    {
-        if (DraggedItem != null && DraggedItem != targetItem)
-        {
-            var sourcePerson = People.FirstOrDefault(p => p.OrderItems.Contains(DraggedItem));
-            if (sourcePerson != null)
-            {
-                sourcePerson.OrderItems.Remove(DraggedItem);
-                int targetIndex = targetPerson.OrderItems.IndexOf(targetItem);
-                targetPerson.OrderItems.Insert(targetIndex, DraggedItem);
-            }
+            _customers.Add(new Customer { Name = _newCustomerName, InitiallyExpanded = true });
+            _newCustomerName = string.Empty;
+            StateHasChanged();
         }
     }
-
-    public class Person
-    {
-        public string Name { get; set; }
-        public List<OrderItem> OrderItems { get; set; }
-    }
-
-    public class OrderItem
-    {
-        public string Name { get; set; }
-        public decimal Price { get; set; }
-        public int Quantity { get; set; }
-    }
 }
+}
+
+<style>
+    .item-info {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .item-name,
+    .item-quantity,
+    .item-price {
+        font-weight: bold;
+    }
+
+    .total-price{ 
+        font-size: xx-large;
+        font-weight: bold;
+    }
+</style>

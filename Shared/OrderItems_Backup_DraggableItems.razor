@@ -1,0 +1,101 @@
+@using Microsoft.AspNetCore.Components
+@using MudBlazor
+
+
+<MudDropContainer T="DropItem" Items="_items" ItemsSelector="@((item, dropzone) => item.Customer == dropzone)" ItemDropped="ItemUpdated">
+    <ChildContent>
+        <MudList Clickable="true" Dense="true">
+            <MudListSubheader>Customers</MudListSubheader>
+            @foreach (var customer in _customers)
+            {
+                <MudListItem OnClick="@(() => customer.InitiallyExpanded = !customer.InitiallyExpanded)" InitiallyExpanded="@customer.InitiallyExpanded">
+                    <NestedList >
+                        <MudDropZone T="DropItem" Identifier="@customer.Name">
+                            @foreach (var item in _items.Where(i => i.Customer == customer.Name))
+                            {
+                                <MudListItem Text="@item.Name" />
+                                <MudListItem Text="@item.Quantity.ToString()" />
+                                <MudListItem Text="@item.Price.ToString()" />
+                            }
+                        </MudDropZone>
+                    </NestedList>
+                </MudListItem>
+            }
+        </MudList>
+        <MudText>@($"Grand Total: {GetGrandTotal():C}")</MudText>
+        <MudTextField @bind-Value="_newCustomerName" Label="New Customer" />
+        <MudButton Color="Color.Primary" OnClick="AddNewCustomer">Add Customer</MudButton>
+    </ChildContent>
+    <ItemRenderer>
+        <MudListItem Text="@context.Name" />
+        <MudDivider />
+    </ItemRenderer>
+</MudDropContainer>
+
+@code {
+    private class DropItem
+    {
+        public string Name { get; set; }
+        public string Customer { get; set; }
+        public int Quantity { get; set; }
+        public decimal Price { get; set; }
+    }
+
+    private class Customer
+    {
+        public string Name { get; set; }
+        public bool InitiallyExpanded { get; set; }
+    }
+
+    private List<DropItem> _items = new()
+    {
+        new DropItem { Name = "Item A", Customer = "Bob", Quantity = 1, Price = 10.00m },
+        new DropItem { Name = "Item B", Customer = "Bob", Quantity = 2, Price = 15.00m },
+        new DropItem { Name = "Item C", Customer = "Bob", Quantity = 3, Price = 5.00m },
+        new DropItem { Name = "Item D", Customer = "Alice", Quantity = 1, Price = 25.00m },
+        new DropItem { Name = "Item E", Customer = "Alice", Quantity = 2, Price = 8.00m },
+        new DropItem { Name = "Item F", Customer = "Alice", Quantity = 1, Price = 12.00m }
+    };
+
+    private List<Customer> _customers = new()
+    {
+        new Customer { Name = "Bob", InitiallyExpanded = true },
+        new Customer { Name = "Alice", InitiallyExpanded = false }
+    };
+
+    private void ItemUpdated(MudItemDropInfo<DropItem> dropItem)
+    {
+        dropItem.Item.Customer = dropItem.DropzoneIdentifier;
+    }
+
+    private decimal GetGrandTotal()
+    {
+        return _items.Sum(item => item.Quantity * item.Price);
+    }
+
+    private string _newCustomerName;
+
+    private void AddNewCustomer()
+    {
+        if (!string.IsNullOrEmpty(_newCustomerName))
+        {
+            _customers.Add(new Customer { Name = _newCustomerName, InitiallyExpanded = false });
+            _newCustomerName = string.Empty;
+            StateHasChanged();
+        }
+    }
+}
+
+
+<style>
+    .item-info {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .item-name,
+    .item-quantity,
+    .item-price {
+        font-weight: bold;
+    }
+</style>
