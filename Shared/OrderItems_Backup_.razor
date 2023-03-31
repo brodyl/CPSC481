@@ -1,0 +1,134 @@
+@page "/OrderItems"
+@using MudBlazor
+@using MudBlazor.Extensions
+
+
+<MudGrid>
+    <MudItem xs="12">
+        <MudPaper>
+            <MudList Clickable="true">
+                    <MudSimpleTable>
+                        <thead>
+                            <tr>
+                                <th style="width: 35%;">Name</th>
+                                <th style="width: 35%;">Quantity</th>
+                                <th>Price</th>
+                            </tr>
+                        </thead>
+                    </MudSimpleTable>
+                @foreach (var person in People)
+                {
+                    <MudListItem  Text="@person.Name" InitiallyExpanded="false" Dense="true">
+                        <NestedList>
+                            <MudSimpleTable>
+                                <tbody>
+                                    @foreach (var item in person.OrderItems)
+                                    {
+                                        <tr>
+                                            <td style="width: 35%;">@item.Name</td>
+                                            <td style="width: 35%;">@item.Quantity</td>
+                                            <td>$ @item.Price</td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </MudSimpleTable>
+                        </NestedList>
+                    </MudListItem>
+                }
+                    <MudSimpleTable>
+                        <tbody>
+                                <tr>
+                                    <td style="width: 35%;"></td>
+                                    <td style="width: 35%;"><MudText Typo="Typo.h6" Align="Align.Right">Total Price: </MudText></td>
+                                    <td><MudText Typo="Typo.h6" Align="Align.Left">$@TotalPrice</MudText></td>
+                                </tr>
+                        </tbody>
+                    </MudSimpleTable>
+            </MudList>
+        </MudPaper>
+    </MudItem>
+</MudGrid>
+
+<MudButton OnClick="@(() => AddCategory())" Variant="Variant.Outlined">Add Category</MudButton>
+
+@code {
+    private List<Person> People { get; set; }
+    private OrderItem DraggedItem { get; set; }
+    private decimal TotalPrice => People.SelectMany(p => p.OrderItems).Sum(item => item.Price * item.Quantity);
+    protected override void OnInitialized()
+    {
+        People = new List<Person>
+        {
+            new Person
+            {
+                Name = "Alice",
+                OrderItems = new List<OrderItem>
+                {
+                    new OrderItem { Name = "Apple", Price = 1.5m, Quantity = 3 },
+                    new OrderItem { Name = "Orange", Price = 1.0m, Quantity = 5 }
+                }
+            },
+            new Person
+            {
+                Name = "Bob",
+                OrderItems = new List<OrderItem>
+                {
+                    new OrderItem { Name = "Banana", Price = 0.5m, Quantity = 7 },
+                    new OrderItem { Name = "Grapes", Price = 2.0m, Quantity = 2 }
+                }
+            }
+        };
+    }
+
+    private void AddCategory()
+    {
+        People.Add(new Person { Name = $"Person {People.Count + 1}", OrderItems = new List<OrderItem>() });
+    }
+
+    public class Person
+    {
+        public string Name { get; set; }
+        public List<OrderItem> OrderItems { get; set; }
+    }
+
+    public class OrderItem
+    {
+        public string Name { get; set; }
+        public decimal Price { get; set; }
+        public int Quantity { get; set; }
+    }
+}
+
+
+
+
+
+
+
+
+@* <MudDropContainer T="string" Items="@rows" ItemsSelector="@((item,dropzone) => true)" Class="d-flex flex-wrap flex-grow-1">
+    <ChildContent>
+        <MudSimpleTable Style="overflow-x: auto;">
+            <thead>
+                <tr><th>ID</th></tr>
+            </thead>
+            <tbody>
+                <MudDropZone T="string" Identifier="dropzone" Class="flex-grow-1" AllowReorder="true" />
+            </tbody>
+        </MudSimpleTable>
+    </ChildContent>
+    <ItemRenderer>
+        <tr>
+            @foreach (var x in @context.Split())
+            {
+                <td>@x</td>
+            }
+        </tr>
+    </ItemRenderer>
+</MudDropContainer>
+
+@code {
+    string[] rows = {
+        "1","2","3","4","5","6","7","8","9","10"
+    };
+} *@
