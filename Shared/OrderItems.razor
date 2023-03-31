@@ -4,10 +4,21 @@
 <MudDropContainer T="DropItem" Items="_items" ItemsSelector="@((item, dropzone) => item.Customer == dropzone)" ItemDropped="ItemUpdated" Elevation="16">
     <ChildContent>
         <MudPaper MinHeight="500px" Class="d-flex flex-column flex-1">
+
+                    <MudSimpleTable>
+                        <thead>
+                            <tr>
+                                <th style="width: 25%; font-weight: bold;">Patron</th>
+                                <th style="width: 25%; font-weight: bold;">Menu Items</th>
+                                <th style="width: 25%; font-weight: bold;">Quantity</th>
+                                <th style="width: 25%; font-weight: bold; text-align: right; ">Price</th>
+                            </tr>
+                        </thead>
+                    </MudSimpleTable>
             <MudList>
                 @foreach (var customer in _customers) 
                 {
-                    <MudListItem Icon="@Icons.Material.Filled.People" Text="@customer.Name" InitiallyExpanded="true">
+                    <MudListItem Icon="@Icons.Material.Filled.People" Text="@customer.Name" InitiallyExpanded="true" Class="customer-name">
                         <NestedList>
                             <MudDropZone T="DropItem" Identifier="@customer.Name">
                                 <MudList>
@@ -21,11 +32,11 @@
                         <MudSimpleTable>
                             <thead>
                                 <tr>
-                                    <th style="width: 25%;"><MudTextField @bind-Value="_newCustomerName" Label="New Customer" /></th>
-                                    <th style="width: 25%;"><MudButton Color="Color.Tertiary" OnClick="AddNewCustomer" Variant="Variant.Filled">Add Friend</MudButton></th>
-                                    <th style="text-align: right;"></th>
+                                    <th style="width: 25%;"><MudTextField @bind-Value="_newCustomerName" Label="Add Patron" /></th>
+                                    <th style="width: 25%;"><MudButton Color="Color.Tertiary" OnClick="AddNewCustomer" Variant="Variant.Filled">Add Patron</MudButton></th>
+                                    <th style="width: 25%; text-align: right;"></th>
                                     <th style="text-align: right;" class="total-price">
-                                        <MudText>@($"Total: {GetGrandTotal():C}")</MudText>
+                                        <MudText style="font-weight: bold; font-size: 24px;">Total: $@($"{GetGrandTotal():C}")</MudText>
                                         <MudButton Color="Color.Tertiary" Variant="Variant.Filled" EndIcon="@Icons.Material.Filled.Send">Checkout</MudButton>
                                     </th>
                                 </tr>
@@ -39,10 +50,16 @@
         <MudListItem>
             <MudListItemText>
                 <div class="item-info">
-                    <span class="blank-cell"></span>
-                    <span class="item-name">@context.Name</span>
-                    <span class="item-quantity">Quantity: @context.Quantity</span>
-                    <span class="item-price">$@context.Price.ToString("C")</span>
+                    <span class="blank-cell" style="width: 25%";></span>
+                    <span class="item-name" style="width: 25%">@context.Name</span>
+                    <span class="item-quantity" style="width: 25%">
+                    <MudStack Row="true">
+                        <MudIconButton  Variant="Variant.Filled" Icon="@Icons.Material.Filled.Remove" Color="Color.Secondary" Size="Size.Small" OnClick="@(() => UpdateQuantity(context, context.Quantity - 1))" />
+                        <MudText style="font-weight: bold; ">@context.Quantity</MudText>
+                        <MudIconButton  Variant="Variant.Filled" Icon="@Icons.Material.Filled.Add" Color="Color.Tertiary" Size="Size.Small" OnClick="@(() => UpdateQuantity(context, context.Quantity + 1))" />
+                    </MudStack>
+                    </span>
+                    <span class="item-price" style="width: 25%; text-align: right;">$@context.Price.ToString("C")</span>
                 </div>
             </MudListItemText>
         </MudListItem>
@@ -70,7 +87,7 @@
     {
         public string Name { get; init; }
         public decimal Price { get; init; }
-        public int Quantity { get; init; }
+        public int Quantity { get; set; }
         public string Customer { get; set; }
     }
 
@@ -104,6 +121,12 @@
             StateHasChanged();
         }
     }
+
+    private void UpdateQuantity(DropItem item, int newQuantity)
+    {
+        item.Quantity = newQuantity;
+        StateHasChanged();
+    }
 }
 }
 
@@ -111,6 +134,11 @@
     .item-info {
         display: flex;
         justify-content: space-between;
+    }
+
+    .customer-name {
+        font-weight: bold;
+
     }
 
     .item-name,
@@ -122,5 +150,18 @@
     .total-price{ 
         font-size: xx-large;
         font-weight: bold;
+    }
+
+    .nested-item {
+        background-color: #dcdcdc61;
+    }
+
+    .item-info {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .quantity-field {
+        width: 10%;
     }
 </style>
