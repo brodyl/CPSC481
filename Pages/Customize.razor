@@ -1,10 +1,12 @@
 @page "/Customize/{ID:int}"
+@page "/Customize"
 @inject NavigationManager NavigationManager
+@inject StateContainer StateContainer
 
 <h3>@ID</h3>
 <div style="margin:auto; text-align:center; width:80%">
   <div>
-    <img style="width:100%" src="logo.jpg" alt="">
+    <img style="width:100%" src="@StateContainer.itemToCustomize.image" alt="">
   </div>
   <div style="text-align: left;background-color:rgb(255, 255, 255); border: 2px solid black;">
     <p>

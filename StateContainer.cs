@@ -42,8 +42,7 @@ public class StateContainer
     };
 
 
-
-
+    public MenuItem itemToCustomize;
 
     public event Action? OnChange;
 

@@ -1,4 +1,6 @@
 @page "/browse"
+@inject NavigationManager NavigationManager
+@inject StateContainer StateContainer
 
 <PageTitle>Menu Browsing</PageTitle>
 
@@ -18,9 +20,13 @@
         <MudImage Fluid="true" Src="@featureItem" Class="d-block mx-auto rounded-lg"/>
     </MudItem>
     
-    @foreach (var item in currentMenu) {
+         @foreach (var item in currentMenu) {
         <MudItem xs="4" Elevation="0">
-            <MudCard>
+            <MudLink Href="/Customize">
+            <MudCard @onclick="() => {
+                StateContainer.itemToCustomize = item;
+    }">
+           
                 <MudCardContent> @*link to feature on click here*@
                     <MudImage Fluid="true" Src="@item.image" Class="d-block mx-auto rounded-lg"/>
                     <MudText Typo="Typo.subtitle1" Align="Align.Center" Class="px-5"><b>@item.name</b></MudText>
@@ -40,6 +46,7 @@
                     </table>
                 </MudCardContent>
             </MudCard>
+            </MudLink>
         </MudItem>
     }
 </MudGrid>
@@ -56,6 +63,14 @@
 
     private List<MenuItem> currentMenu = new();
     private string featureItem;
+
+public void pathGenerator(int ID)
+  {
+    
+    NavigationManager.NavigateTo($"/customize/{ID}", false);
+  }
+
+
 
     private void BurgerMenu() {
         currentMenu.Clear();
