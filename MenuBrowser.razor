@@ -1,0 +1,119 @@
+@page "/browse"
+@inject NavigationManager NavigationManager
+
+<PageTitle>Menu Browsing</PageTitle>
+
+<link href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" rel="stylesheet">
+
+<MudTabs Elevation="4" Rounded="true" Centered="true" Color="@Color.Primary">
+    <MudTabPanel Text="Features" Icon="fas fa-grin-stars" Color="Color.Secondary"/> @*brody add your link to feature page here*@
+    <MudTabPanel @onclick="BurgerMenu" Text="Burgers" Icon="fas fa-hamburger" Color="Color.Secondary"/>
+    <MudTabPanel @onclick="SidesMenu" Text="Sides" Icon="fas fa-drumstick-bite" Color="Color.Secondary"/>
+    <MudTabPanel @onclick="DrinkMenu" Text="Drinks" Icon="fas fa-glass-whiskey" Color="Color.Secondary"/>
+    <MudTabPanel Text="Kids Meal" Icon="fas fa-child" Color="Color.Secondary"/>
+    <MudTabPanel Text="Value Deals" Icon="fas fa-piggy-bank" Color="Color.Secondary"/>
+</MudTabs>
+
+<MudGrid Class="d-flex align-center overflow-scroll" Height="100">
+    <MudItem xs="12" Class="mt-6">
+        <MudImage Fluid="true" Src="@featureItem" Class="d-block mx-auto rounded-lg"/>
+    </MudItem>
+    
+         @foreach (var item in currentMenu) {
+        <MudItem xs="4" Elevation="0">
+            <MudCard @onclick="() => {if (item.ID != null) {
+                                            pathGenerator(item.ID);
+        }
+    }">
+           
+                <MudCardContent> @*link to feature on click here*@
+                    <MudImage Fluid="true" Src="@item.image" Class="d-block mx-auto rounded-lg"/>
+                    <MudText Typo="Typo.subtitle1" Align="Align.Center" Class="px-5"><b>@item.name</b></MudText>
+                    <table Class="mx-auto">
+                        <tr>
+                            <td><MudText Typo="Typo.subtitle1" Align="Align.Center" Class="mr-2">$@item.price</MudText></td>
+
+                        @if (!string.IsNullOrWhiteSpace(item.tags)) {
+                            @if (item.tags.Contains("pork")) {<td><MudImage Src="/resources/pork-icon.svg" Width="20" Class="d-block mx-auto"/></td>}
+                            @if (item.tags.Contains("spicy")) {<td><MudImage Src="/resources/chilli-pepper-icon.svg" Width="20" Class="d-block mx-auto"/></td>}
+                            @if (item.tags.Contains("popular")) {<td><MudImage Src="/resources/like-button-icon.svg" Width="20" Class="d-block mx-auto"/></td>}
+                            @if (item.tags.Contains("vegetarian")) {<td><MudImage Src="/resources/leaves-icon.svg" Width="20" Class="d-block mx-auto"/></td>}
+                            @if (item.tags.Contains("GF")) {<td><MudImage Src="/resources/gluten-free-icon.svg" Width="20" Class="d-block mx-auto"/></td>}
+                        }
+                                
+                        </tr>
+                    </table>
+                </MudCardContent>
+            </MudCard>
+        </MudItem>
+    }
+</MudGrid>
+
+<table Class="mx-auto">
+    <tr Class="pr-5">
+        <td><MudButton Variant="Variant.Filled" Color="Color.Primary" Style="Width:200px; Height: 50px">Restart</MudButton></td>
+        <td Class="px-16"><MudButton Variant="Variant.Filled" Color="Color.Primary" Style="Width:200px; Height: 50px">View Order</MudButton></td>
+        <td><MudButton Variant="Variant.Filled" Color="Color.Primary" Style="Width:200px; Height: 50px">Checkout</MudButton></td>
+    </tr>
+</table>
+
+@code {
+
+    private List<MenuItem> currentMenu = new();
+    private string featureItem;
+
+public void pathGenerator(int ID)
+  {
+    
+    NavigationManager.NavigateTo($"/customize/{ID}", false);
+  }
+
+
+
+    private void BurgerMenu() {
+        currentMenu.Clear();
+        featureItem = "/resources/burgerbanner.png";
+        currentMenu.Add(new MenuItem() { category = "burger", ID = 1, name = "Schooper Burger", price = 10, image = "/resources/whopper.png", tags = "popular"});
+        currentMenu.Add(new MenuItem() { category = "burger", ID = 2, name = "Jr. Schooper", price = 5, image = "/resources/jrschooper.png", tags = "" });
+        currentMenu.Add(new MenuItem() { category = "burger", ID = 3, name = "Spicy King Burger", price = 8, image = "/resources/spicykingburger.png", tags = "spicy" });
+        currentMenu.Add(new MenuItem() { category = "burger", ID = 4, name = "Queen Burger", price = 10, image = "/resources/queenburger.png", tags = "popular" });
+        currentMenu.Add(new MenuItem() { category = "burger", ID = 5, name = "Knight's Bacon Loaded Burger", price = 5, image = "/resources/knightsbaconloaded.png", tags = "pork/popular" });
+        currentMenu.Add(new MenuItem() { category = "burger", ID = 6, name = "Chili Chicken Burger", price = 8, image = "/resources/chillichicken.png", tags = "popular/spicy" });
+        currentMenu.Add(new MenuItem() { category = "burger", ID = 7, name = "BLT Burger", price = 10, image = "/resources/BLT.png", tags = "pork" });
+        currentMenu.Add(new MenuItem() { category = "burger", ID = 8, name = "Beyond Meat Schooper", price = 5, image = "/resources/beyondschooper.png", tags = "vegetarian" });
+        currentMenu.Add(new MenuItem() { category = "burger", ID = 9, name = "King Vegan Burger", price = 8, image = "/resources/kingvegan.png", tags = "vegetarian/popular" });
+        
+    }
+
+    private void DrinkMenu() {
+        currentMenu.Clear();
+        featureItem = "/resources/milkshakebanner.png";
+        currentMenu.Add(new MenuItem() { category = "drinks", ID = 1, name = "Hersheys Milkshake", price = 5, image = "/resources/chocolatemilkshake.png", tags="popular"});
+        currentMenu.Add(new MenuItem() { category = "drinks", ID = 1, name = "Vanilla Milkshake", price = 5, image = "/resources/vanillamilkshake.png", tags=""});
+        currentMenu.Add(new MenuItem() { category = "drinks", ID = 1, name = "Oreo Milkshake", price = 5, image = "/resources/oreomilkshake.png", tags="popular"});
+        currentMenu.Add(new MenuItem() { category = "drinks", ID = 1, name = "Strawberry Milkshake", price = 5, image = "/resources/strawberrymilkshake.png", tags="popular"});
+        currentMenu.Add(new MenuItem() { category = "drinks", ID = 1, name = "Coke", price = 2, image = "/resources/coke.png", tags="popular"});
+        currentMenu.Add(new MenuItem() { category = "drinks", ID = 1, name = "Diet Coke", price = 2, image = "/resources/dietcoke.png", tags=""});
+        currentMenu.Add(new MenuItem() { category = "drinks", ID = 1, name = "Sprite", price = 2, image = "/resources/sprite.png", tags=""});
+        currentMenu.Add(new MenuItem() { category = "drinks", ID = 1, name = "Root Beer", price = 2, image = "/resources/rootbeer.png", tags="popular"});
+        currentMenu.Add(new MenuItem() { category = "drinks", ID = 1, name = "Iced Tea", price = 2, image = "/resources/icedtea.png", tags="popular"});
+        currentMenu.Add(new MenuItem() { category = "drinks", ID = 1, name = "Fruitopia", price = 2, image = "/resources/fruitopia.png", tags=""});
+        currentMenu.Add(new MenuItem() { category = "drinks", ID = 1, name = "Bottled Water", price = 2, image = "/resources/water.png", tags=""});
+    }
+
+    private void SidesMenu() {
+        currentMenu.Clear();
+        featureItem = "/resources/chickenfriesbanner.png";
+        currentMenu.Add(new MenuItem() { category = "sides", ID = 1, name = "8pc Chicken Nuggets", price = 6, image = "/resources/chickennuggets.png", tags="popular"});
+        currentMenu.Add(new MenuItem() { category = "sides", ID = 2, name = "Poutine", price = 7, image = "/resources/poutine.png", tags=""});
+        currentMenu.Add(new MenuItem() { category = "sides", ID = 3, name = "Spicy Loaded Poutine", price = 9, image = "/resources/spicyloadedpoutine.png", tags="popular/spicy"});
+        currentMenu.Add(new MenuItem() { category = "sides", ID = 4, name = "French Fries", price = 5, image = "/resources/frenchfries.png", tags=""});
+        currentMenu.Add(new MenuItem() { category = "sides", ID = 5, name = "Onion Rings", price = 5, image = "/resources/onionrings.png", tags=""});
+        currentMenu.Add(new MenuItem() { category = "sides", ID = 6, name = "Chicken Fries", price = 7, image = "/resources/chickenfries.png", tags="popular"});
+        currentMenu.Add(new MenuItem() { category = "sides", ID = 7, name = "8pc Dill Pickle Nuggets", price = 5, image = "/resources/chickennuggets.png", tags="vegetarian"});
+        currentMenu.Add(new MenuItem() { category = "sides", ID = 8, name = "Loaded Baked Potato", price = 8, image = "/resources/bakedpotato.png", tags=""});
+        currentMenu.Add(new MenuItem() { category = "sides", ID = 9, name = "Signature Chilli", price = 6, image = "/resources/chilli.png", tags=""});
+    }
+
+
+}
