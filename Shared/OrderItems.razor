@@ -22,15 +22,16 @@
             <MudList Class="mudlist-multi-patron-mode">
                 @foreach (var customer in @StateContainer._customers) 
                 {
-                            <MudDropZone T="DropItem" Identifier="@customer.Name" Class="nested-item">
-                    <MudListItem Icon="@Icons.Material.Filled.EmojiEmotions"  Color="Color.Success" Text="@customer.Name" InitiallyExpanded="true" Class="customer-name">
-                        <NestedList>
-                                <MudList>
-                                    <MudListItem Dense="true" Class="pl-8"/>
-                                </MudList>
-                        </NestedList>
-                    </MudListItem>
-                            </MudDropZone>
+                    @* <MudDivider DividerType="DividerType.Middle" Class="my-6"/> *@
+                        <MudListItem Icon="@Icons.Material.Filled.EmojiEmotions"  Color="Color.Success" Text="@customer.Name" InitiallyExpanded="true" Class="customer-name">
+                            <NestedList>
+                                <MudDropZone T="DropItem" Identifier="@customer.Name" Class="nested-item">
+                                    <MudList>
+                                        <MudListItem Dense="true" Class="pl-8" />
+                                    </MudList>
+                                </MudDropZone>
+                            </NestedList>
+                        </MudListItem>
                 }
             </MudList>
             <MudSimpleTable>
@@ -78,7 +79,6 @@
 
 
 
-
 @* Loads the Layout Assuming only one customer is in the order *@
 else
 {
@@ -98,16 +98,21 @@ else
             <MudList Class="mudlist-single-patron-mode">
                 @foreach (var customer in @StateContainer._customers) 
                 {
-                            <MudDropZone T="DropItem" Identifier="@customer.Name" Class="nested-item">
                     <MudListItem Icon="@Icons.Material.Filled.EmojiEmotions"  Color="Color.Success" Text="@customer.Name" InitiallyExpanded="true" Class="customer-name">
                         <NestedList>
+                            <MudDropZone T="DropItem" Identifier="@customer.Name" Class="nested-item">
                                 <MudList>
                                     <MudListItem Dense="true" Class="pl-8"/>
                                 </MudList>
+                            </MudDropZone>
                         </NestedList>
                     </MudListItem>
-                            </MudDropZone>
                 }
+                <MudPopover Open="@_isOrderImageOpen" AnchorOrigin="Origin.TopCenter" TransformOrigin="Origin.TopCenter">
+                    <div class="d-flex flex-column pa-1">
+                        <MudImage Fluid="true" Src="@item_image" Width="100" Class="d-block mx-auto rounded-lg"/>
+                    </div>
+                </MudPopover>
             </MudList>
             <MudSimpleTable>
                 <thead>
@@ -125,14 +130,16 @@ else
         </MudPaper>
     </ChildContent>
     <ItemRenderer>
-        <MudListItem>
+        <MudListItem  @onmouseover="() => ToggleOpen(context.ImgPath)" @onmouseleave="@ToggleClose">
             <MudListItemText>
                 <div class="item-info">
-                    <span class="table-content"></span>
+                    <span class="table-content">
+                        <MudIconButton @onclick="ConfirmRemoveItem" Icon="@Icons.Material.Filled.DeleteForever" Variant="Variant.Filled" Color="Color.Secondary" />
+                    </span>
                     <span class="item-name">
-                        <MudIconButton  @onclick="ConfirmRemoveItem" Variant="Variant.Filled" Color="Color.Secondary" Size="Size.Small">Remove</MudIconButton>
+                        <MudIconButton @onclick="ReportPointerLocation" Icon="@Icons.Material.Filled.ImageSearch" Variant="Variant.Filled" Color="Color.Tertiary" Size="Size.Small" />
                         &emsp; &emsp; &emsp; &emsp; &emsp; 
-                        @context.Name 
+                             
                     </span>
                     <span class="item-quantity">
                     <MudStack Row="true">
@@ -150,7 +157,38 @@ else
 </MudDropContainer>
 }
 
+
+
+    
+
+
+
+
+
+
+
+
 @code {
+    private bool _isOrderImageOpen = false;
+    private string item_image = "";
+
+    private double mouseX = 0;
+    private double mouseY = 0;
+    private void ReportPointerLocation(MouseEventArgs e)
+    {
+        mouseX = e.ScreenX;
+        mouseY = e.ScreenY;
+    }
+
+    private void ToggleOpen(string imgPath) {
+        _isOrderImageOpen = true;
+        item_image = imgPath;
+    }
+
+    private void ToggleClose() {
+        _isOrderImageOpen = false;
+    }
+
     private void ConfirmRemoveItem()
     {
         var options = new DialogOptions { CloseOnEscapeKey = true };

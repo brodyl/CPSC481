@@ -5,4 +5,5 @@ public class MenuItem {
         public int price { get; set; }
         public string? image { get; set; }
         public string? tags { get; set; }
+        public List<Ingredients> ingredients { get; set; }
 }
