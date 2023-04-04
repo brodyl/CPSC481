@@ -41,7 +41,7 @@
                         <th style="width: 25%;"><MudButton Color="Color.Tertiary" OnClick="AddNewCustomer" Variant="Variant.Filled">Add Patron</MudButton></th>
                         <th style="width: 25%; text-align: right;"></th>
                         <th style="text-align: right;" Class="total-price">
-                            <MudText style="font-weight: bold; font-size: 24px;">Total: $@($"{GetGrandTotal():C}")</MudText>
+                            <MudText style="font-weight: bold; font-size: 24px;">Total: $@string.Format("{0:0.00}", GetGrandTotal())</MudText>
                             <MudButton Color="Color.Tertiary" Variant="Variant.Filled" EndIcon="@Icons.Material.Filled.Send">Checkout</MudButton>
                         </th>
                     </tr>
@@ -53,11 +53,22 @@
         <MudListItem>
             <MudListItemText>
                 <div class="item-info">
-                    <span class="table-content"></span>
+                    <span class="table-content">
+                        <MudIconButton @onclick="ConfirmRemoveItem" Icon="@Icons.Material.Filled.DeleteForever" Variant="Variant.Filled" Color="Color.Secondary" />
+                    </span>
                     <span class="item-name">
-                        <MudIconButton  @onclick="ConfirmRemoveItem" Variant="Variant.Filled" Color="Color.Secondary" Size="Size.Small">Remove</MudIconButton>
+                        <MudTooltip ShowOnClick="true" ShowOnHover="false" ShowOnFocus="false">
+                            <ChildContent>
+                                <MudIconButton Icon="@Icons.Material.Filled.ImageSearch"  Variant="Variant.Filled" Color="Color.Tertiary" />
+                            </ChildContent>
+                            <TooltipContent>
+                                <div class="d-flex flex-column pa-1">
+                                    <MudImage Fluid="true" Src="@item_image" Width="100" Class="d-block mx-auto rounded-lg"/>
+                                </div>
+                            </TooltipContent>
+                        </MudTooltip>
                         &emsp; &emsp; &emsp; &emsp; &emsp; 
-                        @context.Name 
+                        @context.menuItem.name 
                     </span>
                     <span class="item-quantity">
                     <MudStack Row="true">
@@ -66,7 +77,7 @@
                         <MudIconButton  Variant="Variant.Filled" Icon="@Icons.Material.Filled.Add" Color="Color.Tertiary" Size="Size.Small" OnClick="@(() => UpdateQuantity(context, context.Quantity + 1))" />
                     </MudStack>
                     </span>
-                    <span class="item-price">$@context.Price.ToString("C")</span>
+                    <span class="item-price">$@string.Format("{0:0.00}", context.menuItem.price)</span>
                 </div>
             </MudListItemText>
         </MudListItem>
@@ -108,11 +119,11 @@ else
                         </NestedList>
                     </MudListItem>
                 }
-                <MudPopover Open="@_isOrderImageOpen" AnchorOrigin="Origin.TopCenter" TransformOrigin="Origin.TopCenter">
+                @* <MudPopover Open="@_isOrderImageOpen" AnchorOrigin="Origin.TopCenter" TransformOrigin="Origin.TopCenter">
                     <div class="d-flex flex-column pa-1">
                         <MudImage Fluid="true" Src="@item_image" Width="100" Class="d-block mx-auto rounded-lg"/>
                     </div>
-                </MudPopover>
+                </MudPopover> *@
             </MudList>
             <MudSimpleTable>
                 <thead>
@@ -121,7 +132,7 @@ else
                         <th style="width: 25%;"><MudButton Color="Color.Tertiary" OnClick="AddNewCustomer" Variant="Variant.Filled">Add Patron</MudButton></th>
                         <th style="width: 25%; text-align: right;"></th>
                         <th style="text-align: right;" class="total-price">
-                            <MudText style="font-weight: bold; font-size: 24px;">Total: $@($"{GetGrandTotal():C}")</MudText>
+                            <MudText style="font-weight: bold; font-size: 24px;">Total: $@string.Format("{0:0.00}", GetGrandTotal())</MudText>
                             <MudButton Color="Color.Tertiary" Variant="Variant.Filled" EndIcon="@Icons.Material.Filled.Send">Checkout</MudButton>
                         </th>
                     </tr>
@@ -130,16 +141,25 @@ else
         </MudPaper>
     </ChildContent>
     <ItemRenderer>
-        <MudListItem  @onmouseover="() => ToggleOpen(context.ImgPath)" @onmouseleave="@ToggleClose">
+        <MudListItem  @onmouseover="() => ToggleOpen(context.menuItem.image)" @onmouseleave="@ToggleClose">
             <MudListItemText>
                 <div class="item-info">
                     <span class="table-content">
                         <MudIconButton @onclick="ConfirmRemoveItem" Icon="@Icons.Material.Filled.DeleteForever" Variant="Variant.Filled" Color="Color.Secondary" />
                     </span>
                     <span class="item-name">
-                        <MudIconButton @onclick="ReportPointerLocation" Icon="@Icons.Material.Filled.ImageSearch" Variant="Variant.Filled" Color="Color.Tertiary" Size="Size.Small" />
+                        <MudTooltip ShowOnClick="true" ShowOnHover="false" ShowOnFocus="false">
+                            <ChildContent>
+                                <MudIconButton Icon="@Icons.Material.Filled.ImageSearch"  Variant="Variant.Filled" Color="Color.Tertiary" />
+                            </ChildContent>
+                            <TooltipContent>
+                                <div class="d-flex flex-column pa-1">
+                                    <MudImage Fluid="true" Src="@item_image" Width="100" Class="d-block mx-auto rounded-lg"/>
+                                </div>
+                            </TooltipContent>
+                        </MudTooltip>
                         &emsp; &emsp; &emsp; &emsp; &emsp; 
-                             
+                        @context.menuItem.name 
                     </span>
                     <span class="item-quantity">
                     <MudStack Row="true">
@@ -148,7 +168,7 @@ else
                         <MudIconButton  Variant="Variant.Filled" Icon="@Icons.Material.Filled.Add" Color="Color.Tertiary" Size="Size.Small" OnClick="@(() => UpdateQuantity(context, context.Quantity + 1))" />
                     </MudStack>
                     </span>
-                    <span class="item-price">$@context.Price.ToString("C")</span>
+                    <span class="item-price">$@string.Format("{0:0.00}", context.menuItem.price)</span>
                 </div>
             </MudListItemText>
         </MudListItem>
@@ -202,7 +222,7 @@ else
 
     private decimal GetGrandTotal()
     {
-        return @StateContainer._items.Sum(item => item.Quantity * item.Price);
+        return @StateContainer._items.Sum(item => item.Quantity * item.menuItem.price);
     }
 
     private string _newCustomerName;
