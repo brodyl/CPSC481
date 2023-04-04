@@ -51,14 +51,6 @@
     }
 </MudGrid>
 
-<table Class="mx-auto">
-    <tr Class="pr-5">
-        <td><MudButton Variant="Variant.Filled" Color="Color.Primary" Style="Width:200px; Height: 50px">Restart</MudButton></td>
-        <td Class="px-16"><MudButton Variant="Variant.Filled" Color="Color.Primary" Style="Width:200px; Height: 50px">View Order</MudButton></td>
-        <td><MudButton Variant="Variant.Filled" Color="Color.Primary" Style="Width:200px; Height: 50px">Checkout</MudButton></td>
-    </tr>
-</table>
-
 @code {
 
     private List<MenuItem> currentMenu = new();
@@ -72,7 +64,7 @@ public void pathGenerator(int ID)
 
 
 
-    private void BurgerMenu() {
+    public void BurgerMenu() {
         currentMenu.Clear();
         featureItem = "/resources/burgerbanner.png";
         currentMenu.Add(new MenuItem() { category = "burger", ID = 1, name = "Schooper Burger", price = 10, image = "/resources/whopper.png", tags = "popular"});
@@ -87,7 +79,7 @@ public void pathGenerator(int ID)
         
     }
 
-    private void DrinkMenu() {
+    public void DrinkMenu() {
         currentMenu.Clear();
         featureItem = "/resources/milkshakebanner.png";
         currentMenu.Add(new MenuItem() { category = "drinks", ID = 1, name = "Hersheys Milkshake", price = 5, image = "/resources/chocolatemilkshake.png", tags="popular"});
@@ -103,7 +95,7 @@ public void pathGenerator(int ID)
         currentMenu.Add(new MenuItem() { category = "drinks", ID = 1, name = "Bottled Water", price = 2, image = "/resources/water.png", tags=""});
     }
 
-    private void SidesMenu() {
+    public void SidesMenu() {
         currentMenu.Clear();
         featureItem = "/resources/chickenfriesbanner.png";
         currentMenu.Add(new MenuItem() { category = "sides", ID = 1, name = "8pc Chicken Nuggets", price = 6, image = "/resources/chickennuggets.png", tags="popular"});
