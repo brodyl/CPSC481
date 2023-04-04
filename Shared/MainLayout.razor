@@ -7,7 +7,7 @@
 <MudSnackbarProvider />
 
 <MudLayout>
-    @*
+    
     <MudAppBar Elevation="0">
         <MudIconButton Icon="@Icons.Material.Filled.ShoppingBasket" Color="Color.Inherit" Edge="Edge.Start" OnClick="@(() => OpenDrawer(Anchor.Bottom))" />
             <h3>View Order</h3>
@@ -20,8 +20,8 @@
         <MudIconButton Icon="@Icons.Custom.Brands.MudBlazor" Color="Color.Inherit" Link="https://mudblazor.com/" Target="_blank" />
         <MudIconButton Icon="@Icons.Custom.Brands.GitHub" Color="Color.Inherit" Link="https://github.com/MudBlazor/MudBlazor/" Target="_blank" />
     </MudAppBar>
-    *@
-
+    
+@*
     <MudDrawerContainer Class="mud-height-full">
     <MudDrawer @bind-Open="_drawerOpen" ClipMode="@DrawerClipMode.Never" Elevation="1"  Anchor="Anchor.Top" Width="650px" Variant="@DrawerVariant.Responsive">
         <MudDrawerHeader>
@@ -30,6 +30,7 @@
         <NavMenu />
     </MudDrawer>
     </MudDrawerContainer>
+*@
 
 @if (open) {
     <MudDrawer @bind-Open="@open" Elevation="1" Variant="@DrawerVariant.Persistent" Color="Color.Primary" Anchor="@_anchor" DisableOverlay="true" Style="left: 0; top:auto; bottom: 0; width: 100%; height: auto">
