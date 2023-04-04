@@ -61,7 +61,7 @@ public class StateContainer
             Quantity = 2, 
             Customer = "Patron 1", 
             menuItem = new MenuItem() {  
-                ID = 1, 
+                ID = 2, 
                 category = "sides", 
                 name = "Poutine", 
                 price = 5.99m, 
@@ -78,7 +78,7 @@ public class StateContainer
             Quantity = 2, 
             Customer = "Patron 1", 
             menuItem = new MenuItem() {  
-                ID = 1, 
+                ID = 3, 
                 category = "sides", 
                 name = "Coke", 
                 price = 2.99m, 

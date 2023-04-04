@@ -224,6 +224,10 @@ else
     {
         return @StateContainer._items.Sum(item => item.Quantity * item.menuItem.price);
     }
+    public string GetTotal()
+    {
+        return GetGrandTotal().ToString();
+    }
 
     private string _newCustomerName;
 
