@@ -44,11 +44,6 @@ public class StateContainer
 
 
 
-    public customizeItem
-
-
-
-
 
     public event Action? OnChange;
 
