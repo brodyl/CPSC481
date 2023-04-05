@@ -37,12 +37,12 @@
             <MudSimpleTable>
                 <thead>
                     <tr>
-                        <th style="width: 25%;"><MudTextField @bind-Value="_newCustomerName" Label="Add Patron" /></th>
+                        <th style="width: 25%;"><MudTextField @bind-Value="_newCustomerName" Label="Add Patron For Large Orders" /></th>
                         <th style="width: 25%;"><MudButton Color="Color.Tertiary" OnClick="AddNewCustomer" Variant="Variant.Filled">Add Patron</MudButton></th>
                         <th style="width: 25%; text-align: right;"></th>
                         <th style="text-align: right;" Class="total-price">
                             <MudText style="font-weight: bold; font-size: 24px;">Total: $@string.Format("{0:0.00}", GetGrandTotal())</MudText>
-                            <MudButton Color="Color.Tertiary" Variant="Variant.Filled" EndIcon="@Icons.Material.Filled.Send">Checkout</MudButton>
+                            <MudButton Color="Color.Tertiary" Variant="Variant.Filled" EndIcon="@Icons.Material.Filled.Send">Pay Now</MudButton>
                         </th>
                     </tr>
                 </thead>
@@ -128,12 +128,12 @@ else
             <MudSimpleTable>
                 <thead>
                     <tr>
-                        <th style="width: 25%;"><MudTextField @bind-Value="_newCustomerName" Label="Add Patron" /></th>
+                        <th style="width: 25%;"><MudTextField @bind-Value="_newCustomerName" Label="Add Patron For Large Orders" /></th>
                         <th style="width: 25%;"><MudButton Color="Color.Tertiary" OnClick="AddNewCustomer" Variant="Variant.Filled">Add Patron</MudButton></th>
                         <th style="width: 25%; text-align: right;"></th>
                         <th style="text-align: right;" class="total-price">
                             <MudText style="font-weight: bold; font-size: 24px;">Total: $@string.Format("{0:0.00}", GetGrandTotal())</MudText>
-                            <MudButton Color="Color.Tertiary" Variant="Variant.Filled" EndIcon="@Icons.Material.Filled.Send">Checkout</MudButton>
+                            <MudButton Color="Color.Tertiary" Variant="Variant.Filled" EndIcon="@Icons.Material.Filled.Send">Pay Now</MudButton>
                         </th>
                     </tr>
                 </thead>

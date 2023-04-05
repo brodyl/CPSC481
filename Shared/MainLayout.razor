@@ -11,17 +11,17 @@
 
 <MudLayout>
     <MudTabs Elevation="4" Rounded="true" Centered="true" Color="@Color.Primary">
-        <MudTabPanel Text="Features" Icon="fas fa-grin-stars" Color="Color.Secondary"/> @*brody add your link to feature page here*@
-        <MudTabPanel @onclick="@(() => MenuBrowserService.BurgerMenu())" Text="Burgers" Icon="fas fa-hamburger" Color="Color.Secondary"/>
-        <MudTabPanel @onclick="@(() => MenuBrowserService.SidesMenu())" Text="Sides" Icon="fas fa-drumstick-bite" Color="Color.Secondary"/>
-        <MudTabPanel @onclick="@(() => MenuBrowserService.DrinkMenu())" Text="Drinks" Icon="fas fa-glass-whiskey" Color="Color.Secondary"/>
-        <MudTabPanel Text="Kids Meal" Icon="fas fa-child" Color="Color.Secondary"/>
-        <MudTabPanel Text="Value Deals" Icon="fas fa-piggy-bank" Color="Color.Secondary"/>
+        <MudTabPanel @onclick="@(() => NavigationManager.NavigateTo($"/browse/burgers", false))" Text="Features" Icon="fas fa-grin-stars" Color="Color.Secondary"/> @*brody add your link to feature page here*@
+        <MudTabPanel @onclick="@(() => NavigationManager.NavigateTo($"/browse/burgers", false))" Icon="fas fa-hamburger" Color="Color.Secondary"/>
+        <MudTabPanel @onclick="@(() => NavigationManager.NavigateTo($"/browse/sides", false))" Text="Sides" Icon="fas fa-drumstick-bite" Color="Color.Secondary"/>
+        <MudTabPanel @onclick="@(() => NavigationManager.NavigateTo($"/browse/drinks", false))" Text="Drinks" Icon="fas fa-glass-whiskey" Color="Color.Secondary"/>
+        <MudTabPanel @onclick="@(() => NavigationManager.NavigateTo($"/browse/sides", false))" Text="Kids Meal" Icon="fas fa-child" Color="Color.Secondary"/>
+        <MudTabPanel @onclick="@(() => NavigationManager.NavigateTo($"/browse/sides", false))" Text="Value Deals" Icon="fas fa-piggy-bank" Color="Color.Secondary"/>
     </MudTabs>
 
 @if (open) {
     <MudDrawer @bind-Open="@open" Elevation="1" Variant="@DrawerVariant.Persistent" Color="Color.Primary" Anchor="@_anchor" DisableOverlay="true" Style="left: 0; top:auto; bottom: 0; width: 100%; height: auto">
-        <MudContainer Class="pl-0 ml-0 d-flex justify-start align-center" Style="width: 100%;" Row="true">
+        <MudContainer Class="pa-0 ma-0 d-flex justify-start align-center" Style="width: 100%;" Row="true">
             <MudButton Color="Color.Warning" Variant="Variant.Filled" Style="width: 20%;" Margin="Margin.Normal">
                 Restart Order
             </MudButton>
@@ -30,15 +30,15 @@
                     &emsp; &emsp; View Order &emsp; &emsp;
                 <MudIcon Icon="@Icons.Material.Filled.KeyboardDoubleArrowDown" Title="Add" />
             </MudButton>
-            <MudButton Color="Color.Tertiary" Variant="Variant.Filled" Style="float: right; width: 20%; text-align: right;">
-                Pay Now
+            <MudButton OnClick="@(() => OpenDrawer(Anchor.Bottom))" Color="Color.Primary" Variant="Variant.Filled" Style="float: right; width: 20%; text-align: right;">
+                &emsp;
             </MudButton>
         </MudContainer>
         <OrderItems />
     </MudDrawer>
 } else {
     <MudDrawer @bind-Open="@open" Elevation="1" Variant="@DrawerVariant.Mini" Color="Color.Primary" Anchor="@_anchor" DisableOverlay="true" Style="left: 0; top:auto; bottom: 0; width: 100%; height: auto">
-        <MudContainer Class="pl-0 ml-0 d-flex justify-start align-center" Style="width: 100%;" Row="true">
+        <MudContainer Class="pa-0 ma-0 d-flex justify-start align-center" Style="width: 100%;" Row="true">
             <MudButton Color="Color.Warning" Variant="Variant.Filled" Style="width: 20%;" Margin="Margin.Normal">
                 Restart Order
             </MudButton>

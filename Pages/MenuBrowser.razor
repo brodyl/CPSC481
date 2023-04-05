@@ -1,19 +1,11 @@
 @page "/browse"
+@page "/browse/{page}"
 @inject NavigationManager NavigationManager
 @inject StateContainer StateContainer
 
 <PageTitle>Menu Browsing</PageTitle>
 
 <link href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" rel="stylesheet">
-
-<MudTabs Elevation="4" Rounded="true" Centered="true" Color="@Color.Primary">
-    <MudTabPanel Text="Features" Icon="fas fa-grin-stars" Color="Color.Secondary"/> @*brody add your link to feature page here*@
-    <MudTabPanel @onclick="BurgerMenu" Text="Burgers" Icon="fas fa-hamburger" Color="Color.Secondary"/>
-    <MudTabPanel @onclick="SidesMenu" Text="Sides" Icon="fas fa-drumstick-bite" Color="Color.Secondary"/>
-    <MudTabPanel @onclick="DrinkMenu" Text="Drinks" Icon="fas fa-glass-whiskey" Color="Color.Secondary"/>
-    <MudTabPanel Text="Kids Meal" Icon="fas fa-child" Color="Color.Secondary"/>
-    <MudTabPanel Text="Value Deals" Icon="fas fa-piggy-bank" Color="Color.Secondary"/>
-</MudTabs>
 
 <MudGrid Class="d-flex align-center overflow-scroll" Height="100">
     <MudItem xs="12" Class="mt-6">
@@ -55,12 +47,18 @@
 
     private List<MenuItem> currentMenu = new();
     private string featureItem;
+    [Parameter] public string Page { get; set; }
 
-public void pathGenerator(int ID)
-  {
-    
-    NavigationManager.NavigateTo($"/customize/{ID}", false);
-  }
+    protected override void OnParametersSet()
+    {
+        base.OnParametersSet();
+        if (Page == "burgers")
+            BurgerMenu();
+        else if (Page == "sides")
+            SidesMenu();
+        else if (Page == "drinks")
+            DrinkMenu();
+    }
 
 
 
