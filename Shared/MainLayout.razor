@@ -12,14 +12,16 @@
 <link href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" rel="stylesheet">
 
 <MudLayout>
+    <div style="position: sticky; top: 0; z-index: 1;">
     <MudTabs Elevation="4" Rounded="true" Centered="true" Color="@Color.Primary">
         <MudTabPanel @onclick="@(() => NavigationManager.NavigateTo($"/fetchdata", false))" Text="Features" Icon="fas fa-grin-stars" Color="Color.Secondary"/>
-        <MudTabPanel @onclick="@(() => NavigationManager.NavigateTo($"/browse/burgers", false))" Text="Burgers" Icon="fas fa-hamburger" Color="Color.Secondary"/>
+        <MudTabPanel @onclick="@(() => NavigationManager.NavigateTo($"/browse/burgers", false))" Text="Sides" Icon="fas fa-hamburger" Color="Color.Secondary"/>
         <MudTabPanel @onclick="@(() => NavigationManager.NavigateTo($"/browse/sides", false))" Text="Sides" Icon="fas fa-drumstick-bite" Color="Color.Secondary"/>
         <MudTabPanel @onclick="@(() => NavigationManager.NavigateTo($"/browse/drinks", false))" Text="Drinks" Icon="fas fa-glass-whiskey" Color="Color.Secondary"/>
         <MudTabPanel @onclick="@(() => NavigationManager.NavigateTo($"/browse/sides", false))" Text="Kids Meal" Icon="fas fa-child" Color="Color.Secondary"/>
         <MudTabPanel @onclick="@(() => NavigationManager.NavigateTo($"/browse/sides", false))" Text="Value Deals" Icon="fas fa-piggy-bank" Color="Color.Secondary"/>
     </MudTabs>
+    </div>
 
 @if (open) {
     <MudDrawer @bind-Open="@open" Elevation="1" Variant="@DrawerVariant.Persistent" Color="Color.Primary" Anchor="@_anchor" DisableOverlay="true" Style="left: 0; top:auto; bottom: 0; width: 100%; height: auto">
