@@ -5,47 +5,73 @@ build_property.UsingMicrosoftNETSdkWeb =
 build_property.ProjectTypeGuids = 
 build_property.InvariantGlobalization = false
 build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = browser
-build_property.EnableSingleFileAnalyzer = 
-build_property.EnableTrimAnalyzer = true
-build_property.IncludeAllContentForSelfExtract = 
 build_property.RootNamespace = MyApplication
 build_property.RootNamespace = MyApplication
-build_property.ProjectDir = /Users/hiltonluu/Documents/GitHub/CPSC481/
+build_property.ProjectDir = /Users/azhar/Documents/GitHub/Brody1/
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = /Users/hiltonluu/Documents/GitHub/CPSC481
+build_property.MSBuildProjectDirectory = /Users/azhar/Documents/GitHub/Brody1
 build_property._RazorSourceGeneratorDebug = 
 
-[/Users/hiltonluu/Documents/GitHub/CPSC481/App.razor]
+[/Users/azhar/Documents/GitHub/Brody1/App.razor]
 build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/hiltonluu/Documents/GitHub/CPSC481/Pages/Counter.razor]
+[/Users/azhar/Documents/GitHub/Brody1/Pages/Counter.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQ291bnRlci5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/hiltonluu/Documents/GitHub/CPSC481/Pages/FetchData.razor]
+[/Users/azhar/Documents/GitHub/Brody1/Pages/Customize.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQ3VzdG9taXplLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/azhar/Documents/GitHub/Brody1/Pages/FetchData.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXMvRmV0Y2hEYXRhLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/hiltonluu/Documents/GitHub/CPSC481/Pages/Index.razor]
+[/Users/azhar/Documents/GitHub/Brody1/Pages/Index.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXMvSW5kZXgucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/hiltonluu/Documents/GitHub/CPSC481/Pages/MenuBrowser.razor]
+[/Users/azhar/Documents/GitHub/Brody1/Pages/MenuBrowser.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXMvTWVudUJyb3dzZXIucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/hiltonluu/Documents/GitHub/CPSC481/Shared/MainLayout.razor]
+[/Users/azhar/Documents/GitHub/Brody1/Pages/Serve.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvU2VydmUucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/azhar/Documents/GitHub/Brody1/Shared/DialogConfirmRemoveItem.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkL0RpYWxvZ0NvbmZpcm1SZW1vdmVJdGVtLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/azhar/Documents/GitHub/Brody1/Shared/EmptyLayout.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkL0VtcHR5TGF5b3V0LnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/azhar/Documents/GitHub/Brody1/Shared/MainLayout.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkL01haW5MYXlvdXQucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/hiltonluu/Documents/GitHub/CPSC481/Shared/NavMenu.razor]
-build_metadata.AdditionalFiles.TargetPath = U2hhcmVkL05hdk1lbnUucmF6b3I=
+[/Users/azhar/Documents/GitHub/Brody1/Shared/OrderItems.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkL09yZGVySXRlbXMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/hiltonluu/Documents/GitHub/CPSC481/_Imports.razor]
+[/Users/azhar/Documents/GitHub/Brody1/Shared/OrderItems_Backup_.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkL09yZGVySXRlbXNfQmFja3VwXy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/azhar/Documents/GitHub/Brody1/Shared/OrderItems_Backup_DraggableItems.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkL09yZGVySXRlbXNfQmFja3VwX0RyYWdnYWJsZUl0ZW1zLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/azhar/Documents/GitHub/Brody1/Shared/OrderReview.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkL09yZGVyUmV2aWV3LnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/azhar/Documents/GitHub/Brody1/_Imports.razor]
 build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
