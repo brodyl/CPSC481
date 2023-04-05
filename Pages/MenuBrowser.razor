@@ -2,6 +2,7 @@
 @inject NavigationManager NavigationManager
 @inject StateContainer StateContainer
 
+
 <PageTitle>Menu Browsing</PageTitle>
 
 <link href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" rel="stylesheet">
@@ -55,11 +56,19 @@
     <tr Class="pr-5">
         <td><MudButton Variant="Variant.Filled" Color="Color.Primary" Style="Width:200px; Height: 50px">Restart</MudButton></td>
         <td Class="px-16"><MudButton Variant="Variant.Filled" Color="Color.Primary" Style="Width:200px; Height: 50px">View Order</MudButton></td>
-        <td><MudButton Variant="Variant.Filled" Color="Color.Primary" Style="Width:200px; Height: 50px">Checkout</MudButton></td>
+        <td><MudButton Variant="Variant.Filled" Color="Color.Primary" Style="Width:200px; Height: 50px"  >Checkout</MudButton></td>
     </tr>
 </table>
 
 @code {
+
+
+
+   
+
+
+
+
 
     private List<MenuItem> currentMenu = new();
     private string featureItem;

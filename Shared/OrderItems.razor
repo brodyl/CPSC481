@@ -122,7 +122,7 @@ else
                         <th style="width: 25%; text-align: right;"></th>
                         <th style="text-align: right;" class="total-price">
                             <MudText style="font-weight: bold; font-size: 24px;">Total: $@($"{GetGrandTotal():C}")</MudText>
-                            <MudButton Color="Color.Tertiary" Variant="Variant.Filled" EndIcon="@Icons.Material.Filled.Send">Checkout</MudButton>
+                            <MudButton Color="Color.Tertiary" Variant="Variant.Filled" EndIcon="@Icons.Material.Filled.Send" @onclick="GoToCheckout">Checkout</MudButton>
                         </th>
                     </tr>
                 </thead>
@@ -195,6 +195,11 @@ else
         DialogService.Show<DialogConfirmRemoveItem>("Confirm Remove Dialog", options);
     }
 
+private void GoToCheckout(){
+            var options = new DialogOptions { CloseOnEscapeKey = true };
+        DialogService.Show<GoToCheckout>("Confirm Remove Dialog", options);
+
+}
     private void ItemUpdated(MudItemDropInfo<DropItem> dropItem)
     {
         dropItem.Item.Customer = dropItem.DropzoneIdentifier;
