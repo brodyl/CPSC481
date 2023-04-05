@@ -12,10 +12,10 @@
             <MudSimpleTable>
                 <thead>
                     <tr>
-                        <th Class="table-content">Patron</th>
-                        <th Class="table-content">Menu Items</th>
-                        <th Class="table-content">Quantity</th>
-                        <th Class="table-content-price">Price</th>
+                        <th Class="table-first-col">Patron</th>
+                        <th Class="item-name">Menu Items</th>
+                        <th Class="item-quantity">Quantity</th>
+                        <th Class="item-price">Price</th>
                     </tr>
                 </thead>
             </MudSimpleTable>
@@ -53,7 +53,7 @@
         <MudListItem>
             <MudListItemText>
                 <div class="item-info">
-                    <span class="table-content">
+                    <span class="table-first-col">
                         <MudIconButton @onclick="ConfirmRemoveItem" Icon="@Icons.Material.Filled.DeleteForever" Variant="Variant.Filled" Color="Color.Secondary" />
                     </span>
                     <span class="item-name">
@@ -99,10 +99,10 @@ else
             <MudSimpleTable>
                 <thead>
                     <tr>
-                        <th Class="table-content">Patron</th>
-                        <th Class="table-content">Menu Items</th>
-                        <th Class="table-content">Quantity</th>
-                        <th Class="table-content-price">Price</th>
+                        <th Class="table-first-col">Patron</th>
+                        <th Class="item-name">Menu Items</th>
+                        <th Class="item-quantity">Quantity</th>
+                        <th Class="item-price">Price</th>
                     </tr>
                 </thead>
             </MudSimpleTable>
@@ -144,7 +144,7 @@ else
         <MudListItem  @onmouseover="() => ToggleOpen(context.menuItem.image)" @onmouseleave="@ToggleClose">
             <MudListItemText>
                 <div class="item-info">
-                    <span class="table-content">
+                    <span class="table-first-col">
                         <MudIconButton @onclick="ConfirmRemoveItem" Icon="@Icons.Material.Filled.DeleteForever" Variant="Variant.Filled" Color="Color.Secondary" />
                     </span>
                     <span class="item-name">
@@ -192,16 +192,8 @@ else
     private bool _isOrderImageOpen = false;
     private string item_image = "";
 
-    private double mouseX = 0;
-    private double mouseY = 0;
-    private void ReportPointerLocation(MouseEventArgs e)
-    {
-        mouseX = e.ScreenX;
-        mouseY = e.ScreenY;
-    }
-
     private void ToggleOpen(string imgPath) {
-        _isOrderImageOpen = true;
+        _isOrderImageOpen = !_isOrderImageOpen;
         item_image = imgPath;
     }
 
@@ -249,14 +241,9 @@ else
 }
 
 <style>
-    .table-content {
+    .table-first-col {
         width: 25%; 
         font-weight: bold;
-    }
-    .table-content-price {
-        width: 25%; 
-        font-weight: bold; 
-        text-align: right;
     }
     .mudlist-multi-patron-mode {
         height: 650px; 
@@ -277,9 +264,12 @@ else
 
     }
 
-    .item-name,
+    .item-name{
+        width: 40%;
+        font-weight: bold;
+    }
     .item-quantity{
-        width: 25%;
+        width: 10%;
         font-weight: bold;
     }
     .item-price {
