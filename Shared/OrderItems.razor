@@ -42,7 +42,7 @@
                         <th style="width: 25%; text-align: right;"></th>
                         <th style="text-align: right;" Class="total-price">
                             <MudText style="font-weight: bold; font-size: 24px;">Total: $@string.Format("{0:0.00}", GetGrandTotal())</MudText>
-                            <MudButton Color="Color.Tertiary" Variant="Variant.Filled" EndIcon="@Icons.Material.Filled.Send">Pay Now</MudButton>
+                            <MudButton  @onclick="PaymentPrompt" Color="Color.Tertiary" Variant="Variant.Filled" EndIcon="@Icons.Material.Filled.Send">Pay Now</MudButton>
                         </th>
                     </tr>
                 </thead>
@@ -133,7 +133,7 @@ else
                         <th style="width: 25%; text-align: right;"></th>
                         <th style="text-align: right;" class="total-price">
                             <MudText style="font-weight: bold; font-size: 24px;">Total: $@string.Format("{0:0.00}", GetGrandTotal())</MudText>
-                            <MudButton Color="Color.Tertiary" Variant="Variant.Filled" EndIcon="@Icons.Material.Filled.Send">Pay Now</MudButton>
+                            <MudButton  @onclick="PaymentPrompt" Color="Color.Tertiary" Variant="Variant.Filled" EndIcon="@Icons.Material.Filled.Send">Pay Now</MudButton>
                         </th>
                     </tr>
                 </thead>
@@ -200,6 +200,16 @@ else
 
     private void ToggleClose() {
         _isOrderImageOpen = false;
+    }
+
+    private void PaymentPrompt()
+    {
+        var options = new DialogOptions { CloseOnEscapeKey = true };
+        DialogService.Show<PaymentPrompt>("Review your order and choose payment options:", new DialogParameters
+        {
+            { "OrderItems", StateContainer._items },
+            { "GrandTotal", GetGrandTotal() }
+        }, options);
     }
 
     private void ConfirmRemoveItem()
