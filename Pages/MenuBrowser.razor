@@ -6,6 +6,7 @@
 
 <PageTitle>Menu Browsing</PageTitle>
 
+@*
 <MudTabs Elevation="4" Rounded="true" Centered="true" Color="@Color.Primary">
     <MudTabPanel Text="Features" Icon="fas fa-grin-stars" Color="Color.Secondary"/>
     <MudTabPanel @onclick="BurgerMenu" Text="Burgers" Icon="fas fa-hamburger" Color="Color.Secondary"/>
@@ -14,6 +15,7 @@
     <MudTabPanel @onclick="KidsMenu" Text="Kids Meal" Icon="fas fa-child" Color="Color.Secondary"/>
     <MudTabPanel @onclick="ValueMenu" Text="Value Deals" Icon="fas fa-piggy-bank" Color="Color.Secondary"/>
 </MudTabs>
+*@
 
 <MudGrid Class="d-flex align-center overflow-scroll" Height="100">
     <MudItem xs="12" Class="mt-6">
@@ -58,12 +60,11 @@
     protected override void OnParametersSet()
     {
         base.OnParametersSet();
-        if (Page == "burgers")
-            BurgerMenu();
-        else if (Page == "sides")
-            SidesMenu();
-        else if (Page == "drinks")
-            DrinkMenu();
+        if (Page == "burgers") BurgerMenu();
+        if (Page == "sides") SidesMenu();
+        if (Page == "drinks") DrinkMenu();
+        if (Page == "kids") KidsMenu();
+        if (Page == "value") ValueMenu();
     }
 
 
