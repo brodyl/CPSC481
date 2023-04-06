@@ -24,7 +24,7 @@
 @if (open) {
     <MudDrawer @bind-Open="@open" Elevation="1" Variant="@DrawerVariant.Persistent" Color="Color.Primary" Anchor="@_anchor" DisableOverlay="true" Style="left: 0; top:auto; bottom: 0; width: 100%; height: auto">
         <MudContainer Class="pa-0 ma-0 d-flex justify-start align-center" Style="width: 100%;" Row="true">
-            <MudButton Color="Color.Warning" Variant="Variant.Filled" Style="width: 20%;" Margin="Margin.Normal">
+            <MudButton OnClick="@restartOrder" Color="Color.Error" Variant="Variant.Filled" Style="width: 20%;" Margin="Margin.Normal">
                 Restart Order
             </MudButton>
             <MudButton  OnClick="@(() => OpenDrawer(Anchor.Bottom))" Color="Color.Primary" Variant="Variant.Filled" Style="width: 60%;">
@@ -41,7 +41,7 @@
 } else {
     <MudDrawer @bind-Open="@open" Elevation="1" Variant="@DrawerVariant.Mini" Color="Color.Primary" Anchor="@_anchor" DisableOverlay="true" Style="left: 0; top:auto; bottom: 0; width: 100%; height: auto">
         <MudContainer Class="pa-0 ma-0 d-flex justify-start align-center" Style="width: 100%;" Row="true">
-            <MudButton Color="Color.Warning" Variant="Variant.Filled" Style="width: 20%;" Margin="Margin.Normal">
+            <MudButton OnClick="@restartOrder" Color="Color.Error" Variant="Variant.Filled" Style="width: 20%;" Margin="Margin.Normal">
                 Restart Order
             </MudButton>
             <MudButton  OnClick="@(() => OpenDrawer(Anchor.Bottom))" Color="Color.Primary" Variant="Variant.Filled" Style="width: 60%;">
@@ -79,5 +79,10 @@
     private decimal GetGrandTotal()
     {
         return @StateContainer._items.Sum(item => item.Quantity * item.menuItem.price);
+    }
+
+    private void restartOrder() {
+        StateContainer.restartOrder();
+        NavigationManager.NavigateTo("/");
     }
 }
