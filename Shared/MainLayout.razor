@@ -17,8 +17,8 @@
         <MudTabPanel @onclick="@(() => NavigationManager.NavigateTo($"/browse/burgers", false))" Text="Burgers" Icon="fas fa-hamburger" Color="Color.Secondary"/>
         <MudTabPanel @onclick="@(() => NavigationManager.NavigateTo($"/browse/sides", false))" Text="Sides" Icon="fas fa-drumstick-bite" Color="Color.Secondary"/>
         <MudTabPanel @onclick="@(() => NavigationManager.NavigateTo($"/browse/drinks", false))" Text="Drinks" Icon="fas fa-glass-whiskey" Color="Color.Secondary"/>
-        <MudTabPanel @onclick="@(() => NavigationManager.NavigateTo($"/browse/sides", false))" Text="Kids Meal" Icon="fas fa-child" Color="Color.Secondary"/>
-        <MudTabPanel @onclick="@(() => NavigationManager.NavigateTo($"/browse/sides", false))" Text="Value Deals" Icon="fas fa-piggy-bank" Color="Color.Secondary"/>
+        <MudTabPanel @onclick="@(() => NavigationManager.NavigateTo($"/browse/kids", false))" Text="Kids Meal" Icon="fas fa-child" Color="Color.Secondary"/>
+        <MudTabPanel @onclick="@(() => NavigationManager.NavigateTo($"/browse/value", false))" Text="Value Deals" Icon="fas fa-piggy-bank" Color="Color.Secondary"/>
     </MudTabs>
 
 @if (open) {
