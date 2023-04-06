@@ -20,12 +20,10 @@
         <MudImage Fluid="true" Src="@featureItem" Class="d-block mx-auto rounded-lg"/>
     </MudItem>
     
-         @foreach (var item in currentMenu) {
+    @foreach (var item in currentMenu) {
         <MudItem xs="4" Elevation="0">
             <MudLink Href="/Customize">
-            <MudCard @onclick="() => {
-                StateContainer.itemToCustomize = item;
-    }
+            <MudCard @onclick="() => {StateContainer.itemToCustomize = item;}">
            
                 <MudCardContent> @*link to feature on click here*@
                     <MudImage Fluid="true" Src="@item.image" Class="d-block mx-auto rounded-lg"/>
