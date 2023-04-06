@@ -6,6 +6,15 @@
 
 <PageTitle>Menu Browsing</PageTitle>
 
+<MudTabs Elevation="4" Rounded="true" Centered="true" Color="@Color.Primary">
+    <MudTabPanel Text="Features" Icon="fas fa-grin-stars" Color="Color.Secondary"/>
+    <MudTabPanel @onclick="BurgerMenu" Text="Burgers" Icon="fas fa-hamburger" Color="Color.Secondary"/>
+    <MudTabPanel @onclick="SidesMenu" Text="Sides" Icon="fas fa-drumstick-bite" Color="Color.Secondary"/>
+    <MudTabPanel @onclick="DrinkMenu" Text="Drinks" Icon="fas fa-glass-whiskey" Color="Color.Secondary"/>
+    <MudTabPanel @onclick="KidsMenu" Text="Kids Meal" Icon="fas fa-child" Color="Color.Secondary"/>
+    <MudTabPanel @onclick="ValueMenu" Text="Value Deals" Icon="fas fa-piggy-bank" Color="Color.Secondary"/>
+</MudTabs>
+
 <MudGrid Class="d-flex align-center overflow-scroll" Height="100">
     <MudItem xs="12" Class="mt-6">
         <MudImage Fluid="true" Src="@featureItem" Class="d-block mx-auto rounded-lg"/>
@@ -16,7 +25,7 @@
             <MudLink Href="/Customize">
             <MudCard @onclick="() => {
                 StateContainer.itemToCustomize = item;
-    }">
+    }
            
                 <MudCardContent> @*link to feature on click here*@
                     <MudImage Fluid="true" Src="@item.image" Class="d-block mx-auto rounded-lg"/>
@@ -225,6 +234,25 @@ Calories = 640
         currentMenu.Add(new MenuItem() { category = "sides", ID = 8, name = "Loaded Baked Potato", price = 8, image = "/resources/bakedpotato.png", tags=""});
         currentMenu.Add(new MenuItem() { category = "sides", ID = 9, name = "Signature Chilli", price = 6, image = "/resources/chilli.png", tags=""});
     }
+
+     private void KidsMenu() {
+        currentMenu.Clear();
+        featureItem = "/resources/nuggets4pcbanner.png";
+        currentMenu.Add(new MenuItem() { category = "kids", ID = 1, name = "4pc Chicken Nuggets", price = 3, image = "/resources/nuggets4pc.png", tags="popular"});
+        currentMenu.Add(new MenuItem() { category = "kids", ID = 2, name = "Cheeseburger", price = 4, image = "/resources/cheeseburger.png", tags=""});
+        currentMenu.Add(new MenuItem() { category = "kids", ID = 3, name = "Hamburger", price = 4, image = "/resources/hamburger.png", tags=""});
+     }
+
+     private void ValueMenu() {
+        currentMenu.Clear();
+        featureItem = "/resources/valuebanner.png";
+        currentMenu.Add(new MenuItem() { category = "value", ID = 1, name = "4pc Chicken Nuggets", price = 3, image = "/resources/nuggets4pc.png", tags="popular"});
+        currentMenu.Add(new MenuItem() { category = "value", ID = 2, name = "Jr. Schooper", price = 5, image = "/resources/jrschooper.png", tags = "" });
+        currentMenu.Add(new MenuItem() { category = "burger", ID = 3, name = "Prince Vegan Burger", price = 8, image = "/resources/kingvegan.png", tags = "vegetarian/popular" });
+        currentMenu.Add(new MenuItem() { category = "value", ID = 4, name = "Snack Poutine", price = 4, image = "/resources/poutine.png", tags=""});
+        
+     }
+    
 
 
 }
