@@ -4,6 +4,7 @@
 @inject MyApplication.Pages.MenuBrowser MenuBrowserService
 @inject MyApplication.Shared.OrderItems OrderItemsService
 @inject StateContainer StateContainer
+@inject IDialogService DialogService
 
 <MudThemeProvider />
 <MudDialogProvider />
@@ -49,7 +50,7 @@
                     &emsp; &emsp; View Order &emsp; &emsp;
                 <MudIcon Icon="@Icons.Material.Filled.KeyboardDoubleArrowUp" Title="Add" />
             </MudButton>
-            <MudButton Color="Color.Tertiary" Variant="Variant.Filled" Style="float: right; width: 20%; text-align: right;">
+            <MudButton  @onclick="PaymentPrompt" Color="Color.Tertiary" Variant="Variant.Filled" Style="float: right; width: 20%; text-align: right;">
                 Pay Now &emsp; &emsp; $@string.Format("{0:0.00}", GetGrandTotal())
             </MudButton>
         </MudContainer>
@@ -74,6 +75,16 @@
     void OpenDrawer(Anchor anchor) {
         open = !open;
         _anchor = anchor;
+    }
+
+    private void PaymentPrompt()
+    {
+        var options = new DialogOptions { CloseOnEscapeKey = true };
+        DialogService.Show<PaymentPrompt>("Review your order and choose payment options:", new DialogParameters
+        {
+            { "OrderItems", StateContainer._items },
+            { "GrandTotal", GetGrandTotal() }
+        }, options);
     }
 
     private decimal GetGrandTotal()

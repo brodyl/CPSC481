@@ -38,6 +38,12 @@ public class StateContainer
     public void AddMenuItemToOrder() {
         _items.Add(new DropItem() {Quantity = 1, Customer = "Patron 1", menuItem = itemToCustomize});
     }
+    
+    public void RemoveOrderItemByID()
+    {
+        _items.RemoveAll(item => item.menuItem.ID == 100);
+    }
+
 
     public List<DropItem> _items = new()
     {
@@ -45,7 +51,7 @@ public class StateContainer
             Quantity = 2, 
             Customer = "Patron 1", 
             menuItem = new MenuItem() {  
-                ID = 1, 
+                ID = 100, 
                 category = "burger", 
                 name = "Schooper Burger", 
                 price = 10.00m, 
