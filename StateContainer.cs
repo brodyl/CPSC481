@@ -46,7 +46,7 @@ public class StateContainer
                 imageSm = "/resources/whopper.png", 
                 imageLg = "/resources/whopper.png", 
                 tags = "popular",
-                ingredients = new List<Ingredient>
+                Ingredients = new List<Ingredient>
                 {
                     new Ingredient { Name = "Lettuce", Quantity = "Regular" },
                     new Ingredient { Name = "Bacon", Quantity = "Regular" },
@@ -70,7 +70,7 @@ public class StateContainer
                 imageSm = "/resources/poutine.png", 
                 imageLg = "/resources/poutine.png", 
                 tags = "popular",
-                ingredients = new List<Ingredient> {}
+                Ingredients = new List<Ingredient> {}
             }
         },
 
@@ -87,15 +87,22 @@ public class StateContainer
                 imageSm = "/resources/Coke.png", 
                 imageLg = "/resources/Coke.png", 
                 tags = "popular",
-                ingredients = new List<Ingredient> {}
+                Ingredients = new List<Ingredient> {}
             }
         },
     };
 
 
+
+
+
     public MenuItem itemToCustomize;
+
+
+
 
     public event Action? OnChange;
 
     private void NotifyStateChanged() => OnChange?.Invoke();
 }
+

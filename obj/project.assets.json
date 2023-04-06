@@ -1832,24 +1832,25 @@
     ]
   },
   "packageFolders": {
-    "/Users/hiltonluu/.nuget/packages/": {}
+    "/Users/azhar/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/hiltonluu/Documents/GitHub/CPSC481/MyApplication.csproj",
+      "projectUniqueName": "/Users/azhar/Documents/GitHub/Brody1/MyApplication.csproj",
       "projectName": "MyApplication",
-      "projectPath": "/Users/hiltonluu/Documents/GitHub/CPSC481/MyApplication.csproj",
-      "packagesPath": "/Users/hiltonluu/.nuget/packages/",
-      "outputPath": "/Users/hiltonluu/Documents/GitHub/CPSC481/obj/",
+      "projectPath": "/Users/azhar/Documents/GitHub/Brody1/MyApplication.csproj",
+      "packagesPath": "/Users/azhar/.nuget/packages/",
+      "outputPath": "/Users/azhar/Documents/GitHub/Brody1/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/hiltonluu/.nuget/NuGet/NuGet.Config"
+        "/Users/azhar/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
       ],
       "sources": {
+        "/usr/local/share/dotnet/library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -1904,7 +1905,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/6.0.407/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.202/RuntimeIdentifierGraph.json"
       }
     },
     "runtimes": {

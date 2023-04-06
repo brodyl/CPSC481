@@ -1,0 +1,18 @@
+@inject StateContainer StateContainer
+@using MudBlazor
+
+
+
+<MudDialog>
+</MudDialog>
+
+@code {
+    [CascadingParameter] MudDialogInstance MudDialog { get; set; }
+
+    void Submit() => MudDialog.Close(DialogResult.Ok(true));
+    void Cancel() => MudDialog.Cancel();
+
+
+  
+}
+

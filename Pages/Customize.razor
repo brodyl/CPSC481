@@ -3,21 +3,19 @@
 @inject StateContainer StateContainer
 <link href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" rel="stylesheet">
 
-<h3>@ID</h3>
 <div style="margin:auto; text-align:center; width:80%">
   <div>
     <img style="width:100%" src="@StateContainer.itemToCustomize.image" alt="">
   </div>
   <div style="text-align: left;background-color:rgb(255, 255, 255); border: 2px solid black;">
     <p>
-      <b>Description:</b> <br>
-      <b>Calories:</b> <br>
-      <b>Other Info:</b>
+      <b><h2>Description:</h2> </b> @StateContainer.itemToCustomize.description <br><br>
+      <b><h2>Calories: </h2></b>@StateContainer.itemToCustomize.Calories <br>
     </p>
   </div>
 
   <div style="text-align: center;width:100%; max-height:400px;overflow-y:scroll; border: 2px solid black;">
-    <table id="ingredients-table" class="table" style="border-collapse: none ;width:100%">
+    <table id="Ingredients-table" class="table" style="border-collapse: none ;width:100%;">
       <thead>
         <tr>
           <th style="padding: 10px; border: 1px solid black;">Ingredients</th>
@@ -26,124 +24,79 @@
         </tr>
       </thead>
       <tbody>
-        @foreach (var ingredient in Ingredients){
-          @if (!ingredient.IsDisabled){
-    <tr>
-        <td style="padding: 10px; border: 1px solid black;">@ingredient.Name</td>
-        <td style="padding: 10px; border: 1px solid black;">
-            <button class="minus-btn" style="padding: 5px;" @onclick="() => DecreaseQuantity(ingredient)">-</button>
-            <span class="quantity" style="padding: 0 5px;">@ingredient.Quantity</span>
-            <button class="plus-btn" style="padding: 5px;" @onclick="() => IncreaseQuantity(ingredient)">+</button>
+        @foreach (var Ingredient in Ingredients){
+    <tr style="@(Ingredient.IsDisabled ? "opacity: 0.5;" : "")">
+        <td style="padding: 10px; border: 1px solid black; width:33%">@Ingredient.Name</td>
+        <td style="padding: 10px; border: 1px solid black;width:33%">
+            <button class="minus-btn" style="padding: 5px; @(Ingredient.IsDisabled ? "display:none;" : "")" @onclick="() => DecreaseQuantity(Ingredient)">-</button>
+            <span class="quantity" style="padding: 0 5px;">@(Ingredient.IsDisabled ? "Removed" : Ingredient.Quantity)</span>
+            <button class="plus-btn" style="padding: 5px; @(Ingredient.IsDisabled ? "display:none;" : "")" @onclick="() => IncreaseQuantity(Ingredient)">+</button>
         </td>
-        <td style="padding: 10px; border: 1px solid black;">
-            @if (ingredient.IsDisabled)
+        <td style="padding: 10px; border: 1px solid black;width:33%">
+            @if (Ingredient.IsDisabled)
             {
-                <button class="add-btn" style="padding: 5px;" @onclick="() => AddIngredient(ingredient)">Add</button>
+                <button class="add-btn" style="padding: 5px;" @onclick="() => AddIngredient(Ingredient)">Add</button>
             }
             else
             {
-                <button class="delete-btn" style="padding: 5px;" @onclick="() => DeleteIngredient(ingredient)">Delete</button>
+                <button class="delete-btn" style="padding: 5px;" @onclick="() => DeleteIngredient(Ingredient)">Delete</button>
             }
         </td>
     </tr>
-}}
-        @*@foreach (var ingredient in Ingredients)
-        {
-          <tr>
-            <td style="padding: 10px; border: 1px solid black;">@ingredient.Name</td>
-            <td style="padding: 10px; border: 1px solid black;">
-              <button class="minus-btn" style="padding: 5px;" @onclick="() => DecreaseQuantity(ingredient)">-</button>
-              <span class="quantity" style="padding: 0 5px;">@ingredient.Quantity</span>
-              <button class="plus-btn" style="padding: 5px;" @onclick="() => IncreaseQuantity(ingredient)">+</button>
-            </td>
-            <td style="padding: 10px; border: 1px solid black;">
-              <button class="delete-btn" style="padding: 5px;" @onclick="() => DeleteIngredient(ingredient)">Delete</button>
-              <button class="add-btn" style="display: none; padding: 5px;" @onclick="() => AddIngredient(ingredient)">Add</button>
-            </td>
-          </tr>
-        }*@
+}
       </tbody>
     </table>
   </div>
 
 <MudButton Style="margin-top:5%; margin-right: 50px; background-color: #EABC45; width: auto; height: 50px; font-size: large; color: black">Make it a Combo</MudButton>
 <MudButton Style="margin-top:5%; margin-left: 50px; background-color: #EABC45; width: auto; height: 50px; font-size: large; color: black">Add to Order</MudButton>
-
-
-
-
 </div>
-
-
-
-
-
-
-
 
 @code {
   [Parameter]
   public int ID { get; set; }
- 
-  public List<Ingredient>? Ingredients { get; set; }
 
-  protected override void OnInitialized()
-  {
-    // Initialize the ingredients list with some sample data
-    Ingredients = new List<Ingredient>()
-    {
-      new Ingredient() { Name = "Lettuce", Quantity = "Regular" },
-      new Ingredient() { Name = "Tomato", Quantity = "Regular" },
-      new Ingredient() { Name = "Onion", Quantity = "Regular" },
-      new Ingredient() { Name = "Mushroom", Quantity = "Regular" },
-      new Ingredient() { Name = "Mayonese", Quantity = "Regular" },
-      new Ingredient() { Name = "Chipotle", Quantity = "Regular" },
-      new Ingredient() { Name = "House Sauce", Quantity = "Regular" },
-      new Ingredient() { Name = "Bacon", Quantity = "Regular" },
-    };
-  }
+  public List<Ingredient>? Ingredients => StateContainer.itemToCustomize.Ingredients;
 
-  // Method to decrease the quantity of an ingredient
-  private void DecreaseQuantity(Ingredient ingredient)
+  // Method to decrease the quantity of an Ingredient
+  private void DecreaseQuantity(Ingredient Ingredient)
   {
-    if (ingredient.Quantity == "Extra")
+    if (Ingredient.Quantity == "Extra")
     {
-      ingredient.Quantity = "Regular";
+      Ingredient.Quantity = "Regular";
     }
-    else if (ingredient.Quantity == "Regular")
+    else if (Ingredient.Quantity == "Regular")
     {
-      ingredient.Quantity = "Less";
+      Ingredient.Quantity = "Less";
     }
   }
 
-  // Method to increase the quantity of an ingredient
-  private void IncreaseQuantity(Ingredient ingredient)
+  // Method to increase the quantity of an Ingredient
+  private void IncreaseQuantity(Ingredient Ingredient)
   {
-    if (ingredient.Quantity == "Less")
+    if (Ingredient.Quantity == "Less")
     {
-      ingredient.Quantity = "Regular";
+      Ingredient.Quantity = "Regular";
     }
-    else if (ingredient.Quantity == "Regular")
+    else if (Ingredient.Quantity == "Regular")
     {
-      ingredient.Quantity = "Extra";
+      Ingredient.Quantity = "Extra";
     }
   }
-    // Method to delete an ingredient
-    private void DeleteIngredient(Ingredient ingredient)
-{
-    ingredient.IsDisabled = true;
-}
-    // Method to add an ingredient
-    private void AddIngredient(Ingredient ingredient)
-    {
-        ingredient.IsDisabled = false;
-    }
 
-    public class Ingredient
-    {
-        public string? Name { get; set; }
-        public string? Quantity { get; set; }
-        public bool IsDisabled { get; set; }
-        public bool IsDeleted { get; set; } = false;
-    }
+  // Method to delete an Ingredient
+  private void DeleteIngredient(Ingredient Ingredient)
+  {
+    Ingredient.IsDisabled = true;
+  }
+
+  // Method to add an Ingredient
+  private void AddIngredient(Ingredient Ingredient)
+  {
+    Ingredient.IsDisabled = false;
+  }
+
+
+
+  
 }

@@ -21,4 +21,3 @@ To run application using the docker file:
     http://localhost/
 4. Alternative you can access the server from another computer by connecting to the IP address in a web browser
     192.168.x.x
-    or 10.x.x.x
