@@ -2,5 +2,5 @@
     {
         public int Quantity { get; set; }
         public string Customer { get; set; }
-        public MenuItem menuItem;
+        public MenuItem menuItem { get; set; }
     }

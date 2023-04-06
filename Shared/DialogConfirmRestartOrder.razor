@@ -1,0 +1,18 @@
+<MudDialog>
+    <DialogContent>
+        Are you sure you want to restart the order? <br /> 
+        All items will be cleared from the current order.
+    </DialogContent>
+    <DialogActions>
+        <MudButton OnClick="Cancel">Cancel</MudButton>
+        <MudButton Color="Color.Secondary" OnClick="Remove">Restart</MudButton>
+    </DialogActions>
+</MudDialog>
+
+@code {
+    [CascadingParameter] MudDialogInstance MudDialog { get; set; }
+
+    void Remove() => MudDialog.Close(DialogResult.Ok(true));
+    void Cancel() => MudDialog.Cancel();
+}
+

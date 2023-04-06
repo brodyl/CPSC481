@@ -31,6 +31,14 @@ public class StateContainer
         }
     }
     
+    public void restartOrder() {
+        _items.Clear();
+    }
+
+    public void AddMenuItemToOrder() {
+        _items.Add(new DropItem() {Quantity = 1, Customer = "Patron 1", menuItem = itemToCustomize});
+    }
+
     public List<DropItem> _items = new()
     {
         new DropItem(){ 
