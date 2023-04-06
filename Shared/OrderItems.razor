@@ -12,10 +12,10 @@
             <MudSimpleTable>
                 <thead>
                     <tr>
-                        <th Class="table-first-col">Patron</th>
-                        <th Class="item-name">Menu Items</th>
-                        <th Class="item-quantity">Quantity</th>
-                        <th Class="item-price">Price</th>
+                        <th Class="table-content">Patron</th>
+                        <th Class="table-content">Menu Items</th>
+                        <th Class="table-content">Quantity</th>
+                        <th Class="table-content-price">Price</th>
                     </tr>
                 </thead>
             </MudSimpleTable>
@@ -42,7 +42,7 @@
                         <th style="width: 25%; text-align: right;"></th>
                         <th style="text-align: right;" Class="total-price">
                             <MudText style="font-weight: bold; font-size: 24px;">Total: $@string.Format("{0:0.00}", GetGrandTotal())</MudText>
-                            <MudButton Color="Color.Tertiary" Variant="Variant.Filled" EndIcon="@Icons.Material.Filled.Send">Pay Now</MudButton>
+                            <MudButton Color="Color.Tertiary" Variant="Variant.Filled" EndIcon="@Icons.Material.Filled.Send" @onclick="PaymentPrompt">Pay Now</MudButton>
                         </th>
                     </tr>
                 </thead>
@@ -53,7 +53,7 @@
         <MudListItem>
             <MudListItemText>
                 <div class="item-info">
-                    <span class="table-first-col">
+                    <span class="table-content">
                         <MudIconButton @onclick="ConfirmRemoveItem" Icon="@Icons.Material.Filled.DeleteForever" Variant="Variant.Filled" Color="Color.Secondary" />
                     </span>
                     <span class="item-name">
@@ -99,10 +99,10 @@ else
             <MudSimpleTable>
                 <thead>
                     <tr>
-                        <th Class="table-first-col">Patron</th>
-                        <th Class="item-name">Menu Items</th>
-                        <th Class="item-quantity">Quantity</th>
-                        <th Class="item-price">Price</th>
+                        <th Class="table-content">Patron</th>
+                        <th Class="table-content">Menu Items</th>
+                        <th Class="table-content">Quantity</th>
+                        <th Class="table-content-price">Price</th>
                     </tr>
                 </thead>
             </MudSimpleTable>
@@ -133,7 +133,7 @@ else
                         <th style="width: 25%; text-align: right;"></th>
                         <th style="text-align: right;" class="total-price">
                             <MudText style="font-weight: bold; font-size: 24px;">Total: $@string.Format("{0:0.00}", GetGrandTotal())</MudText>
-                            <MudButton Color="Color.Tertiary" Variant="Variant.Filled" EndIcon="@Icons.Material.Filled.Send">Pay Now</MudButton>
+                            <MudButton Color="Color.Tertiary" Variant="Variant.Filled" EndIcon="@Icons.Material.Filled.Send" @onclick="PaymentPrompt">Pay Now</MudButton>
                         </th>
                     </tr>
                 </thead>
@@ -144,7 +144,7 @@ else
         <MudListItem  @onmouseover="() => ToggleOpen(context.menuItem.image)" @onmouseleave="@ToggleClose">
             <MudListItemText>
                 <div class="item-info">
-                    <span class="table-first-col">
+                    <span class="table-content">
                         <MudIconButton @onclick="ConfirmRemoveItem" Icon="@Icons.Material.Filled.DeleteForever" Variant="Variant.Filled" Color="Color.Secondary" />
                     </span>
                     <span class="item-name">
@@ -189,11 +189,33 @@ else
 
 
 @code {
+
+private void PaymentPrompt()
+{
+    var options = new DialogOptions { CloseOnEscapeKey = true };
+    DialogService.Show<PaymentPrompt>("Review your order and choose payment options:", new DialogParameters
+    {
+        { "OrderItems", StateContainer._items },
+        { "GrandTotal", GetGrandTotal() }
+    }, options);
+}
+
+
+
+
     private bool _isOrderImageOpen = false;
     private string item_image = "";
 
+    private double mouseX = 0;
+    private double mouseY = 0;
+    private void ReportPointerLocation(MouseEventArgs e)
+    {
+        mouseX = e.ScreenX;
+        mouseY = e.ScreenY;
+    }
+
     private void ToggleOpen(string imgPath) {
-        _isOrderImageOpen = !_isOrderImageOpen;
+        _isOrderImageOpen = true;
         item_image = imgPath;
     }
 
@@ -241,9 +263,14 @@ else
 }
 
 <style>
-    .table-first-col {
+    .table-content {
         width: 25%; 
         font-weight: bold;
+    }
+    .table-content-price {
+        width: 25%; 
+        font-weight: bold; 
+        text-align: right;
     }
     .mudlist-multi-patron-mode {
         height: 650px; 
@@ -264,12 +291,9 @@ else
 
     }
 
-    .item-name{
-        width: 40%;
-        font-weight: bold;
-    }
+    .item-name,
     .item-quantity{
-        width: 10%;
+        width: 25%;
         font-weight: bold;
     }
     .item-price {
