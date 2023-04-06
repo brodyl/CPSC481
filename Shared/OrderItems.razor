@@ -9,29 +9,40 @@
 <MudDropContainer T="DropItem" Items="@StateContainer._items" ItemsSelector="@((item, dropzone) => item.Customer == dropzone)" ItemDropped="ItemUpdated" Elevation="16">
     <ChildContent>
         <MudPaper MinHeight="500px" Class="d-flex flex-column flex-1">
-            <MudSimpleTable>
+            <MudSimpleTable style="background-color: #7e6fff; color: #fffeff;">
                 <thead>
                     <tr>
-                        <th Class="table-content">Patron</th>
-                        <th Class="table-content">Menu Items</th>
-                        <th Class="table-content">Quantity</th>
-                        <th Class="table-content-price">Price</th>
+                        <th Class="table-first-col" style="font-size: 130%;">Patron</th>
+                        <th Class="item-name" style="font-size: 130%;">Menu Items</th>
+                        <th Class="item-quantity" style="font-size: 130%;">Quantity</th>
+                        <th Class="item-price" style="font-size: 130%; text-align: right;">Price</th>
                     </tr>
                 </thead>
             </MudSimpleTable>
-            <MudList Class="mudlist-multi-patron-mode">
-                @foreach (var customer in @StateContainer._customers) 
+            <MudList Class="mudlist-multi-patron-mode" style="background-color: #7e6fff;">
+                @foreach (var customer in @StateContainer._customers)
                 {
                     @* <MudDivider DividerType="DividerType.Middle" Class="my-6"/> *@
-                        <MudListItem Icon="@Icons.Material.Filled.EmojiEmotions"  Color="Color.Success" Text="@customer.Name" InitiallyExpanded="true" Class="customer-name">
-                            <NestedList>
-                                <MudDropZone T="DropItem" Identifier="@customer.Name" Class="nested-item">
-                                    <MudList>
-                                        <MudListItem Dense="true" Class="pl-8" />
-                                    </MudList>
-                                </MudDropZone>
-                            </NestedList>
-                        </MudListItem>
+<MudListItem Icon="@Icons.Material.Filled.Remove" Color="Color.Success" InitiallyExpanded="true" Class="customer-name" style="background-color: #7e6fff; color: #ffffff">
+    <NestedList>
+    <ChildContent>
+        <MudGrid>
+            <MudItem xs="10">
+                <MudText>@customer.Name</MudText>
+            </MudItem>
+            <MudItem xs="2">
+                <MudButton Variant="Variant.Text" Color="Color.Default" Icon="@Icons.Material.Filled.Add">BLASLKJASD</MudButton>
+            </MudItem>
+        </MudGrid>
+    </ChildContent>
+        <MudDropZone T="DropItem" Identifier="@customer.Name" Class="nested-item" style="background-color: #b3abf8;">
+            <MudList>
+                <MudListItem Dense="true" Class="pl-8" />
+            </MudList>
+        </MudDropZone>
+    </NestedList>
+</MudListItem>
+
                 }
             </MudList>
             <MudSimpleTable>
@@ -50,7 +61,7 @@
         </MudPaper>
     </ChildContent>
     <ItemRenderer>
-        <MudListItem>
+        <MudListItem style="background-color: #b3abf8;">
             <MudListItemText>
                 <div class="item-info">
                     <span class="table-content">
@@ -67,8 +78,8 @@
                                 </div>
                             </TooltipContent>
                         </MudTooltip>
-                        &emsp; &emsp; &emsp; &emsp; &emsp; 
-                        @context.menuItem.name 
+                        &emsp; &emsp; &emsp; &emsp; &emsp;
+                        @context.menuItem.name
                     </span>
                     <span class="item-quantity">
                     <MudStack Row="true">
@@ -77,7 +88,7 @@
                         <MudIconButton  Variant="Variant.Filled" Icon="@Icons.Material.Filled.Add" Color="Color.Tertiary" Size="Size.Small" OnClick="@(() => UpdateQuantity(context, context.Quantity + 1))" />
                     </MudStack>
                     </span>
-                    <span class="item-price">$@string.Format("{0:0.00}", context.menuItem.price)</span>
+                    <span class="item-price">$@string.Format("{0:0.00}", (context.menuItem.price * context.Quantity))</span>
                 </div>
             </MudListItemText>
         </MudListItem>
@@ -96,22 +107,22 @@ else
 <MudDropContainer T="DropItem" Items="@StateContainer._items" ItemsSelector="@((item, dropzone) => item.Customer == dropzone)" ItemDropped="ItemUpdated" Elevation="16">
     <ChildContent>
         <MudPaper MinHeight="500px" Class="d-flex flex-column flex-1">
-            <MudSimpleTable>
+            <MudSimpleTable style="background-color: #7e6fff; color: #fffeff;">
                 <thead>
                     <tr>
-                        <th Class="table-content">Patron</th>
-                        <th Class="table-content">Menu Items</th>
-                        <th Class="table-content">Quantity</th>
-                        <th Class="table-content-price">Price</th>
+                        <th Class="table-first-col" style="font-size: 130%;">Patron</th>
+                        <th Class="item-name" style="font-size: 130%;">Menu Items</th>
+                        <th Class="item-quantity" style="font-size: 130%;">Quantity</th>
+                        <th Class="item-price" style="font-size: 130%; text-align: right;">Price</th>
                     </tr>
                 </thead>
             </MudSimpleTable>
-            <MudList Class="mudlist-single-patron-mode">
-                @foreach (var customer in @StateContainer._customers) 
+            <MudList Class="mudlist-single-patron-mode" style="background-color: #7e6fff;">
+                @foreach (var customer in @StateContainer._customers)
                 {
-                    <MudListItem Icon="@Icons.Material.Filled.EmojiEmotions"  Color="Color.Success" Text="@customer.Name" InitiallyExpanded="true" Class="customer-name">
+                    <MudListItem Icon="@Icons.Material.Filled.EmojiEmotions"  Color="Color.Success" Text="@customer.Name" InitiallyExpanded="true" Class="customer-name" style="color: #ffffff">
                         <NestedList>
-                            <MudDropZone T="DropItem" Identifier="@customer.Name" Class="nested-item">
+                            <MudDropZone T="DropItem" Identifier="@customer.Name" Class="nested-item"  style="background-color: #b3abf8;">
                                 <MudList>
                                     <MudListItem Dense="true" Class="pl-8"/>
                                 </MudList>
@@ -141,7 +152,7 @@ else
         </MudPaper>
     </ChildContent>
     <ItemRenderer>
-        <MudListItem  @onmouseover="() => ToggleOpen(context.menuItem.image)" @onmouseleave="@ToggleClose">
+        <MudListItem  @onmouseover="() => ToggleOpen(context.menuItem.image)" @onmouseleave="@ToggleClose" style="background-color: #b3abf8;">
             <MudListItemText>
                 <div class="item-info">
                     <span class="table-content">
@@ -158,8 +169,8 @@ else
                                 </div>
                             </TooltipContent>
                         </MudTooltip>
-                        &emsp; &emsp; &emsp; &emsp; &emsp; 
-                        @context.menuItem.name 
+                        &emsp; &emsp; &emsp; &emsp; &emsp;
+                        @context.menuItem.name
                     </span>
                     <span class="item-quantity">
                     <MudStack Row="true">
@@ -168,7 +179,7 @@ else
                         <MudIconButton  Variant="Variant.Filled" Icon="@Icons.Material.Filled.Add" Color="Color.Tertiary" Size="Size.Small" OnClick="@(() => UpdateQuantity(context, context.Quantity + 1))" />
                     </MudStack>
                     </span>
-                    <span class="item-price">$@string.Format("{0:0.00}", context.menuItem.price)</span>
+                    <span class="item-price">$@string.Format("{0:0.00}", (context.menuItem.price * context.Quantity))</span>
                 </div>
             </MudListItemText>
         </MudListItem>
@@ -179,7 +190,7 @@ else
 
 
 
-    
+
 
 
 
@@ -264,20 +275,20 @@ private void PaymentPrompt()
 
 <style>
     .table-content {
-        width: 25%; 
+        width: 25%;
         font-weight: bold;
     }
     .table-content-price {
-        width: 25%; 
-        font-weight: bold; 
+        width: 25%;
+        font-weight: bold;
         text-align: right;
     }
     .mudlist-multi-patron-mode {
-        height: 650px; 
+        height: 650px;
         overflow-y: auto;
     }
     .mudlist-single-patron-mode {
-        height: 400px; 
+        height: 400px;
         overflow-y: auto;
     }
 
@@ -302,7 +313,7 @@ private void PaymentPrompt()
         text-align: right;
     }
 
-    .total-price{ 
+    .total-price{
         font-size: xx-large;
         font-weight: bold;
     }
