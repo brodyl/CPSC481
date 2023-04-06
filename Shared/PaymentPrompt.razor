@@ -1,0 +1,59 @@
+@using System.Collections.Generic
+@using MudBlazor
+
+
+
+
+
+<MudDialog style="overflow:scroll">
+    <DialogContent>
+                <div style="max-height: 60vh; overflow: auto;">
+
+        <h2 style="text-align:center; margin:10px;">Order Review</h2>
+        <MudSimpleTable>
+            <thead>
+                <tr>
+                    <th>Menu Items</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in OrderItems)
+                {
+                    <tr>
+                        <td>@item.menuItem.name</td>
+                        <td>@item.Quantity</td>
+<td>@string.Format("{0} X ${1:0.00}", item.Quantity, item.menuItem.price)</td>
+                    </tr>
+                }
+            </tbody>
+        </MudSimpleTable>
+        <h3 style="text-align:right; margin:10px;">Total: $@string.Format("{0:0.00}", GrandTotal)</h3>
+                <h1 style="text-align:center; margin:10px;">How would you like to pay?</h1>
+
+<div style="display: flex; width: 100%;">
+            <MudLink Href="/end"> <MudButton style="height: 80px;width:120px;padding:10px;margin:10px;" Color="Color.Tertiary" Variant="Variant.Filled">Debit/Credit</MudButton></MudLink>
+            <MudLink Href="/end"> <MudButton style="width:120px;height: 80px;padding:10px;margin:10px;" Color="Color.Tertiary" Variant="Variant.Filled">Gift Card</MudButton></MudLink>
+            <MudLink Href="/end"> <MudButton style="width:120px;padding:10px;height: 80px;margin:10px;" Color="Color.Tertiary" Variant="Variant.Filled">Pay at Counter</MudButton></MudLink>
+
+        </div>
+</div>
+    </DialogContent>
+
+
+     <DialogActions>
+        <div style="display: flex; justify-content: flex-end; margin-top: 40px;">
+            <MudButton OnClick="Cancel">Cancel</MudButton>
+        </div>
+    </DialogActions>
+</MudDialog>
+
+@code {
+    [CascadingParameter] MudDialogInstance MudDialog { get; set; }
+
+    [Parameter] public List<DropItem> OrderItems { get; set; }
+    [Parameter] public decimal GrandTotal { get; set; }
+
+    void Cancel() => MudDialog.Cancel();
+}

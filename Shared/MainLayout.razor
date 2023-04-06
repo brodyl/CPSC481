@@ -1,66 +1,62 @@
 ﻿@inherits LayoutComponentBase
 
 @inject NavigationManager NavigationManager
+@inject MyApplication.Pages.MenuBrowser MenuBrowserService
+@inject MyApplication.Shared.OrderItems OrderItemsService
+@inject StateContainer StateContainer
 
 <MudThemeProvider />
 <MudDialogProvider />
 <MudSnackbarProvider />
 
+<link href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" rel="stylesheet">
+
 <MudLayout>
-    
-    <MudAppBar Elevation="0">
-        <MudIconButton Icon="@Icons.Material.Filled.ShoppingBasket" Color="Color.Inherit" Edge="Edge.Start" OnClick="@(() => OpenDrawer(Anchor.Bottom))" />
-            <h3>View Order</h3>
-            
-        <MudIconButton Icon="@Icons.Material.Filled.Home" Color="Color.Inherit" Edge="Edge.Start" OnClick='() => NavigationManager.NavigateTo("fetchdata")' Class="pa-4 ml-16 mr-8"/>
-        <MudIconButton Icon="@Icons.Material.Filled.Fastfood" Color="Color.Inherit" Edge="Edge.Start" OnClick='() => NavigationManager.NavigateTo("browse")'  Class="pa-4 ml-16 mr-8"/>
-        <MudIconButton Icon="@Icons.Material.Filled.LocalDrink" Color="Color.Inherit" Edge="Edge.Start" OnClick='() => NavigationManager.NavigateTo("counter")'  Class="pa-4 ml-16 mr-8"/>
-        <MudIconButton Icon="@Icons.Material.Filled.Icecream" Color="Color.Inherit" Edge="Edge.Start" OnClick='() => NavigationManager.NavigateTo("counter")'  Class="pa-4 ml-16 mr-8"/>
-        <MudSpacer />
-        <MudIconButton Icon="@Icons.Custom.Brands.MudBlazor" Color="Color.Inherit" Link="https://mudblazor.com/" Target="_blank" />
-        <MudIconButton Icon="@Icons.Custom.Brands.GitHub" Color="Color.Inherit" Link="https://github.com/MudBlazor/MudBlazor/" Target="_blank" />
-    </MudAppBar>
-    
-@*
-    <MudDrawerContainer Class="mud-height-full">
-    <MudDrawer @bind-Open="_drawerOpen" ClipMode="@DrawerClipMode.Never" Elevation="1"  Anchor="Anchor.Top" Width="650px" Variant="@DrawerVariant.Responsive">
-        <MudDrawerHeader>
-            <MudText Typo="Typo.h6">Your Order</MudText>
-        </MudDrawerHeader>
-        <NavMenu />
-    </MudDrawer>
-    </MudDrawerContainer>
-*@
+    <MudTabs Elevation="4" Rounded="true" Centered="true" Color="@Color.Primary">
+        <MudTabPanel @onclick="@(() => NavigationManager.NavigateTo($"/fetchdata", false))" Text="Features" Icon="fas fa-grin-stars" Color="Color.Secondary"/>
+        <MudTabPanel @onclick="@(() => NavigationManager.NavigateTo($"/browse/burgers", false))" Text="Burgers" Icon="fas fa-hamburger" Color="Color.Secondary"/>
+        <MudTabPanel @onclick="@(() => NavigationManager.NavigateTo($"/browse/sides", false))" Text="Sides" Icon="fas fa-drumstick-bite" Color="Color.Secondary"/>
+        <MudTabPanel @onclick="@(() => NavigationManager.NavigateTo($"/browse/drinks", false))" Text="Drinks" Icon="fas fa-glass-whiskey" Color="Color.Secondary"/>
+        <MudTabPanel @onclick="@(() => NavigationManager.NavigateTo($"/browse/sides", false))" Text="Kids Meal" Icon="fas fa-child" Color="Color.Secondary"/>
+        <MudTabPanel @onclick="@(() => NavigationManager.NavigateTo($"/browse/sides", false))" Text="Value Deals" Icon="fas fa-piggy-bank" Color="Color.Secondary"/>
+    </MudTabs>
 
 @if (open) {
     <MudDrawer @bind-Open="@open" Elevation="1" Variant="@DrawerVariant.Persistent" Color="Color.Primary" Anchor="@_anchor" DisableOverlay="true" Style="left: 0; top:auto; bottom: 0; width: 100%; height: auto">
-        <MudNavLink Match="NavLinkMatch.All"  OnClick="@(() => OpenDrawer(Anchor.Bottom))" Dense="true">
-            <MudIconButton Icon="@Icons.Material.Filled.ShoppingBasket" Color="Color.Inherit" Edge="Edge.Start" />
-            View Order
-        </MudNavLink>
+        <MudContainer Class="pa-0 ma-0 d-flex justify-start align-center" Style="width: 100%;" Row="true">
+            <MudButton Color="Color.Warning" Variant="Variant.Filled" Style="width: 20%;" Margin="Margin.Normal">
+                Restart Order
+            </MudButton>
+            <MudButton  OnClick="@(() => OpenDrawer(Anchor.Bottom))" Color="Color.Primary" Variant="Variant.Filled" Style="width: 60%;">
+                <MudIcon Icon="@Icons.Material.Filled.KeyboardDoubleArrowDown" Title="Add" />
+                    &emsp; &emsp; View Order &emsp; &emsp;
+                <MudIcon Icon="@Icons.Material.Filled.KeyboardDoubleArrowDown" Title="Add" />
+            </MudButton>
+            <MudButton OnClick="@(() => OpenDrawer(Anchor.Bottom))" Color="Color.Primary" Variant="Variant.Filled" Style="float: right; width: 20%; text-align: right;">
+                &emsp;
+            </MudButton>
+        </MudContainer>
         <OrderItems />
     </MudDrawer>
 } else {
     <MudDrawer @bind-Open="@open" Elevation="1" Variant="@DrawerVariant.Mini" Color="Color.Primary" Anchor="@_anchor" DisableOverlay="true" Style="left: 0; top:auto; bottom: 0; width: 100%; height: auto">
-        <MudNavLink Match="NavLinkMatch.All"  OnClick="@(() => OpenDrawer(Anchor.Bottom))" Dense="true">
-            <MudIconButton Icon="@Icons.Material.Filled.ShoppingBasket" Color="Color.Inherit" Edge="Edge.Start" />
-            View Order
-        </MudNavLink>
-    </MudDrawer>
-    <MudDrawer @bind-Open="@open" Elevation="1" Variant="@DrawerVariant.Mini" Color="Color.Primary" Anchor="@_anchor" DisableOverlay="true" Style="left: 0; top:auto; bottom: 0; width: 100%; height: auto">
-        <MudContainer Class="pl-0 ml-0 d-flex justify-start align-center" Style="width: 20%;" Row="true">
-            <MudNavLink Match="NavLinkMatch.All" OnClick="@(() => OpenDrawer(Anchor.Bottom))" Dense="true">
-                <MudIconButton Icon="@Icons.Material.Filled.ShoppingBasket" Color="Color.Inherit" Edge="Edge.Start" />
-                View Order
-            </MudNavLink>
-            <MudButton Color="Color.Primary" Variant="Variant.Outlined">
-                Pay Now
+        <MudContainer Class="pa-0 ma-0 d-flex justify-start align-center" Style="width: 100%;" Row="true">
+            <MudButton Color="Color.Warning" Variant="Variant.Filled" Style="width: 20%;" Margin="Margin.Normal">
+                Restart Order
+            </MudButton>
+            <MudButton  OnClick="@(() => OpenDrawer(Anchor.Bottom))" Color="Color.Primary" Variant="Variant.Filled" Style="width: 60%;">
+                <MudIcon Icon="@Icons.Material.Filled.KeyboardDoubleArrowUp" Title="Add" />
+                    &emsp; &emsp; View Order &emsp; &emsp;
+                <MudIcon Icon="@Icons.Material.Filled.KeyboardDoubleArrowUp" Title="Add" />
+            </MudButton>
+            <MudButton Color="Color.Tertiary" Variant="Variant.Filled" Style="float: right; width: 20%; text-align: right;">
+                Pay Now &emsp; &emsp; $@string.Format("{0:0.00}", GetGrandTotal())
             </MudButton>
         </MudContainer>
     </MudDrawer> 
 }
     <MudMainContent>
-        <MudContainer MaxWidth="MaxWidth.Large" Class="pt-4">
+        <MudContainer MaxWidth="MaxWidth.Large" Class="pt-0">
             @Body
             <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
             <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
@@ -78,5 +74,10 @@
     void OpenDrawer(Anchor anchor) {
         open = !open;
         _anchor = anchor;
+    }
+
+    private decimal GetGrandTotal()
+    {
+        return @StateContainer._items.Sum(item => item.Quantity * item.menuItem.price);
     }
 }

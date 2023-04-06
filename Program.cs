@@ -11,4 +11,7 @@ builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.
 builder.Services.AddMudServices();
 builder.Services.AddSingleton<StateContainer>();
 
+builder.Services.AddScoped<MyApplication.Pages.MenuBrowser>();
+builder.Services.AddScoped<MyApplication.Shared.OrderItems>();
+
 await builder.Build().RunAsync();

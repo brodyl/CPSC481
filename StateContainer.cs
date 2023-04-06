@@ -33,41 +33,76 @@ public class StateContainer
     
     public List<DropItem> _items = new()
     {
-        new DropItem(){ Name = "Schooper Combo",    Price = 12.99m, Quantity = 2, Customer = "Patron 1", ImgPath = "/resources/number1.png"},
-        new DropItem(){ Name = "Large Poutine",     Price = 8.50m,  Quantity = 1, Customer = "Patron 1", ImgPath = "/resources/poutine.png"},
-        new DropItem(){ Name = "Fries Sm",          Price = 3.99m,  Quantity = 4, Customer = "Patron 1", ImgPath = "/resources/fries.png"},
-        new DropItem(){ Name = "Fries Lg",          Price = 15.99m, Quantity = 2, Customer = "Patron 1", ImgPath = "/resources/fries.png"},
-        new DropItem(){ Name = "Coke Lg",           Price = 25.00m, Quantity = 1, Customer = "Patron 1", ImgPath = "/resources/Coke.png"},
-        new DropItem(){ Name = "Coffee 2c1S",       Price = 5.99m,  Quantity = 3, Customer = "Patron 1", ImgPath = "/resources/coffee.png"},
+        new DropItem(){ 
+            Quantity = 2, 
+            Customer = "Patron 1", 
+            menuItem = new MenuItem() {  
+                ID = 1, 
+                category = "burger", 
+                name = "Schooper Burger", 
+                price = 10.00m, 
+                size = null, 
+                image = "/resources/whopper.png", 
+                imageSm = "/resources/whopper.png", 
+                imageLg = "/resources/whopper.png", 
+                tags = "popular",
+                Ingredients = new List<Ingredient>
+                {
+                    new Ingredient { Name = "Lettuce", Quantity = "Regular" },
+                    new Ingredient { Name = "Bacon", Quantity = "Regular" },
+                    new Ingredient { Name = "Cheese", Quantity = "Regular" },
+                    new Ingredient { Name = "Ketchup", Quantity = "Regular" },
+                    new Ingredient { Name = "Onion", Quantity = "Regular" },
+                }
+            }
+        },
+
+        new DropItem(){ 
+            Quantity = 2, 
+            Customer = "Patron 1", 
+            menuItem = new MenuItem() {  
+                ID = 2, 
+                category = "sides", 
+                name = "Poutine", 
+                price = 5.99m, 
+                size = "Medium", 
+                image = "/resources/poutine.png", 
+                imageSm = "/resources/poutine.png", 
+                imageLg = "/resources/poutine.png", 
+                tags = "popular",
+                Ingredients = new List<Ingredient> {}
+            }
+        },
+
+        new DropItem(){ 
+            Quantity = 2, 
+            Customer = "Patron 1", 
+            menuItem = new MenuItem() {  
+                ID = 3, 
+                category = "sides", 
+                name = "Coke", 
+                price = 2.99m, 
+                size = "Medium", 
+                image = "/resources/Coke.png", 
+                imageSm = "/resources/Coke.png", 
+                imageLg = "/resources/Coke.png", 
+                tags = "popular",
+                Ingredients = new List<Ingredient> {}
+            }
+        },
     };
+
+
+
 
 
     public MenuItem itemToCustomize;
 
+
+
+
     public event Action? OnChange;
 
     private void NotifyStateChanged() => OnChange?.Invoke();
-
-
-
-
-
-
-
-public class Item
-{
-    public string Name { get; set; }
-    public int Quantity { get; set; }
-    public decimal Price { get; set; }
-
-    public decimal Total
-    {
-        get { return Quantity * Price; }
-    }
 }
 
-
-
-
-
-}
