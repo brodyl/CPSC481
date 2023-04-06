@@ -212,10 +212,17 @@ else
         }, options);
     }
 
-    private void ConfirmRemoveItem()
+    private async Task ConfirmRemoveItem()
     {
         var options = new DialogOptions { CloseOnEscapeKey = true };
-        DialogService.Show<DialogConfirmRemoveItem>("Confirm Remove Dialog", options);
+        var parameters = new DialogParameters();        
+        parameters.Add("ContentText", "Are you sure you want to Remove this Item?");
+        parameters.Add("ButtonText", "Yes");
+        var dialogResult = DialogService.Show <DialogConfirm> ("Confirm", parameters);
+        var result = await dialogResult.Result;
+        if (!result.Cancelled && bool.TryParse(result.Data.ToString(), out bool resultbool)) {
+            StateContainer.RemoveOrderItemByID();
+        }
     }
 
     private void ItemUpdated(MudItemDropInfo<DropItem> dropItem)
