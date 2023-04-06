@@ -7,6 +7,10 @@ public class MenuItem {
         public string? image { get; set; }
         public string? imageSm { get; set; }
         public string? imageLg { get; set; }
+        public string? description { get; set; }
+        public int Calories { get; set; }
+
+
         public string? tags { get; set; }
-        public List<Ingredient> ingredients { get; set; }
+        public List<Ingredient> Ingredients { get; set; }
 }

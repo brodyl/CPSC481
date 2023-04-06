@@ -15,7 +15,7 @@
   </div>
 
   <div style="text-align: center;width:100%; max-height:400px;overflow-y:scroll; border: 2px solid black;">
-    <table id="ingredients-table" class="table" style="border-collapse: none ;width:100%;">
+    <table id="Ingredients-table" class="table" style="border-collapse: none ;width:100%;">
       <thead>
         <tr>
           <th style="padding: 10px; border: 1px solid black;">Ingredients</th>
@@ -24,22 +24,22 @@
         </tr>
       </thead>
       <tbody>
-        @foreach (var ingredient in Ingredients){
-    <tr style="@(ingredient.IsDisabled ? "opacity: 0.5;" : "")">
-        <td style="padding: 10px; border: 1px solid black; width:33%">@ingredient.Name</td>
+        @foreach (var Ingredient in Ingredients){
+    <tr style="@(Ingredient.IsDisabled ? "opacity: 0.5;" : "")">
+        <td style="padding: 10px; border: 1px solid black; width:33%">@Ingredient.Name</td>
         <td style="padding: 10px; border: 1px solid black;width:33%">
-            <button class="minus-btn" style="padding: 5px; @(ingredient.IsDisabled ? "display:none;" : "")" @onclick="() => DecreaseQuantity(ingredient)">-</button>
-            <span class="quantity" style="padding: 0 5px;">@(ingredient.IsDisabled ? "Removed" : ingredient.Quantity)</span>
-            <button class="plus-btn" style="padding: 5px; @(ingredient.IsDisabled ? "display:none;" : "")" @onclick="() => IncreaseQuantity(ingredient)">+</button>
+            <button class="minus-btn" style="padding: 5px; @(Ingredient.IsDisabled ? "display:none;" : "")" @onclick="() => DecreaseQuantity(Ingredient)">-</button>
+            <span class="quantity" style="padding: 0 5px;">@(Ingredient.IsDisabled ? "Removed" : Ingredient.Quantity)</span>
+            <button class="plus-btn" style="padding: 5px; @(Ingredient.IsDisabled ? "display:none;" : "")" @onclick="() => IncreaseQuantity(Ingredient)">+</button>
         </td>
         <td style="padding: 10px; border: 1px solid black;width:33%">
-            @if (ingredient.IsDisabled)
+            @if (Ingredient.IsDisabled)
             {
-                <button class="add-btn" style="padding: 5px;" @onclick="() => AddIngredient(ingredient)">Add</button>
+                <button class="add-btn" style="padding: 5px;" @onclick="() => AddIngredient(Ingredient)">Add</button>
             }
             else
             {
-                <button class="delete-btn" style="padding: 5px;" @onclick="() => DeleteIngredient(ingredient)">Delete</button>
+                <button class="delete-btn" style="padding: 5px;" @onclick="() => DeleteIngredient(Ingredient)">Delete</button>
             }
         </td>
     </tr>
@@ -58,42 +58,42 @@
 
   public List<Ingredient>? Ingredients => StateContainer.itemToCustomize.Ingredients;
 
-  // Method to decrease the quantity of an ingredient
-  private void DecreaseQuantity(Ingredient ingredient)
+  // Method to decrease the quantity of an Ingredient
+  private void DecreaseQuantity(Ingredient Ingredient)
   {
-    if (ingredient.Quantity == "Extra")
+    if (Ingredient.Quantity == "Extra")
     {
-      ingredient.Quantity = "Regular";
+      Ingredient.Quantity = "Regular";
     }
-    else if (ingredient.Quantity == "Regular")
+    else if (Ingredient.Quantity == "Regular")
     {
-      ingredient.Quantity = "Less";
-    }
-  }
-
-  // Method to increase the quantity of an ingredient
-  private void IncreaseQuantity(Ingredient ingredient)
-  {
-    if (ingredient.Quantity == "Less")
-    {
-      ingredient.Quantity = "Regular";
-    }
-    else if (ingredient.Quantity == "Regular")
-    {
-      ingredient.Quantity = "Extra";
+      Ingredient.Quantity = "Less";
     }
   }
 
-  // Method to delete an ingredient
-  private void DeleteIngredient(Ingredient ingredient)
+  // Method to increase the quantity of an Ingredient
+  private void IncreaseQuantity(Ingredient Ingredient)
   {
-    ingredient.IsDisabled = true;
+    if (Ingredient.Quantity == "Less")
+    {
+      Ingredient.Quantity = "Regular";
+    }
+    else if (Ingredient.Quantity == "Regular")
+    {
+      Ingredient.Quantity = "Extra";
+    }
   }
 
-  // Method to add an ingredient
-  private void AddIngredient(Ingredient ingredient)
+  // Method to delete an Ingredient
+  private void DeleteIngredient(Ingredient Ingredient)
   {
-    ingredient.IsDisabled = false;
+    Ingredient.IsDisabled = true;
+  }
+
+  // Method to add an Ingredient
+  private void AddIngredient(Ingredient Ingredient)
+  {
+    Ingredient.IsDisabled = false;
   }
 
 
