@@ -6,18 +6,27 @@
 
 <PageTitle>Menu Browsing</PageTitle>
 
+@*
+<MudTabs Elevation="4" Rounded="true" Centered="true" Color="@Color.Primary">
+    <MudTabPanel Text="Features" Icon="fas fa-grin-stars" Color="Color.Secondary"/>
+    <MudTabPanel @onclick="BurgerMenu" Text="Burgers" Icon="fas fa-hamburger" Color="Color.Secondary"/>
+    <MudTabPanel @onclick="SidesMenu" Text="Sides" Icon="fas fa-drumstick-bite" Color="Color.Secondary"/>
+    <MudTabPanel @onclick="DrinkMenu" Text="Drinks" Icon="fas fa-glass-whiskey" Color="Color.Secondary"/>
+    <MudTabPanel @onclick="KidsMenu" Text="Kids Meal" Icon="fas fa-child" Color="Color.Secondary"/>
+    <MudTabPanel @onclick="ValueMenu" Text="Value Deals" Icon="fas fa-piggy-bank" Color="Color.Secondary"/>
+</MudTabs>
+*@
+
 <MudGrid Class="d-flex align-center overflow-scroll" Height="100">
     <MudItem xs="12" Class="mt-6">
         <MudImage Fluid="true" Src="@featureItem" Class="d-block mx-auto rounded-lg"/>
     </MudItem>
-    
-         @foreach (var item in currentMenu) {
+
+    @foreach (var item in currentMenu) {
         <MudItem xs="4" Elevation="0">
             <MudLink Href="/Customize">
-            <MudCard @onclick="() => {
-                StateContainer.itemToCustomize = item;
-    }">
-           
+            <MudCard @onclick="() => {StateContainer.itemToCustomize = item;}">
+
                 <MudCardContent> @*link to feature on click here*@
                     <MudImage Fluid="true" Src="@item.image" Class="d-block mx-auto rounded-lg"/>
                     <MudText Typo="Typo.subtitle1" Align="Align.Center" Class="px-5"><b>@item.name</b></MudText>
@@ -32,7 +41,7 @@
                             @if (item.tags.Contains("vegetarian")) {<td><MudImage Src="/resources/leaves-icon.svg" Width="20" Class="d-block mx-auto"/></td>}
                             @if (item.tags.Contains("GF")) {<td><MudImage Src="/resources/gluten-free-icon.svg" Width="20" Class="d-block mx-auto"/></td>}
                         }
-                                
+
                         </tr>
                     </table>
                 </MudCardContent>
@@ -51,147 +60,95 @@
     protected override void OnParametersSet()
     {
         base.OnParametersSet();
-        if (Page == "burgers")
-            BurgerMenu();
-        else if (Page == "sides")
-            SidesMenu();
-        else if (Page == "drinks")
-            DrinkMenu();
+        if (Page == "burgers") BurgerMenu();
+        if (Page == "sides") SidesMenu();
+        if (Page == "drinks") DrinkMenu();
+        if (Page == "kids") KidsMenu();
+        if (Page == "value") ValueMenu();
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    private Ingredient lettuce = new Ingredient { Name = "Lettuce", Quantity = "Regular" };
+    private Ingredient tomato = new Ingredient { Name = "Tomato", Quantity = "Regular" };
+    private Ingredient pickles = new Ingredient { Name = "Pickles", Quantity = "Regular" };
+    private Ingredient onion = new Ingredient { Name = "Onion", Quantity = "Regular" };
+    private Ingredient houseSauce = new Ingredient { Name = "House Sauce", Quantity = "Regular" };
+    private Ingredient mayo = new Ingredient { Name = "Mayonnaise", Quantity = "Regular" };
+    private Ingredient ketchup = new Ingredient { Name = "Ketchup", Quantity = "Regular" };
+    private Ingredient jalapenos = new Ingredient { Name = "Jalapenos", Quantity = "Regular" };
+    private Ingredient pepperJackCheese = new Ingredient { Name = "Pepper Jack Cheese", Quantity = "Regular" };
+    private Ingredient spicyMayo = new Ingredient { Name = "Spicy Mayo", Quantity = "Regular" };
+    private Ingredient swissCheese = new  Ingredient { Name = "Swiss Cheese", Quantity = "Regular" };
+    private Ingredient mushrooms = new Ingredient { Name = "Mushrooms", Quantity = "Regular" };
+    private Ingredient garlicAioli = new Ingredient { Name = "Garlic Aioli", Quantity = "Regular" };
+    private Ingredient bacon = new Ingredient { Name = "Bacon", Quantity = "Regular" };
+    private Ingredient cheddarCheese = new Ingredient { Name = "Cheddar Cheese", Quantity = "Regular" };
+    private Ingredient bbqSauce = new Ingredient { Name = "BBQ Sauce", Quantity = "Regular" };
+    private Ingredient chiliSauce = new Ingredient { Name = "Chili Sauce", Quantity = "Regular" };
+    private Ingredient redOnion = new Ingredient { Name = "Red Onion", Quantity = "Regular" };
+    private Ingredient ranchSauce = new Ingredient { Name = "Ranch Sauce", Quantity = "Regular" };
+    private Ingredient pickle = new Ingredient { Name = "Pickle", Quantity = "Regular" };
+    private Ingredient veganMayo = new Ingredient { Name = "Vegan Mayo", Quantity = "Regular" };
+    private Ingredient avocado = new Ingredient { Name = "Avocado", Quantity = "Regular" };
+    private Ingredient veganChipotleMayo = new Ingredient { Name = "Vegan Chipotle Mayo", Quantity = "Regular" };
 
     public void BurgerMenu() {
         currentMenu.Clear();
         featureItem = "/resources/burgerbanner.png";
 
+        currentMenu.Add(new MenuItem() {category = "burger", ID = 1, name = "Schooper Burger", price = 10, image = "/resources/whopper.png", imageSm = "/resources/whopper3.png", imageLg = "/resources/whopper3.png", tags = "popular",
+            Ingredients = new List<Ingredient> {lettuce,tomato,pickles,onion,houseSauce},
+            description = "Our signature Schooper Burger is a mouthwatering treat loaded with fresh lettuce, juicy tomatoes, crunchy pickles, flavorful onions, and our secret house sauce. This classic burger is sure to satisfy your cravings and keep you coming back for more.",
+            Calories = 550
+        });
+
+        currentMenu.Add(new MenuItem() { category = "burger", ID = 2, name = "Jr. Schooper", price = 5, image = "/resources/jrschooper.png", imageSm = "/resources/whopper.png", imageLg = "/resources/whopper2.png", tags = "",
+            Ingredients = new List<Ingredient> {lettuce,tomato,mayo,ketchup},
+            description = "The Jr. Schooper is a smaller, yet equally delicious alternative to our classic Schooper Burger. With crisp lettuce, ripe tomatoes, smooth mayonnaise, and tangy ketchup, this tasty burger packs a punch without overwhelming your appetite.",
+            Calories = 350
+        });
 
 
-       currentMenu.Add(new MenuItem() { category = "burger", ID = 1, name = "Schooper Burger", price = 10, image = "/resources/whopper.png", tags = "popular",
-                        Ingredients = new List<Ingredient> { 
-                            new Ingredient { Name = "Lettuce", Quantity = "Regular" },
-                            new Ingredient { Name = "Tomato", Quantity = "Regular" },
-                            new Ingredient { Name = "Pickles", Quantity = "Regular" },
-                            new Ingredient { Name = "Onion", Quantity = "Regular" },
-                            new Ingredient { Name = "House Sauce", Quantity = "Regular" }},
-                        description = "Our signature Schooper Burger is a mouthwatering treat loaded with fresh lettuce, juicy tomatoes, crunchy pickles, flavorful onions, and our secret house sauce. This classic burger is sure to satisfy your cravings and keep you coming back for more.",
-                        Calories = 550
-    });
+        currentMenu.Add(new MenuItem() { category = "burger", ID = 3, name = "Spicy King Burger", price = 8, image = "/resources/spicykingburger.png", imageSm = "/resources/whopper.png", imageLg = "/resources/whopper2.png", tags = "spicy",
+            Ingredients = new List<Ingredient> {lettuce,tomato,jalapenos,pepperJackCheese,spicyMayo},
+            description = "The Spicy King Burger is a fiery feast for the adventurous eater. Featuring a blend of spicy jalapenos, zesty pepper jack cheese, and our signature spicy mayo, this burger brings the heat while delivering a satisfying and flavorful experience that will leave you wanting more.",
+            Calories = 700
+        });
 
+        currentMenu.Add(new MenuItem() { category = "burger", ID = 4, name = "Queen Burger", price = 10, image = "/resources/queenburger.png", imageSm = "/resources/chickenBurger02.png", imageLg = "/resources/chickenBurger02.png", tags = "popular",
+            Ingredients = new List<Ingredient> {lettuce,tomato,swissCheese,mushrooms,garlicAioli},
+            description = "The Queen Burger is a sumptuous creation made with tender mushrooms, creamy Swiss cheese, and a generous dollop of our rich, homemade garlic aioli. This royal delight is nestled between fresh lettuce and ripe tomatoes, making it a must-try for anyone who enjoys a delectable and indulgent burger experience.",
+            Calories = 670
+        });
 
+        currentMenu.Add(new MenuItem() { category = "burger", ID = 5, name = "Knight's Bacon Loaded Burger", price = 5, image = "/resources/knightsbaconloaded.png", imageSm = "/resources/whopper.png", imageLg = "/resources/whopper2.png", tags = "pork/popular",
+            Ingredients = new List<Ingredient> {lettuce,tomato,bacon,cheddarCheese,bbqSauce},
+            description = "The Knight's Bacon Loaded Burger is a hearty meal crafted for bacon aficionados. This epic burger features crispy, smoky bacon, sharp cheddar cheese, and tangy BBQ sauce, all served atop a bed of fresh lettuce and ripe tomatoes. Satisfy your hunger with this bacon lover's dream come true.",
+            Calories = 720
+        });
 
-currentMenu.Add(new MenuItem() { category = "burger", ID = 2, name = "Jr. Schooper", price = 5, image = "/resources/jrschooper.png", tags = "",
-                    Ingredients = new List<Ingredient> { 
-                        new Ingredient { Name = "Lettuce", Quantity = "Regular" },
-                        new Ingredient { Name = "Tomato", Quantity = "Regular" },
-                        new Ingredient { Name = "Mayonnaise", Quantity = "Regular" },
-                        new Ingredient { Name = "Ketchup", Quantity = "Regular" }},
-                    description = "The Jr. Schooper is a smaller, yet equally delicious alternative to our classic Schooper Burger. With crisp lettuce, ripe tomatoes, smooth mayonnaise, and tangy ketchup, this tasty burger packs a punch without overwhelming your appetite.",
-                    Calories = 350
-     });
+        currentMenu.Add(new MenuItem() { category = "burger", ID = 6, name = "Chili Chicken Burger", price = 8, image = "/resources/chillichicken.png", imageSm = "/resources/whopper.png", imageLg = "/resources/whopper2.png", tags = "popular/spicy" ,
+            Ingredients = new List<Ingredient> {lettuce, tomato,chiliSauce,redOnion,ranchSauce},
+            description = "Our Chili Chicken Burger offers a delightful fusion of spicy and savory flavors. Topped with zesty chili sauce, crunchy red onions, and a refreshing drizzle of ranch dressing, this burger strikes the perfect balance between heat and cool, making it a must-try for fans of spicy food.",
+            Calories = 620
+        });
 
+        currentMenu.Add(new MenuItem() { category = "burger", ID = 7, name = "BLT Burger", price = 10, image = "/resources/BLT.png", imageSm = "/resources/whopper.png", imageLg = "/resources/whopper2.png", tags = "pork" ,
+            Ingredients = new List<Ingredient> {lettuce,tomato,bacon,mayo},
+            description = "A twist on the classic BLT sandwich, our BLT Burger combines crispy bacon, fresh lettuce, and juicy tomatoes with a dollop of creamy mayonnaise. This simple, yet satisfying burger is perfect for those seeking a classic taste with a modern spin.",
+            Calories = 600
+        });
 
-currentMenu.Add(new MenuItem() { category = "burger", ID = 3, name = "Spicy King Burger", price = 8, image = "/resources/spicykingburger.png", tags = "spicy",
-    Ingredients = new List<Ingredient> { 
-        new Ingredient { Name = "Lettuce", Quantity = "Regular" },
-        new Ingredient { Name = "Tomato", Quantity = "Regular" },
-        new Ingredient { Name = "Jalapenos", Quantity = "Regular" },
-        new Ingredient { Name = "Pepper Jack Cheese", Quantity = "Regular" },
-        new Ingredient { Name = "Spicy Mayo", Quantity = "Regular" }},
-    description = "The Spicy King Burger is a fiery feast for the adventurous eater. Featuring a blend of spicy jalapenos, zesty pepper jack cheese, and our signature spicy mayo, this burger brings the heat while delivering a satisfying and flavorful experience that will leave you wanting more.",
-    Calories = 700
-     });
+        currentMenu.Add(new MenuItem() { category = "burger", ID = 8, name = "Beyond Meat Schooper", price = 5, image = "/resources/beyondschooper.png", imageSm = "/resources/whopper.png", imageLg = "/resources/whopper2.png", tags = "vegetarian",
+            Ingredients = new List<Ingredient> {lettuce,tomato,onion,pickle,veganMayo},
+            description = "The Beyond Meat Schooper is a delicious and eco-friendly alternative for burger enthusiasts. This plant-based delight features a mouthwatering Beyond Meat patty, crisp lettuce, juicy tomatoes, tangy pickles, and a dollop of vegan mayo. Satisfy your burger cravings without compromising your values with this vegetarian favorite.",
+            Calories = 580
+        });
 
-
-
-currentMenu.Add(new MenuItem() { category = "burger", ID = 4, name = "Queen Burger", price = 10, image = "/resources/queenburger.png", tags = "popular", 
-    Ingredients = new List<Ingredient> { 
-        new Ingredient { Name = "Lettuce", Quantity = "Regular" },
-        new Ingredient { Name = "Tomato", Quantity = "Regular" },
-        new Ingredient { Name = "Swiss Cheese", Quantity = "Regular" },
-        new Ingredient { Name = "Mushrooms", Quantity = "Regular" },
-        new Ingredient { Name = "Garlic Aioli", Quantity = "Regular" }},
-    description = "The Queen Burger is a sumptuous creation made with tender mushrooms, creamy Swiss cheese, and a generous dollop of our rich, homemade garlic aioli. This royal delight is nestled between fresh lettuce and ripe tomatoes, making it a must-try for anyone who enjoys a delectable and indulgent burger experience.",
-Calories = 670
-});
-
-currentMenu.Add(new MenuItem() { category = "burger", ID = 5, name = "Knight's Bacon Loaded Burger", price = 5, image = "/resources/knightsbaconloaded.png", tags = "pork/popular",
-Ingredients = new List<Ingredient> {
-new Ingredient { Name = "Lettuce", Quantity = "Regular" },
-new Ingredient { Name = "Tomato", Quantity = "Regular"},
-new Ingredient { Name = "Bacon", Quantity = "Regular" },
-new Ingredient { Name = "Cheddar Cheese", Quantity = "Regular" },
-new Ingredient { Name = "BBQ Sauce", Quantity = "Regular" }},
-description = "The Knight's Bacon Loaded Burger is a hearty meal crafted for bacon aficionados. This epic burger features crispy, smoky bacon, sharp cheddar cheese, and tangy BBQ sauce, all served atop a bed of fresh lettuce and ripe tomatoes. Satisfy your hunger with this bacon lover's dream come true.",
-Calories = 720
-});
-
-currentMenu.Add(new MenuItem() { category = "burger", ID = 6, name = "Chili Chicken Burger", price = 8, image = "/resources/chillichicken.png", tags = "popular/spicy" ,
-Ingredients = new List<Ingredient> {
-new Ingredient { Name = "Lettuce", Quantity = "Regular" },
-new Ingredient { Name = "Tomato", Quantity = "Regular" },
-new Ingredient { Name = "Chili Sauce", Quantity = "Regular" },
-new Ingredient { Name = "Red Onion", Quantity = "Regular" },
-new Ingredient { Name = "Ranch Sauce", Quantity = "Regular" }},
-description = "Our Chili Chicken Burger offers a delightful fusion of spicy and savory flavors. Topped with zesty chili sauce, crunchy red onions, and a refreshing drizzle of ranch dressing, this burger strikes the perfect balance between heat and cool, making it a must-try for fans of spicy food.",
-Calories = 620
-});
-
-currentMenu.Add(new MenuItem() { category = "burger", ID = 7, name = "BLT Burger", price = 10, image = "/resources/BLT.png", tags = "pork" ,
-Ingredients = new List<Ingredient> {
-new Ingredient { Name = "Lettuce", Quantity = "Regular" },
-new Ingredient { Name = "Tomato", Quantity = "Regular" },
-new Ingredient { Name = "Bacon", Quantity = "Regular" },
-new Ingredient { Name = "Mayonnaise", Quantity = "Regular" }},
-description = "A twist on the classic BLT sandwich, our BLT Burger combines crispy bacon, fresh lettuce, and juicy tomatoes with a dollop of creamy mayonnaise. This simple, yet satisfying burger is perfect for those seeking a classic taste with a modern spin.",
-Calories = 600
-});
-
-currentMenu.Add(new MenuItem() { category = "burger", ID = 8, name = "Beyond Meat Schooper", price = 5, image = "/resources/beyondschooper.png", tags = "vegetarian",
-Ingredients = new List<Ingredient> {
-new Ingredient { Name = "Lettuce", Quantity = "Regular" },
-new Ingredient { Name = "Tomato", Quantity = "Regular" },
-new Ingredient { Name = "Onion", Quantity = "Regular" },
-new Ingredient { Name = "Pickle", Quantity = "Regular" },
-new Ingredient { Name = "Vegan Mayo", Quantity = "Regular" }},
-description = "The Beyond Meat Schooper is a delicious and eco-friendly alternative for burger enthusiasts. This plant-based delight features a mouthwatering Beyond Meat patty, crisp lettuce, juicy tomatoes, tangy pickles, and a dollop of vegan mayo. Satisfy your burger cravings without compromising your values with this vegetarian favorite.",
-Calories = 580
-});
-
-currentMenu.Add(new MenuItem() { category = "burger", ID = 9, name = "King Vegan Burger", price = 8, image = "/resources/kingvegan.png", tags = "vegetarian/popular" ,
-Ingredients = new List<Ingredient> {
-new Ingredient { Name = "Lettuce", Quantity = "Regular" },
-new Ingredient { Name = "Tomato", Quantity = "Regular" },
-new Ingredient { Name = "Onion", Quantity = "Regular" },
-new Ingredient { Name = "Avocado", Quantity = "Regular" },
-new Ingredient { Name = "Vegan Chipotle Mayo", Quantity = "Regular" }},
-description = "The King Vegan Burger is a scrumptious and satisfying plant-based option that will leave you craving more. This burger is topped with creamy avocado, crunchy onions, and a zesty vegan chipotle mayo that adds a hint of spice. Indulge in the flavors of this irresistible vegan burger, and you'll understand why it's a crowd favorite.",
-Calories = 640
-});
-
-        
+        currentMenu.Add(new MenuItem() { category = "burger", ID = 9, name = "King Vegan Burger", price = 8, image = "/resources/kingvegan.png", imageSm = "/resources/whopper.png", imageLg = "/resources/whopper2.png", tags = "vegetarian/popular" ,
+            Ingredients = new List<Ingredient> {lettuce,tomato,onion,avocado,veganChipotleMayo},
+            description = "The King Vegan Burger is a scrumptious and satisfying plant-based option that will leave you craving more. This burger is topped with creamy avocado, crunchy onions, and a zesty vegan chipotle mayo that adds a hint of spice. Indulge in the flavors of this irresistible vegan burger, and you'll understand why it's a crowd favorite.",
+            Calories = 640
+        });
     }
 
 
@@ -225,6 +182,25 @@ Calories = 640
         currentMenu.Add(new MenuItem() { category = "sides", ID = 8, name = "Loaded Baked Potato", price = 8, image = "/resources/bakedpotato.png", tags=""});
         currentMenu.Add(new MenuItem() { category = "sides", ID = 9, name = "Signature Chilli", price = 6, image = "/resources/chilli.png", tags=""});
     }
+
+     private void KidsMenu() {
+        currentMenu.Clear();
+        featureItem = "/resources/nuggets4pcbanner.png";
+        currentMenu.Add(new MenuItem() { category = "kids", ID = 1, name = "4pc Chicken Nuggets", price = 3, image = "/resources/nuggets4pc.png", tags="popular"});
+        currentMenu.Add(new MenuItem() { category = "kids", ID = 2, name = "Cheeseburger", price = 4, image = "/resources/cheeseburger.png", tags=""});
+        currentMenu.Add(new MenuItem() { category = "kids", ID = 3, name = "Hamburger", price = 4, image = "/resources/hamburger.png", tags=""});
+     }
+
+     private void ValueMenu() {
+        currentMenu.Clear();
+        featureItem = "/resources/valuebanner.png";
+        currentMenu.Add(new MenuItem() { category = "value", ID = 1, name = "4pc Chicken Nuggets", price = 3, image = "/resources/nuggets4pc.png", tags="popular"});
+        currentMenu.Add(new MenuItem() { category = "value", ID = 2, name = "Jr. Schooper", price = 5, image = "/resources/jrschooper.png", tags = "" });
+        currentMenu.Add(new MenuItem() { category = "burger", ID = 3, name = "Prince Vegan Burger", price = 8, image = "/resources/kingvegan.png", tags = "vegetarian/popular" });
+        currentMenu.Add(new MenuItem() { category = "value", ID = 4, name = "Snack Poutine", price = 4, image = "/resources/poutine.png", tags=""});
+
+     }
+
 
 
 }

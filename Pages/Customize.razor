@@ -1,11 +1,13 @@
 @page "/Customize"
 @inject NavigationManager NavigationManager
 @inject StateContainer StateContainer
+@inject IDialogService DialogService
+
 <link href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" rel="stylesheet">
 
 <div style="margin:auto; text-align:center; width:80%">
   <div>
-    <img style="width:100%" src="@StateContainer.itemToCustomize.image" alt="">
+    <MudImage Elevation="16" style="width: 60%; border-radius: 100px; border: 10px solid #7e6fff;" src="@StateContainer.itemToCustomize.imageLg" alt="" />
   </div>
   <div style="text-align: left;background-color:rgb(255, 255, 255); border: 2px solid black;">
     <p>
@@ -48,8 +50,8 @@
     </table>
   </div>
 
-<MudButton Style="margin-top:5%; margin-right: 50px; background-color: #EABC45; width: auto; height: 50px; font-size: large; color: black">Make it a Combo</MudButton>
-<MudButton Style="margin-top:5%; margin-left: 50px; background-color: #EABC45; width: auto; height: 50px; font-size: large; color: black">Add to Order</MudButton>
+<MudButton @onclick="() => launchComboPage()" Style="margin-top:5%; margin-right: 50px; background-color: #EABC45; width: auto; height: 50px; font-size: large; color: black">Make it a Combo</MudButton>
+<MudButton OnClick="@StateContainer.AddMenuItemToOrder" Style="margin-top:5%; margin-left: 50px; background-color: #EABC45; width: auto; height: 50px; font-size: large; color: black">Add to Order</MudButton>
 </div>
 
 @code {
@@ -96,7 +98,10 @@
     Ingredient.IsDisabled = false;
   }
 
+  private void launchComboPage() {
+    var options = new DialogOptions { DisableBackdropClick = true, MaxWidth = MaxWidth.Large, FullWidth = true };
+    DialogService.Show<Dialog>("", options);
+  }
 
 
-  
 }
