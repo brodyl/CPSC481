@@ -1,6 +1,8 @@
 @page "/Customize"
 @inject NavigationManager NavigationManager
 @inject StateContainer StateContainer
+@inject IDialogService DialogService
+
 <link href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" rel="stylesheet">
 
 <div style="margin:auto; text-align:center; width:80%">
@@ -48,7 +50,7 @@
     </table>
   </div>
 
-<MudButton Style="margin-top:5%; margin-right: 50px; background-color: #EABC45; width: auto; height: 50px; font-size: large; color: black">Make it a Combo</MudButton>
+<MudButton @onclick="() => launchComboPage()" Style="margin-top:5%; margin-right: 50px; background-color: #EABC45; width: auto; height: 50px; font-size: large; color: black">Make it a Combo</MudButton>
 <MudButton OnClick="@StateContainer.AddMenuItemToOrder" Style="margin-top:5%; margin-left: 50px; background-color: #EABC45; width: auto; height: 50px; font-size: large; color: black">Add to Order</MudButton>
 </div>
 
@@ -96,7 +98,10 @@
     Ingredient.IsDisabled = false;
   }
 
+  private void launchComboPage() {
+    var options = new DialogOptions { DisableBackdropClick = true, MaxWidth = MaxWidth.Large, FullWidth = true };
+    DialogService.Show<Dialog>("", options);
+  }
 
 
-  
 }

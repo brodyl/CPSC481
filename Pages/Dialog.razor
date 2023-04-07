@@ -1,0 +1,234 @@
+<MudDialog>
+    <DialogContent>
+        
+        
+
+        @if (choosingSide || choosingDrink) {
+            @if (choosingSide) {
+                <MudIconButton Icon="@Icons.Material.Filled.KeyboardArrowLeft" Color="Color.Warning" Size="Size.Large" @onclick="() => Cancel()"></MudIconButton>
+                <MudText Typo="Typo.h4" Align="Align.Center" Class="px-5"><b>Choose your side:</b></MudText>
+            }
+            @if (choosingDrink) {
+                <MudIconButton Icon="@Icons.Material.Filled.KeyboardArrowLeft" Color="Color.Warning" Size="Size.Large" @onclick="() => SidesMenu()"></MudIconButton>
+                <MudText Typo="Typo.h4" Align="Align.Center" Class="px-5"><b>Choose your drink:</b></MudText>
+            }
+            <MudGrid Class="d-flex align-center overflow-scroll" Height="100">
+                @foreach (var item in currentMenu) {
+                    <MudItem xs="4" Elevation="0">
+                        <MudCard @onclick="() => checkType(item)">
+                            <MudCardContent>
+                                <MudImage Fluid="true" Src="@item.image" Class="d-block mx-auto"/>
+                                <MudText Typo="Typo.subtitle1" Align="Align.Center" Class="px-5"><b>@item.name</b></MudText>
+                                <table Class="mx-auto">
+                                    <tr>
+                                        <td><MudText Typo="Typo.subtitle1" Align="Align.Center" Class="mr-2">$@item.price</MudText></td>
+
+                                    @if (!string.IsNullOrWhiteSpace(item.tags)) {
+                                        @if (item.tags.Contains("pork")) {<td><MudImage Src="/resources/pork-icon.svg" Width="20" Class="d-block mx-auto"/></td>}
+                                        @if (item.tags.Contains("spicy")) {<td><MudImage Src="/resources/chilli-pepper-icon.svg" Width="20" Class="d-block mx-auto"/></td>}
+                                        @if (item.tags.Contains("popular")) {<td><MudImage Src="/resources/like-button-icon.svg" Width="20" Class="d-block mx-auto"/></td>}
+                                        @if (item.tags.Contains("vegetarian")) {<td><MudImage Src="/resources/leaves-icon.svg" Width="20" Class="d-block mx-auto"/></td>}
+                                        @if (item.tags.Contains("GF")) {<td><MudImage Src="/resources/gluten-free-icon.svg" Width="20" Class="d-block mx-auto"/></td>}
+                                    }
+                                            
+                                    </tr>
+                                </table>
+                            </MudCardContent>
+                        </MudCard>
+                    </MudItem>
+                }
+            </MudGrid>
+        }
+
+        @if (choosingSize) {
+            <MudText Typo="Typo.h4" Align="Align.Center" Class="px-5"><b>Select a size:</b></MudText>
+            <table Class="mx-auto my-10">
+                <tr>
+                    @if (sizeSelected == 1) {
+                        <td Class="px-10"><MudButton Variant="Variant.Filled" Color="Color.Warning" Size="Size.Large">Small</MudButton></td>
+                        <td Class="px-10"><MudButton Variant="Variant.Outlined" Color="Color.Warning" Size="Size.Large" @onclick="() => sizeSelected=2">Medium</MudButton></td>
+                        <td Class="px-10"><MudButton Variant="Variant.Outlined" Color="Color.Warning" Size="Size.Large" @onclick="() => sizeSelected=3">Large</MudButton></td>
+                    }
+                    else if (sizeSelected == 2) {
+                        <td Class="px-10"><MudButton Variant="Variant.Outlined" Color="Color.Warning" Size="Size.Large" @onclick="() => sizeSelected=1">Small</MudButton></td>
+                        <td Class="px-10"><MudButton Variant="Variant.Filled" Color="Color.Warning" Size="Size.Large">Medium</MudButton></td>
+                        <td Class="px-10"><MudButton Variant="Variant.Outlined" Color="Color.Warning" Size="Size.Large" @onclick="() => sizeSelected=3">Large</MudButton></td>
+                    }
+                    else {
+                        <td Class="px-10"><MudButton Variant="Variant.Outlined" Color="Color.Warning" Size="Size.Large" @onclick="() => sizeSelected=1">Small</MudButton></td>
+                        <td Class="px-10"><MudButton Variant="Variant.Outlined" Color="Color.Warning" Size="Size.Large" @onclick="() => sizeSelected=2">Medium</MudButton></td>
+                        <td Class="px-10"><MudButton Variant="Variant.Filled" Color="Color.Warning" Size="Size.Large">Large</MudButton></td>
+                    }
+                </tr>
+            </table>
+
+            @if (choosingSalt) {
+                <MudText Typo="Typo.h4" Align="Align.Center" Class="px-5 pt-10 mb-5"><b>Select a salt level:</b></MudText>
+                <table Class="mx-auto">
+                    <tr>
+                        <td><MudIconButton Icon="@Icons.Material.Filled.KeyboardArrowLeft" Color="Color.Warning" Size="Size.Large" @onclick="() => reduceSalt()"></MudIconButton></td> 
+                        <td><MudText Typo="Typo.h4" Align="Align.Center" Class="px-5"><b>@saltLevel</b></MudText></td>
+                        <td><MudIconButton Icon="@Icons.Material.Filled.KeyboardArrowRight" Color="Color.Warning" Size="Size.Large" @onclick="() => addSalt()"></MudIconButton></td>
+                    </tr>
+                </table>
+            }
+            @if(choosingSalt) {<MudButton Variant="Variant.Filled" Color="Color.Primary" FullWidth="true" class="mt-10" @onclick="() => DrinkMenu()">Confirm Modifications</MudButton>}
+            @if(!choosingSalt) {<MudButton Variant="Variant.Filled" Color="Color.Primary" FullWidth="true" class="mt-10" @onclick="() => Submit()">Confirm Modifications</MudButton>}
+        }
+
+        @if (choosingSauces) {
+            <MudText Typo="Typo.h4" Align="Align.Center" Class="px-5 pt-10 mb-5"><b>Select your sauces:</b></MudText>
+            <MudChipSet @bind-SelectedChips="selected" MultiSelection="true" class="d-flex justify-center">
+                <MudChip Variant="Variant.Filled" Size="Size.Large" Text="BBQ" Color="Color.Dark" SelectedColor="Color.Warning"></MudChip>
+                <MudChip Variant="Variant.Filled" Size="Size.Large" Text="Ketchup" Color="Color.Dark" SelectedColor="Color.Warning"></MudChip>
+                <MudChip Variant="Variant.Filled" Size="Size.Large" Text="Mustard" Color="Color.Dark" SelectedColor="Color.Warning"></MudChip>
+                <MudChip Variant="Variant.Filled" Size="Size.Large" Text="Honey Garlic" Color="Color.Dark" SelectedColor="Color.Warning"></MudChip>
+                <MudChip Variant="Variant.Filled" Size="Size.Large" Text="Chipotle" Color="Color.Dark" SelectedColor="Color.Warning"></MudChip>
+                <MudChip Variant="Variant.Filled" Size="Size.Large" Text="Garlic Aioli" Color="Color.Dark" SelectedColor="Color.Warning"></MudChip>
+                <MudChip Variant="Variant.Filled" Size="Size.Large" Text="Sriracha" Color="Color.Dark" SelectedColor="Color.Warning"></MudChip>
+            </MudChipSet>
+
+            <div class="d-flex flex-column align-center pt-10">
+                @if (selected != null && selected.Length>3) {
+                    <MudText Typo="Typo.h6">You've selected too many sauces! <b>The max is 3</b></MudText>
+                }
+                else if (selected != null && selected.Length>0) {
+                    <MudText Typo="Typo.h6">You selected @string.Join(", ", selected.Select(chip=>chip.Text)).</MudText>
+                    <MudButton Variant="Variant.Filled" Color="Color.Primary" FullWidth="true" class="mt-10" @onclick="() => DrinkMenu()">Confirm Sauces</MudButton>
+                }
+                else {
+                    <MudText Typo="Typo.h6">Nothing selected.</MudText>
+                }
+            </div>
+
+            
+        }
+
+
+
+    </DialogContent>
+    <DialogActions>
+        @*<MudButton OnClick="Cancel">Cancel</MudButton>
+        <MudButton Color="Color.Primary" OnClick="Submit">Ok</MudButton>*@
+    </DialogActions>
+</MudDialog>
+
+@code {
+    [CascadingParameter] MudDialogInstance MudDialog { get; set; }
+
+    private List<MenuItem> currentMenu = new();
+
+    private bool choosingSize = false;
+    private bool choosingSide = true;
+    private bool choosingSalt = false;
+    private bool choosingDrink = false;
+    private bool choosingSauces = false;
+    MudChip[] selected;
+
+    private int sizeSelected = 2;
+    private string saltLevel = "Regular";
+    private string sauces;
+    public MenuItem side;
+    public MenuItem drink;
+    
+
+    public void Submit() {
+        if (sizeSelected == 1) {drink.size = "Small";}
+        if (sizeSelected == 2) {drink.size = "Medium";}
+        if (sizeSelected == 3) {drink.size = "Large";}
+        MudDialog.Close(DialogResult.Ok(true));
+    }
+    
+    void Cancel() => MudDialog.Cancel();
+
+    public void SidesMenu() {
+        currentMenu.Clear();
+        currentMenu.Add(new MenuItem() { category = "sides", ID = 1, name = "8pc Chicken Nuggets", price = 6, image = "/resources/chickennuggets.png", tags="popular"});
+        currentMenu.Add(new MenuItem() { category = "sides", ID = 2, name = "Poutine", price = 7, image = "/resources/poutine.png", tags=""});
+        currentMenu.Add(new MenuItem() { category = "sides", ID = 3, name = "Spicy Loaded Poutine", price = 9, image = "/resources/spicyloadedpoutine.png", tags="popular/spicy"});
+        currentMenu.Add(new MenuItem() { category = "sides", ID = 4, name = "French Fries", price = 5, image = "/resources/frenchfries.png", tags=""});
+        currentMenu.Add(new MenuItem() { category = "sides", ID = 5, name = "Onion Rings", price = 5, image = "/resources/onionrings.png", tags=""});
+        currentMenu.Add(new MenuItem() { category = "sides", ID = 6, name = "Chicken Fries", price = 7, image = "/resources/chickenfries.png", tags="popular"});
+        currentMenu.Add(new MenuItem() { category = "sides", ID = 7, name = "8pc Dill Pickle Nuggets", price = 5, image = "/resources/chickennuggets.png", tags="vegetarian"});
+        currentMenu.Add(new MenuItem() { category = "sides", ID = 8, name = "Loaded Baked Potato", price = 8, image = "/resources/bakedpotato.png", tags=""});
+        currentMenu.Add(new MenuItem() { category = "sides", ID = 9, name = "Signature Chilli", price = 6, image = "/resources/chilli.png", tags=""});
+    
+        choosingSide = true;
+        choosingDrink = false;
+    }
+
+    public void checkType(MenuItem I) {
+        
+        if (I.category == "sides") {
+            side = I;
+            if (I.name == "French Fries") {
+                choosingSide = false;
+                choosingSize = true;
+                choosingSalt = true;
+            }
+            else if (I.name == "8pc Chicken Nuggets" || I.name == "8pc Dill Pickle Nuggets") {
+                choosingSide = false;
+                choosingSauces = true;
+            }
+            else {
+                DrinkMenu();
+            }
+            
+        }
+
+        if (I.category == "drinks") {
+            drink = I;
+            choosingSize = true;
+            choosingDrink = false;
+        }
+    }
+
+    public void DrinkMenu() {
+        if (sizeSelected == 1) {side.size = "Small";}
+        if (sizeSelected == 2) {side.size = "Medium";}
+        if (sizeSelected == 3) {side.size = "Large";}
+        if (side.name == "French Fries") {side.saltLevel = saltLevel;}
+        if (selected != null) { side.dippingSauces = string.Join(" ", selected.Select(chip=>chip.Text));}
+
+        currentMenu.Clear();
+        currentMenu.Add(new MenuItem() { category = "drinks", ID = 1, name = "Hersheys Milkshake", price = 5, image = "/resources/chocolatemilkshake.png", tags="popular"});
+        currentMenu.Add(new MenuItem() { category = "drinks", ID = 1, name = "Vanilla Milkshake", price = 5, image = "/resources/vanillamilkshake.png", tags=""});
+        currentMenu.Add(new MenuItem() { category = "drinks", ID = 1, name = "Oreo Milkshake", price = 5, image = "/resources/oreomilkshake.png", tags="popular"});
+        currentMenu.Add(new MenuItem() { category = "drinks", ID = 1, name = "Strawberry Milkshake", price = 5, image = "/resources/strawberrymilkshake.png", tags="popular"});
+        currentMenu.Add(new MenuItem() { category = "drinks", ID = 1, name = "Coke", price = 2, image = "/resources/coke.png", tags="popular"});
+        currentMenu.Add(new MenuItem() { category = "drinks", ID = 1, name = "Diet Coke", price = 2, image = "/resources/dietcoke.png", tags=""});
+        currentMenu.Add(new MenuItem() { category = "drinks", ID = 1, name = "Sprite", price = 2, image = "/resources/sprite.png", tags=""});
+        currentMenu.Add(new MenuItem() { category = "drinks", ID = 1, name = "Root Beer", price = 2, image = "/resources/rootbeer.png", tags="popular"});
+        currentMenu.Add(new MenuItem() { category = "drinks", ID = 1, name = "Iced Tea", price = 2, image = "/resources/icedtea.png", tags="popular"});
+        currentMenu.Add(new MenuItem() { category = "drinks", ID = 1, name = "Fruitopia", price = 2, image = "/resources/fruitopia.png", tags=""});
+        currentMenu.Add(new MenuItem() { category = "drinks", ID = 1, name = "Bottled Water", price = 2, image = "/resources/water.png", tags=""});
+
+        choosingSide = false;
+        choosingSize = false;
+        choosingSalt = false;
+        choosingDrink = true;
+        choosingSauces = false;
+    }
+
+    public void reduceSalt() {
+        if (saltLevel == "Light") {saltLevel = "None";}
+        if (saltLevel == "Regular") {saltLevel = "Light";}
+        if (saltLevel == "Extra") {saltLevel = "Regular";}  
+    }
+
+    public void addSalt() {
+        if (saltLevel == "Regular") {saltLevel = "Extra";}
+        if (saltLevel == "Light") {saltLevel = "Regular";}
+        if (saltLevel == "None") {saltLevel = "Light";}
+    }
+
+    Task showCombos() {
+        return Task.CompletedTask;
+    }
+
+    protected override async Task OnInitializedAsync() {
+        SidesMenu();
+        await showCombos();
+    }
+
+}
