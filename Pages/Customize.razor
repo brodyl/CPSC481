@@ -9,10 +9,22 @@
   <div>
     <MudImage Elevation="16" style="width: 60%; border-radius: 100px; border: 10px solid #7e6fff;" src="@StateContainer.itemToCustomize.imageLg" alt="" />
   </div>
-  <div style="text-align: left;background-color:rgb(255, 255, 255); border: 2px solid black;">
+  <div style="text-align: left;background-color:rgb(255, 255, 255); border-radius: 10px; border: 2px solid #7e6fff">
     <p>
-      <b><h2>Description:</h2> </b> @StateContainer.itemToCustomize.description <br><br>
-      <b><h2>Calories: </h2></b>@StateContainer.itemToCustomize.Calories <br>
+      <MudSimpleTable>
+        <thead>
+          <tr>
+            <th colspan="2"><b><h2>Description:</h2></b> @StateContainer.itemToCustomize.description <br /><br /></th>
+          </tr>
+          <tr>
+            <th><b><h2>Calories: </h2></b>@StateContainer.itemToCustomize.Calories <br></th>
+            <th style="text-align: right; width: 50%;">
+              <MudIconButton  @onclick="DialogDescription" Variant="Variant.Filled" Icon="@Icons.Material.Filled.Info" Color="Color.Primary" Size="Size.Small" /> See Full Description
+              @* <MudButton @onclick="DialogDescription" Style="margin-top:5%; margin-left: 50px; background-color: #EABC45; width: auto; height: 50px; font-size: large; color: black">Full description</MudButton> *@
+            </th>
+          </tr>
+        </thead>
+      </MudSimpleTable>
     </p>
   </div>
 
@@ -102,6 +114,12 @@
     var options = new DialogOptions { DisableBackdropClick = true, MaxWidth = MaxWidth.Large, FullWidth = true };
     DialogService.Show<Dialog>("", options);
   }
+
+    private async Task DialogDescription()
+    {
+        var options = new DialogOptions { CloseOnEscapeKey = true };
+        DialogService.Show<DialogDescription>("", options);
+    }
 
 
 }
