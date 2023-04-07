@@ -12,5 +12,5 @@ public class MenuItem {
 
 
         public string? tags { get; set; }
-        public List<Ingredient> Ingredients { get; set; }
+        public List<Ingredient>? Ingredients { get; set; }
 }
