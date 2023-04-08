@@ -1,7 +1,33 @@
+@inject StateContainer StateContainer
+
+
 <MudDialog>
     <DialogContent>
         
         
+        <div style="text-align: center; padding-bottom: 50px;">
+            @if (@StateContainer.DoesComboHaveSide()) {
+                <MudIcon Icon="@Icons.Material.Filled.LabelImportant" Color="Color.Success" />
+                <MudChip Color="Color.Success">Fries - Large</MudChip>
+            } else {
+                <MudIcon Icon="@Icons.Material.Filled.LabelImportant" Color="Color.Default" />
+                <MudChip>Select Side</MudChip>
+            }
+            @if (false) {
+                <MudIcon Icon="@Icons.Material.Filled.LabelImportant" Color="Color.Success" />
+                <MudChip Color="Color.Success">Mustard, Ketchup</MudChip>
+            } else {
+                <MudIcon Icon="@Icons.Material.Filled.LabelImportant" Color="Color.Default" />
+                <MudChip>Select Side</MudChip>
+            }
+            @if (false) {
+                <MudIcon Icon="@Icons.Material.Filled.LabelImportant" Color="Color.Success" />
+                <MudChip Color="Color.Success">Mustard, Ketchup</MudChip>
+            } else {
+                <MudIcon Icon="@Icons.Material.Filled.LabelImportant" Color="Color.Default" />
+                <MudChip>Pick A drink</MudChip>
+            }
+        </div>
 
         @if (choosingSide || choosingDrink) {
             @if (choosingSide) {
