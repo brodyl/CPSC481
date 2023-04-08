@@ -4,6 +4,40 @@
 @inject OrderItems OrderItems
 @inject IDialogService DialogService
 
+<style>
+  table {
+      border-collapse: collapse;
+
+  table-layout: fixed;
+  width: 100%;
+}
+  th {
+  border-spacing: 0;
+  padding: 10px;
+  border: 0;
+  margin: 0;
+}
+
+th:first-child {
+  width: 33%;
+}
+
+th:nth-child(2) {
+  width: 34%;
+}
+
+th:last-child {
+  width: 33%;
+}
+
+td{
+  background-color: #DDFFBB;
+  margin-top: 10px;
+}
+</style>
+
+
+
 <link href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" rel="stylesheet">
 
 <div style="margin:auto; text-align:center; width:80%">
@@ -30,24 +64,24 @@
   </div>
 
   <div style="text-align: center;width:100%; max-height:400px;overflow-y:scroll; border: 2px solid black;">
-    <table id="Ingredients-table" class="table" style="border-collapse: none ;width:100%;">
-      <thead>
+    <table id="Ingredients-table" class="table" style="background-color:#A4BC92; border-radius:10px ;width:100%;">
+      <thead style="background-color: #C7E9B0; border-radius:10px;">
         <tr>
-          <th style="padding: 10px; border: 1px solid black;">Ingredients</th>
-          <th style="padding: 10px; border: 1px solid black;">Quantity</th>
-          <th style="padding: 10px; border: 1px solid black;">Action</th>
+          <th style="padding: 10px; border: 0;margin:0;width:33%">Ingredients</th>
+          <th style="padding: 10px; border: 0;margin:0;width:34%">Quantity</th>
+          <th style="padding: 10px; border: 0;margin:0;width:33%">Action</th>
         </tr>
       </thead>
       <tbody>
         @foreach (var Ingredient in Ingredients){
     <tr style="@(Ingredient.IsDisabled ? "opacity: 0.5;" : "")">
-        <td style="padding: 10px; border: 1px solid black; width:33%">@Ingredient.Name</td>
-        <td style="padding: 10px; border: 1px solid black;width:33%">
+        <td style="padding: 10px; border: 0; width:33%">@Ingredient.Name</td>
+        <td style="padding: 10px; border: 0;width:33%">
             <button class="minus-btn" style="padding: 5px; @(Ingredient.IsDisabled ? "display:none;" : "")" @onclick="() => DecreaseQuantity(Ingredient)">-</button>
             <span class="quantity" style="padding: 0 5px;">@(Ingredient.IsDisabled ? "Removed" : Ingredient.Quantity)</span>
             <button class="plus-btn" style="padding: 5px; @(Ingredient.IsDisabled ? "display:none;" : "")" @onclick="() => IncreaseQuantity(Ingredient)">+</button>
         </td>
-        <td style="padding: 10px; border: 1px solid black;width:33%">
+        <td style="padding: 10px; border: 0;width:33%">
             @if (Ingredient.IsDisabled)
             {
                 <button class="add-btn" style="padding: 5px;" @onclick="() => AddIngredient(Ingredient)">Add</button>
