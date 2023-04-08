@@ -6,7 +6,7 @@
 
 <link href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" rel="stylesheet">
 
-<div style="margin:auto; text-align:center; width:80%">
+<div style="margin:auto; text-align:center; width:80%;">
   <div>
     <MudImage Elevation="16" style="width: 60%; border-radius: 100px; border: 10px solid #7e6fff;" src="@StateContainer.itemToCustomize.imageLg" alt="" />
   </div>
@@ -63,8 +63,10 @@
     </table>
   </div>
 
-<MudButton @onclick="() => launchComboPage()" Style="margin-top:5%; margin-right: 50px; background-color: #EABC45; width: auto; height: 50px; font-size: large; color: black">Make it a Combo</MudButton>
-<MudButton OnClick="AddMenuItemToOrder" Style="margin-top:5%; margin-left: 50px; background-color: #EABC45; width: auto; height: 50px; font-size: large; color: black">Add to Order</MudButton>
+  <div style="position: sticky; bottom: 4rem; align-self: flex-end;">
+    <MudButton @onclick="() => launchComboPage()" Style="margin-top:5%; margin-right: 50px; background-color: #EABC45; width: auto; height: 50px; font-size: large; color: black">Make it a Combo</MudButton>
+    <MudButton OnClick="AddMenuItemToOrder" Style="margin-top:5%; margin-left: 50px; background-color: #EABC45; width: auto; height: 50px; font-size: large; color: black">Add to Order</MudButton>
+  </div>
 </div>
 
 @code {
