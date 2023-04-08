@@ -123,6 +123,11 @@
     StateHasChanged();
   }
 
+  private void MakeItemIntoCombo() {
+    StateContainer.MakeItemIntoCombo();
+    StateHasChanged();
+  }
+
     private async Task DialogDescription()
     {
         var options = new DialogOptions { CloseOnEscapeKey = true };
