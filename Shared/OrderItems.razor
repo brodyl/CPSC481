@@ -37,7 +37,7 @@
             <MudSimpleTable>
                 <thead>
                     <tr>
-                        <th style="width: 25%;"><MudTextField @bind-Value="_newCustomerName" Label="Add Patron For Large Orders" /></th>
+                        <th style="width: 25%;"><MudTextField @bind-Value="_newCustomerName" Label="Add Patron For Large Orders"  OnKeyDown="@(e => OnKeyDown(e))" /></th>
                         <th style="width: 25%;"><MudButton Color="Color.Tertiary" OnClick="AddNewCustomer" Variant="Variant.Filled">Add Patron</MudButton></th>
                         <th style="width: 25%; text-align: right;"></th>
                         <th style="text-align: right;" Class="total-price">
@@ -128,7 +128,7 @@ else
             <MudSimpleTable>
                 <thead>
                     <tr>
-                        <th style="width: 25%;"><MudTextField @bind-Value="_newCustomerName" Label="Add Patron For Large Orders" /></th>
+                        <th style="width: 25%;"><MudTextField @bind-Value="_newCustomerName" Label="Add Patron For Large Orders" OnKeyDown="@(e => OnKeyDown(e))" /></th>
                         <th style="width: 25%;"><MudButton Color="Color.Tertiary" OnClick="AddNewCustomer" Variant="Variant.Filled">Add Patron</MudButton></th>
                         <th style="width: 25%; text-align: right;"></th>
                         <th style="text-align: right;" class="total-price">
@@ -201,6 +201,14 @@ else
     private void ToggleClose() {
         _isOrderImageOpen = false;
     }
+    
+    private async Task OnKeyDown(KeyboardEventArgs e)
+{
+    if (e.Key == "Enter" || e.Key == "NumpadEnter")
+    {
+        AddNewCustomer();
+    }
+}
 
     private void PaymentPrompt()
     {
@@ -245,6 +253,7 @@ else
     {
         if (_newCustomerName != null) {
             StateContainer.AddCustomer(new Customer { Name = _newCustomerName, InitiallyExpanded = false });
+            _newCustomerName = string.Empty;
             StateHasChanged();
         } else {
             StateContainer.AddCustomer(new Customer { Name = "Patron " + (@StateContainer._customers.Count + 1).ToString(), InitiallyExpanded = false });
