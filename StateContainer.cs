@@ -37,7 +37,7 @@ public class StateContainer
 
     public void AddMenuItemToOrder() {
         _items.Add(new DropItem() {Quantity = 1, Customer = "Patron 1", menuItem = itemToCustomize});
-    }
+    }    
     
     public void RemoveOrderItemByID()
     {
@@ -93,15 +93,20 @@ public class StateContainer
             Customer = "Patron 1", 
             menuItem = new MenuItem() {  
                 ID = 3, 
-                category = "sides", 
-                name = "Coke", 
-                price = 2.99m, 
-                size = "Medium", 
-                image = "/resources/Coke.png", 
-                imageSm = "/resources/Coke.png", 
-                imageLg = "/resources/Coke.png", 
-                tags = "popular",
-                Ingredients = new List<Ingredient> {}
+                category = "combo", 
+                side = new MenuItem() { 
+                    ID = 3, 
+                    category = "sides", 
+                    name = "Poutine", 
+                    price = 5.99m, 
+                }, 
+                drink = new MenuItem() { 
+                    ID = 3, 
+                    category = "drinks",
+                    name = "Coke", 
+                    price = 5.99m,   
+                },
+                price = 5.99m, 
             }
         },
     };
@@ -111,6 +116,28 @@ public class StateContainer
 
 
     public MenuItem itemToCustomize;
+    public DropItem comboItemToCustomize = new DropItem();
+    
+    public void MakeItemIntoCombo() {
+        itemToCustomize.side = new MenuItem();
+        itemToCustomize.drink = new MenuItem();
+        itemToCustomize.sauces = null;
+
+        comboItemToCustomize = new DropItem() {Quantity = 1, Customer = "Patron 1", menuItem = itemToCustomize};
+    }
+    
+    public bool DoesComboHaveSide()
+    {
+        return true;
+    }
+    public bool DoesComboHaveSauces()
+    {
+        return comboItemToCustomize.menuItem.sauces != null;
+    }
+    public bool DoesComboHaveDrink()
+    {
+        return comboItemToCustomize.menuItem.drink != null;
+    }
 
 
 
