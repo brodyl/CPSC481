@@ -33,6 +33,11 @@ public class StateContainer
     
     public void restartOrder() {
         _items.Clear();
+        _customers.Clear();
+        _customers = new()
+            {
+                new Customer { Name = "Patron 1", InitiallyExpanded = true },
+            };
     }
 
     public void AddMenuItemToOrder() {

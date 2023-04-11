@@ -23,7 +23,7 @@
                 @foreach (var customer in @StateContainer._customers) 
                 {
                     @* <MudDivider DividerType="DividerType.Middle" Class="my-6"/> *@
-                        <MudListItem Icon="@Icons.Material.Filled.Remove"  Color="Color.Success" Text="@customer.Name" InitiallyExpanded="true" Class="customer-name" style="background-color: #7e6fff; color: #ffffff">
+                        <MudListItem Icon="@Icons.Material.Filled.EmojiEmotions"  Color="Color.Success" Text="@customer.Name" InitiallyExpanded="true" Class="customer-name" style="background-color: #7e6fff; color: #ffffff">
                             <NestedList>
                                 <MudDropZone T="DropItem" Identifier="@customer.Name" Class="nested-item" style="background-color: #b3abf8;">
                                     <MudList>
