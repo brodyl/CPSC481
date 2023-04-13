@@ -1,104 +1,49 @@
 ﻿@page "/fetchdata"
 @inject HttpClient Http
+@inject NavigationManager NavigationManager
 @using MyApplication.Shared
 <link href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" rel="stylesheet">
 
 
 <PageTitle>Main Features</PageTitle>
 
-<MudText Typo="Typo.h4" GutterBottom="true">New Featured Items</MudText>
-<MudCarousel Class="mud-width-full" Style="height:300px;" ShowArrows="true" ShowBullets="true" EnableSwipeGesture="true" AutoCycle="false" TData="object">
+<MudText Typo="Typo.h4" GutterBottom="true" Color="Color.Warning" Align="Align.Center"><b><u>New Featured Items</u></b></MudText>
+<MudCarousel Class="mx-auto my-5" Style="width: 90%; height:300px;" ShowArrows="true" ShowBullets="true" EnableSwipeGesture="true" AutoCycle="false" TData="object" BulletsColor="Color.Warning">
     <MudCarouselItem Transition="@Transition.Slide">
-        <div class="d-flex" style="height:100%">
-            <MudImage Src="resources/whopper.png" Width="332" Height="250" Alt="Whopper" Elevation="25" Class="rounded-lg ml-16"/>
+        <div class="d-flex" style="height:80%">
+            <MudImage Src="resources/burgerbanner.png" Elevation="25" Fluid="true" Class="d-block mx-auto rounded-lg" @onclick='()=> NavigationManager.NavigateTo("browse/burgers")'/>
         </div>
     </MudCarouselItem>
     <MudCarouselItem Transition="@Transition.Slide">
-        <div class="d-flex" style="height:100%">
-            <MudImage Src="resources/whopper2.png" Width="332" Height="250" Alt="Whopper" Elevation="25" Class="rounded-lg ml-16"/>
-        </div>
-    </MudCarouselItem>
-    <MudCarouselItem Transition="@Transition.Slide">
-        <div class="d-flex" style="height:100%">
-            <MudImage Src="resources/whopper3.png" Width="332" Height="250" Alt="Whopper" Elevation="25" Class="rounded-lg ml-16"/>
+        <div class="d-flex" style="height:80%">
+            <MudImage Src="resources/chickenfriesbanner.png" Elevation="25" Fluid="true" Class="d-block mx-auto rounded-lg" @onclick='()=> NavigationManager.NavigateTo("browse/sides")'/>
         </div>
     </MudCarouselItem>
 </MudCarousel>
 
-<MudText Typo="Typo.h4" GutterBottom="true">Value Picks</MudText>
-<MudCarousel Class="mud-width-full" Style="height:300px;" ShowArrows="true" ShowBullets="true" EnableSwipeGesture="true" AutoCycle="false" TData="object">
+<MudText Typo="Typo.h4" GutterBottom="true" Color="Color.Warning" Align="Align.Center"><b><u>Value Picks</u></b></MudText>
+<MudCarousel Class="mx-auto my-5" Style="width: 90%; height:300px;" ShowArrows="true" ShowBullets="true" EnableSwipeGesture="true" AutoCycle="false" TData="object" BulletsColor="Color.Warning">
     <MudCarouselItem Transition="@Transition.Slide">
-        <div class="d-flex" style="height:100%">
-            <MudImage Src="resources/applePie.png" Width="332" Height="250" Alt="Whopper" Elevation="25" Class="rounded-lg ml-16"/>
+        <div class="d-flex" style="height:80%">
+            <MudImage Src="resources/valuebanner.png" Elevation="25" Fluid="true" Class="d-block mx-auto rounded-lg" @onclick='()=> NavigationManager.NavigateTo("browse/sides")'/>
         </div>
     </MudCarouselItem>
     <MudCarouselItem Transition="@Transition.Slide">
-        <div class="d-flex" style="height:100%">
-            <MudImage Src="resources/breakfastChicken.png" Width="332" Height="250" Alt="Whopper" Elevation="25" Class="rounded-lg ml-16"/>
-        </div>
-    </MudCarouselItem>
-    <MudCarouselItem Transition="@Transition.Slide">
-        <div class="d-flex" style="height:100%">
-            <MudImage Src="resources/chickenNugs.png" Width="332" Height="250" Alt="Whopper" Elevation="25" Class="rounded-lg ml-16"/>
+        <div class="d-flex" style="height:80%">
+            <MudImage Src="resources/nuggets4pcbanner.png" Elevation="25" Fluid="true" Class="d-block mx-auto rounded-lg" @onclick='()=> NavigationManager.NavigateTo("browse/sides")'/>
         </div>
     </MudCarouselItem>
 </MudCarousel>
 
-
-
-<MudText Typo="Typo.h4" GutterBottom="true">Treat Yourself</MudText>
-<MudCarousel Class="mud-width-full" Style="height:300px;" ShowArrows="true" ShowBullets="true" EnableSwipeGesture="true" AutoCycle="false" TData="object">
+<MudText Typo="Typo.h4" GutterBottom="true" Color="Color.Warning" Align="Align.Center"><b><u>Treat Yourself</u></b></MudText>
+<MudCarousel Class="mx-auto my-5" Style="width: 90%; height:300px;" ShowArrows="true" ShowBullets="true" EnableSwipeGesture="true" AutoCycle="false" TData="object" BulletsColor="Color.Warning">
     <MudCarouselItem Transition="@Transition.Slide">
-        <div class="d-flex" style="height:100%">
-            <MudImage Src="resources/iceCream.png" Width="332" Height="250" Alt="Whopper" Elevation="25" Class="rounded-lg ml-16"/>
-        </div>
-    </MudCarouselItem>
-    <MudCarouselItem Transition="@Transition.Slide">
-        <div class="d-flex" style="height:100%">
-            <MudImage Src="resources/iceCreamSundae.png" Width="332" Height="250" Alt="Whopper" Elevation="25" Class="rounded-lg ml-16"/>
-        </div>
-    </MudCarouselItem>
-    <MudCarouselItem Transition="@Transition.Slide">
-        <div class="d-flex" style="height:100%">
-            <MudImage Src="resources/shakeChocolate.png" Width="332" Height="250" Alt="Whopper" Elevation="25" Class="rounded-lg ml-16"/>
-        </div>
-    </MudCarouselItem>
-    <MudCarouselItem Transition="@Transition.Slide">
-        <div class="d-flex" style="height:100%">
-            <MudImage Src="resources/shakeVanilla.png" Width="332" Height="250" Alt="Whopper" Elevation="25" Class="rounded-lg ml-16"/>
+        <div class="d-flex" style="height:80%">
+            <MudImage Src="resources/milkshakebanner.png" Elevation="25" Fluid="true" Class="d-block mx-auto rounded-lg" @onclick='()=> NavigationManager.NavigateTo("browse/drinks")'/>
         </div>
     </MudCarouselItem>
 </MudCarousel>
-
-
-<MudCard>
-    <MudCardMedia Image="resources/fries.png" ObjectFit="ObjectFit.ScaleDown"  Class="rounded-lg ma-4"/>
-    <MudCardContent>
-        <MudText Typo="Typo.h5">World Famous Fries</MudText>
-        <MudText Typo="Typo.body2">If you haven't tried them, you haven't lived.</MudText>
-    </MudCardContent>
-    <MudCardActions>
-        <MudButton Variant="Variant.Text" Color="Color.Primary">Share</MudButton>
-        <MudButton Variant="Variant.Text" Color="Color.Primary">Learn More</MudButton>
-    </MudCardActions>
-</MudCard>
 
 @code {
-    private WeatherForecast[]? forecasts;
     private Transition transition = Transition.Slide;
-
-    protected override async Task OnInitializedAsync()
-    {
-        forecasts = await Http.GetFromJsonAsync<WeatherForecast[]>("sample-data/weather.json");
-    }
-    public class WeatherForecast
-    {
-        public DateTime Date { get; set; }
-
-        public int TemperatureC { get; set; }
-
-        public string? Summary { get; set; }
-
-        public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
-    }
 }

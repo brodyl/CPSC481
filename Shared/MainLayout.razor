@@ -12,14 +12,14 @@
 
 <link href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" rel="stylesheet">
 
-<MudLayout>
-    <MudTabs Elevation="4" Rounded="true" Centered="true" Color="@Color.Primary" style="position: sticky; top: 0; z-index: 100;">
-        <MudTabPanel @onclick="@(() => NavigationManager.NavigateTo($"/fetchdata", false))" Text="Features" Icon="fas fa-grin-stars" Color="Color.Secondary"/>
-        <MudTabPanel @onclick="@(() => NavigationManager.NavigateTo($"/browse/burgers", false))" Text="Burgers" Icon="fas fa-hamburger" Color="Color.Secondary"/>
-        <MudTabPanel @onclick="@(() => NavigationManager.NavigateTo($"/browse/sides", false))" Text="Sides" Icon="fas fa-drumstick-bite" Color="Color.Secondary"/>
-        <MudTabPanel @onclick="@(() => NavigationManager.NavigateTo($"/browse/drinks", false))" Text="Drinks" Icon="fas fa-glass-whiskey" Color="Color.Secondary"/>
-        <MudTabPanel @onclick="@(() => NavigationManager.NavigateTo($"/browse/kids", false))" Text="Kids Meal" Icon="fas fa-child" Color="Color.Secondary"/>
-        <MudTabPanel @onclick="@(() => NavigationManager.NavigateTo($"/browse/value", false))" Text="Value Deals" Icon="fas fa-piggy-bank" Color="Color.Secondary"/>
+<MudLayout style="background-color:#1c1f22;">
+    <MudTabs Elevation="4" Rounded="true" Centered="true" Color="@Color.Warning" style="color: #ffffff; position: sticky; top: 0; z-index: 100;">
+        <MudTabPanel @onclick="@(() => NavigationManager.NavigateTo($"/fetchdata", false))" Text="Features" Icon="fas fa-grin-stars" />
+        <MudTabPanel @onclick="@(() => NavigationManager.NavigateTo($"/browse/burgers", false))" Text="Burgers" Icon="fas fa-hamburger" />
+        <MudTabPanel @onclick="@(() => NavigationManager.NavigateTo($"/browse/sides", false))" Text="Sides" Icon="fas fa-drumstick-bite" />
+        <MudTabPanel @onclick="@(() => NavigationManager.NavigateTo($"/browse/drinks", false))" Text="Drinks" Icon="fas fa-glass-whiskey" />
+        <MudTabPanel @onclick="@(() => NavigationManager.NavigateTo($"/browse/kids", false))" Text="Kids Meal" Icon="fas fa-child" />
+        <MudTabPanel @onclick="@(() => NavigationManager.NavigateTo($"/browse/value", false))" Text="Value Deals" Icon="fas fa-piggy-bank" />
     </MudTabs>
 
 @if (open) {
