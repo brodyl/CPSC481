@@ -65,6 +65,10 @@
       "PackagePath": "staticwebassets/resources/burgerbanner.png"
     },
     {
+      "Id": "/Users/azhar/Documents/GitHub/Brody1/wwwroot/resources/cheeseburger.png",
+      "PackagePath": "staticwebassets/resources/cheeseburger.png"
+    },
+    {
       "Id": "/Users/azhar/Documents/GitHub/Brody1/wwwroot/resources/chickenBurger00.png",
       "PackagePath": "staticwebassets/resources/chickenBurger00.png"
     },
@@ -129,8 +133,16 @@
       "PackagePath": "staticwebassets/resources/fruitopia.png"
     },
     {
+      "Id": "/Users/azhar/Documents/GitHub/Brody1/wwwroot/resources/full_description.png",
+      "PackagePath": "staticwebassets/resources/full_description.png"
+    },
+    {
       "Id": "/Users/azhar/Documents/GitHub/Brody1/wwwroot/resources/gluten-free-icon.svg",
       "PackagePath": "staticwebassets/resources/gluten-free-icon.svg"
+    },
+    {
+      "Id": "/Users/azhar/Documents/GitHub/Brody1/wwwroot/resources/hamburger.png",
+      "PackagePath": "staticwebassets/resources/hamburger.png"
     },
     {
       "Id": "/Users/azhar/Documents/GitHub/Brody1/wwwroot/resources/hotChocolate.png",
@@ -171,6 +183,14 @@
     {
       "Id": "/Users/azhar/Documents/GitHub/Brody1/wwwroot/resources/milkshakebanner.png",
       "PackagePath": "staticwebassets/resources/milkshakebanner.png"
+    },
+    {
+      "Id": "/Users/azhar/Documents/GitHub/Brody1/wwwroot/resources/nuggets4pc.png",
+      "PackagePath": "staticwebassets/resources/nuggets4pc.png"
+    },
+    {
+      "Id": "/Users/azhar/Documents/GitHub/Brody1/wwwroot/resources/nuggets4pcbanner.png",
+      "PackagePath": "staticwebassets/resources/nuggets4pcbanner.png"
     },
     {
       "Id": "/Users/azhar/Documents/GitHub/Brody1/wwwroot/resources/number1.png",
@@ -255,6 +275,10 @@
     {
       "Id": "/Users/azhar/Documents/GitHub/Brody1/wwwroot/resources/tea.png",
       "PackagePath": "staticwebassets/resources/tea.png"
+    },
+    {
+      "Id": "/Users/azhar/Documents/GitHub/Brody1/wwwroot/resources/valuebanner.png",
+      "PackagePath": "staticwebassets/resources/valuebanner.png"
     },
     {
       "Id": "/Users/azhar/Documents/GitHub/Brody1/wwwroot/resources/vanillamilkshake.png",

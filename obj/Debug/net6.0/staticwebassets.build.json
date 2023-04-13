@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "lgtZ59gMfYoAhAtQ0CaBatgBJ7QcI5udGxqymf6day8=",
+  "Hash": "DNVwg1ZnqC2vHw1kjvARwPDhzLnlnL5ASI50pIJBQ8g=",
   "Source": "MyApplication",
   "BasePath": "/",
   "Mode": "Root",
@@ -7123,6 +7123,23 @@
       "OriginalItemSpec": "wwwroot/resources/burgerbanner.png"
     },
     {
+      "Identity": "/Users/azhar/Documents/GitHub/Brody1/wwwroot/resources/cheeseburger.png",
+      "SourceId": "MyApplication",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/azhar/Documents/GitHub/Brody1/wwwroot/",
+      "BasePath": "/",
+      "RelativePath": "resources/cheeseburger.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/resources/cheeseburger.png"
+    },
+    {
       "Identity": "/Users/azhar/Documents/GitHub/Brody1/wwwroot/resources/chickenBurger00.png",
       "SourceId": "MyApplication",
       "SourceType": "Discovered",
@@ -7412,6 +7429,23 @@
       "OriginalItemSpec": "wwwroot/resources/fruitopia.png"
     },
     {
+      "Identity": "/Users/azhar/Documents/GitHub/Brody1/wwwroot/resources/full_description.png",
+      "SourceId": "MyApplication",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/azhar/Documents/GitHub/Brody1/wwwroot/",
+      "BasePath": "/",
+      "RelativePath": "resources/full_description.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/resources/full_description.png"
+    },
+    {
       "Identity": "/Users/azhar/Documents/GitHub/Brody1/wwwroot/resources/gluten-free-icon.svg",
       "SourceId": "MyApplication",
       "SourceType": "Discovered",
@@ -7427,6 +7461,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/resources/gluten-free-icon.svg"
+    },
+    {
+      "Identity": "/Users/azhar/Documents/GitHub/Brody1/wwwroot/resources/hamburger.png",
+      "SourceId": "MyApplication",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/azhar/Documents/GitHub/Brody1/wwwroot/",
+      "BasePath": "/",
+      "RelativePath": "resources/hamburger.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/resources/hamburger.png"
     },
     {
       "Identity": "/Users/azhar/Documents/GitHub/Brody1/wwwroot/resources/hotChocolate.png",
@@ -7597,6 +7648,40 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/resources/milkshakebanner.png"
+    },
+    {
+      "Identity": "/Users/azhar/Documents/GitHub/Brody1/wwwroot/resources/nuggets4pc.png",
+      "SourceId": "MyApplication",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/azhar/Documents/GitHub/Brody1/wwwroot/",
+      "BasePath": "/",
+      "RelativePath": "resources/nuggets4pc.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/resources/nuggets4pc.png"
+    },
+    {
+      "Identity": "/Users/azhar/Documents/GitHub/Brody1/wwwroot/resources/nuggets4pcbanner.png",
+      "SourceId": "MyApplication",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/azhar/Documents/GitHub/Brody1/wwwroot/",
+      "BasePath": "/",
+      "RelativePath": "resources/nuggets4pcbanner.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/resources/nuggets4pcbanner.png"
     },
     {
       "Identity": "/Users/azhar/Documents/GitHub/Brody1/wwwroot/resources/number1.png",
@@ -7954,6 +8039,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/resources/tea.png"
+    },
+    {
+      "Identity": "/Users/azhar/Documents/GitHub/Brody1/wwwroot/resources/valuebanner.png",
+      "SourceId": "MyApplication",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/azhar/Documents/GitHub/Brody1/wwwroot/",
+      "BasePath": "/",
+      "RelativePath": "resources/valuebanner.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/resources/valuebanner.png"
     },
     {
       "Identity": "/Users/azhar/Documents/GitHub/Brody1/wwwroot/resources/vanillamilkshake.png",

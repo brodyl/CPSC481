@@ -28,6 +28,14 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQ3VzdG9taXplLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
+[/Users/azhar/Documents/GitHub/Brody1/Pages/Dialog.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvRGlhbG9nLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/azhar/Documents/GitHub/Brody1/Pages/Ending.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvRW5kaW5nLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
 [/Users/azhar/Documents/GitHub/Brody1/Pages/FetchData.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXMvRmV0Y2hEYXRhLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
@@ -44,8 +52,16 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXMvU2VydmUucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/azhar/Documents/GitHub/Brody1/Shared/DialogConfirmRemoveItem.razor]
-build_metadata.AdditionalFiles.TargetPath = U2hhcmVkL0RpYWxvZ0NvbmZpcm1SZW1vdmVJdGVtLnJhem9y
+[/Users/azhar/Documents/GitHub/Brody1/Shared/DialogConfirm.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkL0RpYWxvZ0NvbmZpcm0ucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/azhar/Documents/GitHub/Brody1/Shared/DialogConfirmRestartOrder.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkL0RpYWxvZ0NvbmZpcm1SZXN0YXJ0T3JkZXIucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/azhar/Documents/GitHub/Brody1/Shared/DialogDescription.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkL0RpYWxvZ0Rlc2NyaXB0aW9uLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
 [/Users/azhar/Documents/GitHub/Brody1/Shared/EmptyLayout.razor]
@@ -64,16 +80,8 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkL09yZGVySXRlbXMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/azhar/Documents/GitHub/Brody1/Shared/OrderItems_Backup_.razor]
-build_metadata.AdditionalFiles.TargetPath = U2hhcmVkL09yZGVySXRlbXNfQmFja3VwXy5yYXpvcg==
-build_metadata.AdditionalFiles.CssScope = 
-
-[/Users/azhar/Documents/GitHub/Brody1/Shared/OrderItems_Backup_DraggableItems.razor]
-build_metadata.AdditionalFiles.TargetPath = U2hhcmVkL09yZGVySXRlbXNfQmFja3VwX0RyYWdnYWJsZUl0ZW1zLnJhem9y
-build_metadata.AdditionalFiles.CssScope = 
-
-[/Users/azhar/Documents/GitHub/Brody1/Shared/OrderReview.razor]
-build_metadata.AdditionalFiles.TargetPath = U2hhcmVkL09yZGVyUmV2aWV3LnJhem9y
+[/Users/azhar/Documents/GitHub/Brody1/Shared/PaymentPrompt.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkL1BheW1lbnRQcm9tcHQucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
 [/Users/azhar/Documents/GitHub/Brody1/_Imports.razor]
