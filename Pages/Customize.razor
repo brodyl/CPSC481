@@ -120,6 +120,7 @@
     <MudButton Variant="Variant.Filled" Color="Color.Warning" Class="mx-5 my-10" Size="Size.Large" @onclick="@(() => {
         Snackbar.Add("This item has been added to your order", Severity.Success);
         AddMenuItemToOrder();
+        NavigationManager.NavigateTo("/browse/burgers");
       })">
     Add to Order</MudButton>
   </div>
