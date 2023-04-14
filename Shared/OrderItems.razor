@@ -51,13 +51,14 @@
         </MudPaper>
     </ChildContent>
     <ItemRenderer>
-        <MudListItem style="background-color: #b3abf8;">
+        <MudListItem @onmouseover="@(context.menuItem.category != "combo" ? (() => ToggleOpen(context.menuItem.image)) : (context.menuItem.category == "combo" ? (() => ToggleOpen(context.menuItem.image)) : null))" @onmouseleave="@ToggleClose" style="background-color: #b3abf8;">
             <MudListItemText>
                 <div class="item-info">
                     <span class="table-first-col">
                         <MudIconButton @onclick="ConfirmRemoveItem" Icon="@Icons.Material.Filled.DeleteForever" Variant="Variant.Filled" Color="Color.Secondary" />
                     </span>
                     <span class="item-name">
+                        <MudIconButton @onclick="@(() => OpenCustomize(context.menuItem))" Icon="@Icons.Material.TwoTone.Edit"  Variant="Variant.Filled" Color="Color.Tertiary" />
                         <MudTooltip ShowOnClick="true" ShowOnHover="false" ShowOnFocus="false">
                             <ChildContent>
                                 <MudIconButton Icon="@Icons.Material.Filled.ImageSearch"  Variant="Variant.Filled" Color="Color.Tertiary" />
@@ -69,7 +70,7 @@
                             </TooltipContent>
                         </MudTooltip>
                         &emsp; &emsp; &emsp; &emsp; &emsp; 
-                        @context.menuItem.name 
+                        @(context.menuItem.category != "combo" ? context.menuItem.name : (context.menuItem.category == "combo" ? context.menuItem.name + " + " + context.menuItem.side.name + " + " + context.menuItem.drink.name : null))
                     </span>
                     <span class="item-quantity">
                     <MudStack Row="true">
@@ -302,7 +303,7 @@ else
 
 <style>
     .table-first-col {
-        width: 25%; 
+        width: 15%; 
         font-weight: bold;
     }
     .mudlist-multi-patron-mode {
@@ -325,7 +326,7 @@ else
     }
 
     .item-name{
-        width: 40%;
+        width: 65%;
         font-weight: bold;
     }
     .item-quantity{
@@ -333,7 +334,7 @@ else
         font-weight: bold;
     }
     .item-price {
-        width: 25%;
+        width: 10%;
         font-weight: bold;
         text-align: right;
     }
