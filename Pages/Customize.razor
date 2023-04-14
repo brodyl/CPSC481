@@ -171,7 +171,7 @@
   }
 
   private void launchComboPage() {
-    var options = new DialogOptions { DisableBackdropClick = true, MaxWidth = MaxWidth.Large, FullWidth = true };
+    var options = new DialogOptions { DisableBackdropClick = true, MaxWidth = MaxWidth.Large, FullWidth = true, Position = DialogPosition.TopCenter };
     DialogService.Show<Dialog>("", options);
   }
 
