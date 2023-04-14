@@ -94,8 +94,16 @@
         return @StateContainer._items.Sum(item => item.Quantity * item.menuItem.price);
     }
 
-    private void restartOrder() {
-        StateContainer.restartOrder();
-        NavigationManager.NavigateTo("/");
+    private async Task restartOrder() {
+        var options = new DialogOptions { CloseOnEscapeKey = true };
+        var parameters = new DialogParameters();        
+        parameters.Add("ContentText", "Are you sure you want to Restart the order? All items will be removed if you do.");
+        parameters.Add("ButtonText", "Yes");
+        var dialogResult = DialogService.Show <DialogConfirm> ("Confirm", parameters);
+        var result = await dialogResult.Result;
+        if (!result.Cancelled && bool.TryParse(result.Data.ToString(), out bool resultbool)) {
+            StateContainer.restartOrder();
+            NavigationManager.NavigateTo("/");
+        }
     }
 }
