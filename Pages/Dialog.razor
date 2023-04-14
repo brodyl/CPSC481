@@ -10,8 +10,8 @@
 
         @if (choosingSide || choosingDrink) {
             @if (choosingSide) {
-                <MudIconButton Icon="@Icons.Material.Filled.KeyboardArrowLeft" Color="Color.Warning" Size="Size.Large" @onclick="() => Cancel()"></MudIconButton>
-                <MudText Typo="Typo.h4" Align="Align.Center" Class="px-5" style="color:#ffffff;"><b>Choose your side:</b></MudText>
+                    <MudIconButton Icon="@Icons.Material.Filled.KeyboardArrowLeft" Color="Color.Warning" Size="Size.Large" @onclick="() => Cancel()"></MudIconButton>
+                    <MudText Typo="Typo.h4" Align="Align.Center" Class="px-5" style="color:#ffffff;"><b>Choose your side:</b></MudText>
             }
             @if (choosingDrink) {
                 <MudIconButton Icon="@Icons.Material.Filled.KeyboardArrowLeft" Color="Color.Warning" Size="Size.Large" @onclick="() => SidesMenu()"></MudIconButton>
@@ -108,7 +108,6 @@
 
             
         }
-
 
 
     </DialogContent>
