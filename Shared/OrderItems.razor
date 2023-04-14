@@ -1,5 +1,6 @@
 @using Microsoft.AspNetCore.Components
 @using MudBlazor
+@inject NavigationManager NavigationManager
 @inject StateContainer StateContainer
 @inject IDialogService DialogService
 
@@ -141,13 +142,14 @@ else
         </MudPaper>
     </ChildContent>
     <ItemRenderer>
-        <MudListItem  @onmouseover="() => ToggleOpen(context.menuItem.image)" @onmouseleave="@ToggleClose" style="background-color: #b3abf8;">
+        <MudListItem @onmouseover="@(context.menuItem.category != "combo" ? (() => ToggleOpen(context.menuItem.image)) : (context.menuItem.category == "combo" ? (() => ToggleOpen(context.menuItem.image)) : null))" @onmouseleave="@ToggleClose" style="background-color: #b3abf8;">
             <MudListItemText>
                 <div class="item-info">
                     <span class="table-first-col">
                         <MudIconButton @onclick="ConfirmRemoveItem" Icon="@Icons.Material.Filled.DeleteForever" Variant="Variant.Filled" Color="Color.Secondary" />
                     </span>
                     <span class="item-name">
+                        <MudIconButton @onclick="@(() => OpenCustomize(context.menuItem))" Icon="@Icons.Material.TwoTone.Edit"  Variant="Variant.Filled" Color="Color.Tertiary" />
                         <MudTooltip ShowOnClick="true" ShowOnHover="false" ShowOnFocus="false">
                             <ChildContent>
                                 <MudIconButton Icon="@Icons.Material.Filled.ImageSearch"  Variant="Variant.Filled" Color="Color.Tertiary" />
@@ -159,7 +161,7 @@ else
                             </TooltipContent>
                         </MudTooltip>
                         &emsp; &emsp; &emsp; &emsp; &emsp; 
-                        @context.menuItem.name 
+                        @(context.menuItem.category != "combo" ? context.menuItem.name : (context.menuItem.category == "combo" ? context.menuItem.name + " + " + context.menuItem.side.name + " + " + context.menuItem.drink.name : null))
                     </span>
                     <span class="item-quantity">
                     <MudStack Row="true">
@@ -189,6 +191,31 @@ else
 
 
 @code {
+    private Ingredient lettuce = new Ingredient { Name = "Lettuce", Quantity = "Regular" };
+    private Ingredient tomato = new Ingredient { Name = "Tomato", Quantity = "Regular" };
+    private Ingredient pickles = new Ingredient { Name = "Pickles", Quantity = "Regular" };
+    private Ingredient onion = new Ingredient { Name = "Onion", Quantity = "Regular" };
+    private Ingredient houseSauce = new Ingredient { Name = "House Sauce", Quantity = "Regular" };
+    private Ingredient mayo = new Ingredient { Name = "Mayonnaise", Quantity = "Regular" };
+    private Ingredient ketchup = new Ingredient { Name = "Ketchup", Quantity = "Regular" };
+    private Ingredient jalapenos = new Ingredient { Name = "Jalapenos", Quantity = "Regular" };
+    private Ingredient pepperJackCheese = new Ingredient { Name = "Pepper Jack Cheese", Quantity = "Regular" };
+    private Ingredient spicyMayo = new Ingredient { Name = "Spicy Mayo", Quantity = "Regular" };
+    private Ingredient swissCheese = new  Ingredient { Name = "Swiss Cheese", Quantity = "Regular" };
+    private Ingredient mushrooms = new Ingredient { Name = "Mushrooms", Quantity = "Regular" };
+    private Ingredient garlicAioli = new Ingredient { Name = "Garlic Aioli", Quantity = "Regular" };
+    private Ingredient bacon = new Ingredient { Name = "Bacon", Quantity = "Regular" };
+    private Ingredient cheddarCheese = new Ingredient { Name = "Cheddar Cheese", Quantity = "Regular" };
+    private Ingredient bbqSauce = new Ingredient { Name = "BBQ Sauce", Quantity = "Regular" };
+    private Ingredient chiliSauce = new Ingredient { Name = "Chili Sauce", Quantity = "Regular" };
+    private Ingredient redOnion = new Ingredient { Name = "Red Onion", Quantity = "Regular" };
+    private Ingredient ranchSauce = new Ingredient { Name = "Ranch Sauce", Quantity = "Regular" };
+    private Ingredient pickle = new Ingredient { Name = "Pickle", Quantity = "Regular" };
+    private Ingredient veganMayo = new Ingredient { Name = "Vegan Mayo", Quantity = "Regular" };
+    private Ingredient avocado = new Ingredient { Name = "Avocado", Quantity = "Regular" };
+    private Ingredient veganChipotleMayo = new Ingredient { Name = "Vegan Chipotle Mayo", Quantity = "Regular" };
+
+
     private string tableBackground_dark = "background-color: #7e6fff";
     private bool _isOrderImageOpen = false;
     private string item_image = "";
@@ -231,6 +258,12 @@ else
         if (!result.Cancelled && bool.TryParse(result.Data.ToString(), out bool resultbool)) {
             StateContainer.RemoveOrderItemByID();
         }
+    }
+
+    private void OpenCustomize(MenuItem item) {
+        StateContainer.itemToCustomize = item;
+        NavigationManager.NavigateTo("/Browse");
+        NavigationManager.NavigateTo("/Customize");
     }
 
     private void ItemUpdated(MudItemDropInfo<DropItem> dropItem)
@@ -318,3 +351,6 @@ else
         width: 10%;
     }
 </style>
+
+
+

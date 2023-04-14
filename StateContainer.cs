@@ -1,5 +1,30 @@
 public class StateContainer
 {   
+    private static Ingredient lettuce = new Ingredient { Name = "Lettuce", Quantity = "Regular" };
+    private static Ingredient tomato = new Ingredient { Name = "Tomato", Quantity = "Regular" };
+    private static Ingredient pickles = new Ingredient { Name = "Pickles", Quantity = "Regular" };
+    private static Ingredient onion = new Ingredient { Name = "Onion", Quantity = "Regular" };
+    private static Ingredient houseSauce = new Ingredient { Name = "House Sauce", Quantity = "Regular" };
+    private static Ingredient mayo = new Ingredient { Name = "Mayonnaise", Quantity = "Regular" };
+    private static Ingredient ketchup = new Ingredient { Name = "Ketchup", Quantity = "Regular" };
+    private static Ingredient jalapenos = new Ingredient { Name = "Jalapenos", Quantity = "Regular" };
+    private static Ingredient pepperJackCheese = new Ingredient { Name = "Pepper Jack Cheese", Quantity = "Regular" };
+    private static Ingredient spicyMayo = new Ingredient { Name = "Spicy Mayo", Quantity = "Regular" };
+    private static Ingredient swissCheese = new  Ingredient { Name = "Swiss Cheese", Quantity = "Regular" };
+    private static Ingredient mushrooms = new Ingredient { Name = "Mushrooms", Quantity = "Regular" };
+    private static Ingredient garlicAioli = new Ingredient { Name = "Garlic Aioli", Quantity = "Regular" };
+    private static Ingredient bacon = new Ingredient { Name = "Bacon", Quantity = "Regular" };
+    private static Ingredient cheddarCheese = new Ingredient { Name = "Cheddar Cheese", Quantity = "Regular" };
+    private static Ingredient bbqSauce = new Ingredient { Name = "BBQ Sauce", Quantity = "Regular" };
+    private static Ingredient chiliSauce = new Ingredient { Name = "Chili Sauce", Quantity = "Regular" };
+    private static Ingredient redOnion = new Ingredient { Name = "Red Onion", Quantity = "Regular" };
+    private static Ingredient ranchSauce = new Ingredient { Name = "Ranch Sauce", Quantity = "Regular" };
+    private static Ingredient pickle = new Ingredient { Name = "Pickle", Quantity = "Regular" };
+    private static Ingredient veganMayo = new Ingredient { Name = "Vegan Mayo", Quantity = "Regular" };
+    private static Ingredient avocado = new Ingredient { Name = "Avocado", Quantity = "Regular" };
+    private static Ingredient veganChipotleMayo = new Ingredient { Name = "Vegan Chipotle Mayo", Quantity = "Regular" };
+
+
     public List<Customer> _customers = new()
     {
         new Customer { Name = "Patron 1", InitiallyExpanded = true },
@@ -55,24 +80,19 @@ public class StateContainer
         new DropItem(){ 
             Quantity = 2, 
             Customer = "Patron 1", 
-            menuItem = new MenuItem() {  
+            menuItem = new MenuItem() { 
                 ID = 100, 
                 category = "burger", 
                 name = "Schooper Burger", 
                 price = 10.00m, 
                 size = null, 
                 image = "/resources/whopper.png", 
-                imageSm = "/resources/whopper.png", 
-                imageLg = "/resources/whopper.png", 
+                imageSm = "/resources/whopper3.png", 
+                imageLg = "/resources/whopper3.png", 
                 tags = "popular",
-                Ingredients = new List<Ingredient>
-                {
-                    new Ingredient { Name = "Lettuce", Quantity = "Regular" },
-                    new Ingredient { Name = "Bacon", Quantity = "Regular" },
-                    new Ingredient { Name = "Cheese", Quantity = "Regular" },
-                    new Ingredient { Name = "Ketchup", Quantity = "Regular" },
-                    new Ingredient { Name = "Onion", Quantity = "Regular" },
-                }
+                Ingredients = new List<Ingredient> {lettuce,tomato,pickles,onion,houseSauce},
+                description = "Our signature Schooper Burger is a mouthwatering treat loaded with fresh lettuce, juicy tomatoes, crunchy pickles, flavorful onions, and our secret house sauce. This classic burger is sure to satisfy your cravings and keep you coming back for more.",
+                Calories = 550
             }
         },
 
@@ -86,10 +106,12 @@ public class StateContainer
                 price = 5.99m, 
                 size = "Medium", 
                 image = "/resources/poutine.png", 
-                imageSm = "/resources/poutine.png", 
-                imageLg = "/resources/poutine.png", 
+                imageSm = "/resources/poutineLg.png", 
+                imageLg = "/resources/poutineLg.png", 
                 tags = "popular",
-                Ingredients = new List<Ingredient> {}
+                Ingredients = new List<Ingredient> {},
+                description = "Our world famous contains cheese curds imported directly from Quebec, hand churned to perfections. The gravy is an in house blend, with a secret recipe to wake up your taste buds",
+                Calories = 450
             }
         },
 
@@ -99,19 +121,32 @@ public class StateContainer
             menuItem = new MenuItem() {  
                 ID = 3, 
                 category = "combo", 
+                name = "Schooper Burger",
                 side = new MenuItem() { 
                     ID = 3, 
                     category = "sides", 
                     name = "Poutine", 
                     price = 5.99m, 
+                    image = "/resources/frenchfries.png", 
+                    imageSm = "/resources/frenchfries.png", 
+                    imageLg = "/resources/frenchfries.png", 
                 }, 
                 drink = new MenuItem() { 
                     ID = 3, 
                     category = "drinks",
                     name = "Coke", 
                     price = 5.99m,   
+                    image = "/resources/Coke.png", 
+                    imageSm = "/resources/Coke.png", 
+                    imageLg = "/resources/Coke.png", 
                 },
-                price = 5.99m, 
+                price = 12.49m, 
+                image = "/resources/combo.png",  
+                imageSm = "/resources/combo.png", 
+                imageLg = "/resources/combo.png", 
+                Ingredients = new List<Ingredient> {},
+                description = "Our world famous contains cheese curds imported directly from Quebec, hand churned to perfections. The gravy is an in house blend, with a secret recipe to wake up your taste buds",
+                Calories = 450
             }
         },
     };
