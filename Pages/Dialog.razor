@@ -1,4 +1,5 @@
 @inject StateContainer StateContainer
+@inject NavigationManager NavigationManager
 
 
 <MudDialog style="background-color: #1c1f22;">
@@ -140,6 +141,9 @@
         if (sizeSelected == 1) {drink.size = "Small";}
         if (sizeSelected == 2) {drink.size = "Medium";}
         if (sizeSelected == 3) {drink.size = "Large";}
+        StateContainer.itemToCustomize.category = "combo";
+        NavigationManager.NavigateTo("/Browse");
+        NavigationManager.NavigateTo("/Customize");
         MudDialog.Close(DialogResult.Ok(true));
     }
     
@@ -165,6 +169,7 @@
         
         if (I.category == "sides") {
             side = I;
+            StateContainer.itemToCustomize.side = side;
             if (I.name == "French Fries") {
                 choosingSide = false;
                 choosingSize = true;
@@ -182,6 +187,7 @@
 
         if (I.category == "drinks") {
             drink = I;
+            StateContainer.itemToCustomize.drink = drink;
             choosingSize = true;
             choosingDrink = false;
         }
