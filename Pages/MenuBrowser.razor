@@ -17,7 +17,7 @@
             <MudLink Href="/Customize">
             <MudCard @onclick="() => {StateContainer.itemToCustomize = item;}">
            
-                <MudCardContent> @*link to feature on click here*@
+                <MudCardContent style="@(item.category != "drinks" ? "height: 150px;" : item.category == "drinks" ? "height: 230px;" : null)"> @*link to feature on click here*@
                     <MudImage Fluid="true" Src="@item.image" Class="d-block mx-auto rounded-lg"/>
                     <MudText Typo="Typo.subtitle1" Align="Align.Center" Class="px-5"><b>@item.name</b></MudText>
                     <table Class="mx-auto">

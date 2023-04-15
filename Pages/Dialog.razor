@@ -22,7 +22,7 @@
                 @foreach (var item in currentMenu) {
                     <MudItem xs="4" Elevation="0">
                         <MudCard @onclick="() => checkType(item)">
-                            <MudCardContent>
+                            <MudCardContent style="@(item.category == "sides" ? "height: 150px;" : item.category == "drinks" ? "height: 230px;" : null)">
                                 <MudImage Fluid="true" Src="@item.image" Class="d-block mx-auto"/>
                                 <MudText Typo="Typo.subtitle1" Align="Align.Center" Class="px-5"><b>@item.name</b></MudText>
                                 <table Class="mx-auto">
@@ -78,12 +78,12 @@
                     </tr>
                 </table>
             }
-            @if(choosingSalt) {<MudButton Variant="Variant.Filled" Color="Color.Warning" FullWidth="true" class="mt-10" @onclick="() => DrinkMenu()">Confirm Modifications</MudButton>}
-            @if(!choosingSalt) {<MudButton Variant="Variant.Filled" Color="Color.Warning" FullWidth="true" class="mt-10" @onclick="() => Submit()">Confirm Modifications</MudButton>}
+            @if(choosingSalt) {<MudButton Variant="Variant.Filled" Color="Color.Warning" FullWidth="true" class="mt-10" @onclick="() => DrinkMenu()">Next</MudButton>}
+            @if(!choosingSalt) {<MudButton Variant="Variant.Filled" Color="Color.Warning" FullWidth="true" class="mt-10" @onclick="() => Submit()">Next</MudButton>}
         }
 
         @if (choosingSauces) {
-            <MudText Typo="Typo.h4" Align="Align.Center" Class="px-5 pt-10 mb-5" style="color:#ffffff;"><b>Select your sauces:</b></MudText>
+            <MudText Typo="Typo.h4" Align="Align.Center" Class="px-5 pt-10 mb-5" style="color:#ffffff;"><b>Select up to 3 sauces:</b></MudText>
             <MudChipSet @bind-SelectedChips="selected" MultiSelection="true" class="d-flex justify-center">
                 <MudChip Variant="Variant.Filled" Size="Size.Large" Text="BBQ" Color="Color.Dark" SelectedColor="Color.Warning"></MudChip>
                 <MudChip Variant="Variant.Filled" Size="Size.Large" Text="Ketchup" Color="Color.Dark" SelectedColor="Color.Warning"></MudChip>
@@ -100,7 +100,7 @@
                 }
                 else if (selected != null && selected.Length>0) {
                     <MudText Typo="Typo.h6" Color="Color.Warning">You selected @string.Join(", ", selected.Select(chip=>chip.Text)).</MudText>
-                    <MudButton Variant="Variant.Filled" Color="Color.Warning" FullWidth="true" class="mt-10" @onclick="() => DrinkMenu()">Confirm Sauces</MudButton>
+                    <MudButton Variant="Variant.Filled" Color="Color.Warning" FullWidth="true" class="mt-10" @onclick="() => DrinkMenu()">Next</MudButton>
                 }
                 else {
                     <MudText Typo="Typo.h6" Color="Color.Warning">Nothing selected.</MudText>
@@ -145,6 +145,43 @@
         NavigationManager.NavigateTo("/Browse");
         NavigationManager.NavigateTo("/Customize");
         MudDialog.Close(DialogResult.Ok(true));
+
+        MenuItem tempItem = new MenuItem() {  
+                ID = 3, 
+                category = "combo", 
+                name = "Schooper Burger",
+                side = new MenuItem() { 
+                    ID = 3, 
+                    category = "sides", 
+                    name = "Poutine", 
+                    price = 5.99m, 
+                    image = "/resources/frenchfries.png", 
+                    imageSm = "/resources/frenchfries.png", 
+                    imageLg = "/resources/frenchfries.png", 
+                }, 
+                drink = new MenuItem() { 
+                    ID = 3, 
+                    category = "drinks",
+                    name = "Coke", 
+                    price = 5.99m,   
+                    image = "/resources/Coke.png", 
+                    imageSm = "/resources/Coke.png", 
+                    imageLg = "/resources/Coke.png", 
+                },
+                price = 12.49m, 
+                image = "/resources/combo.png",  
+                imageSm = "/resources/combo.png", 
+                imageLg = "/resources/combo.png", 
+                Ingredients = new List<Ingredient> {},
+                description = "Our world famous contains cheese curds imported directly from Quebec, hand churned to perfections. The gravy is an in house blend, with a secret recipe to wake up your taste buds",
+                Calories = 450
+            };
+
+        StateContainer.itemToCustomize = tempItem;
+        NavigationManager.NavigateTo("/browse/burgers");
+        StateContainer.AddMenuItemToOrder();
+        StateHasChanged();
+
     }
     
     void Cancel() => MudDialog.Cancel();
