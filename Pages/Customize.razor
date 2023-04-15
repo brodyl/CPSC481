@@ -7,33 +7,33 @@
 
 <link href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" rel="stylesheet">
 
-<MudButton Variant="Variant.Filled" Color="Color.Error" Class="mx-5 my-10" Size="Size.Large" @onclick="@(() => { 
-  NavigationManager.NavigateTo("/browse/burgers");
-  })">Back</MudButton>
-
 <div style="margin:auto; text-align:center; width:80%;">
   @if (@StateContainer.itemToCustomize.category == "combo")  
   {
-  <MudGrid>
-    <MudItem xs="4">
-        <MudPaper Class="d-flex align-center justify-center mud-width-full py-8" style="background-color:#1c1f22;">
-          <MudImage Elevation="16" style="height: 200px; border-radius: 30px; border: 5px solid #7e6fff;" src="@StateContainer.itemToCustomize.imageLg" alt="" />
-        </MudPaper>
-    </MudItem>
-    <MudItem xs="4">
-        <MudPaper Class="d-flex align-center justify-center mud-width-full py-8" style="background-color:#1c1f22;">
-          <MudImage Elevation="16" style="height: 200px; border-radius: 30px; border: 5px solid #7e6fff;" src="@StateContainer.itemToCustomize.side.image" alt="" />
-        </MudPaper>
-    </MudItem>
-    <MudItem xs="4">
-        <MudPaper Class="d-flex align-center justify-center mud-width-full py-8" style="background-color:#1c1f22;">
-          <MudImage Elevation="16" style="height: 200px; border-radius: 30px; border: 5px solid #7e6fff;" src="@StateContainer.itemToCustomize.drink.image" alt="" />
-        </MudPaper>
-    </MudItem>
-  </MudGrid>
+  <div style="display: flex; justify-content: flex-start;">
+    <MudButton style="height: 30px;" Variant="Variant.Filled" Color="Color.Error" Class="mx-5 my-10" Size="Size.Large" @onclick="@(() => { NavigationManager.NavigateTo("/browse/burgers"); })">Back</MudButton>
+    <MudGrid>
+      <MudItem xs="4">
+          <MudPaper Class="d-flex align-center justify-center mud-width-full py-8" style="background-color:#1c1f22;">
+            <MudImage Elevation="16" style="height: 200px; border-radius: 30px; border: 5px solid #7e6fff;" src="@StateContainer.itemToCustomize.imageLg" alt="" />
+          </MudPaper>
+      </MudItem>
+      <MudItem xs="4">
+          <MudPaper Class="d-flex align-center justify-center mud-width-full py-8" style="background-color:#1c1f22;">
+            <MudImage Elevation="16" style="height: 200px; border-radius: 30px; border: 5px solid #7e6fff;" src="@StateContainer.itemToCustomize.side.image" alt="" />
+          </MudPaper>
+      </MudItem>
+      <MudItem xs="4">
+          <MudPaper Class="d-flex align-center justify-center mud-width-full py-8" style="background-color:#1c1f22;">
+            <MudImage Elevation="16" style="height: 200px; border-radius: 30px; border: 5px solid #7e6fff;" src="@StateContainer.itemToCustomize.drink.image" alt="" />
+          </MudPaper>
+      </MudItem>
+    </MudGrid>
+  </div>
   } else 
   {
-  <div>
+  <div style="display: flex; justify-content: flex-start;">
+    <MudButton style="height: 30px;" Variant="Variant.Filled" Color="Color.Error" Class="mx-5 my-10" Size="Size.Large" @onclick="@(() => { NavigationManager.NavigateTo("/browse/burgers"); })">Back</MudButton>
     <MudImage Elevation="16" style="width: 60%; border-radius: 100px; border: 15px solid #7e6fff;" src="@StateContainer.itemToCustomize.imageLg" alt="" />
   </div>
   }
