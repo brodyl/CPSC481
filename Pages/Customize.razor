@@ -7,6 +7,10 @@
 
 <link href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" rel="stylesheet">
 
+<MudButton Variant="Variant.Filled" Color="Color.Error" Class="mx-5 my-10" Size="Size.Large" @onclick="@(() => { 
+  NavigationManager.NavigateTo("/browse/burgers");
+  })">Back</MudButton>
+
 <div style="margin:auto; text-align:center; width:80%;">
   @if (@StateContainer.itemToCustomize.category == "combo")  
   {
@@ -18,12 +22,12 @@
     </MudItem>
     <MudItem xs="4">
         <MudPaper Class="d-flex align-center justify-center mud-width-full py-8" style="background-color:#1c1f22;">
-          <MudImage Elevation="16" style="height: 200px; border-radius: 30px; border: 5px solid #7e6fff;" src="@StateContainer.itemToCustomize.side.imageLg" alt="" />
+          <MudImage Elevation="16" style="height: 200px; border-radius: 30px; border: 5px solid #7e6fff;" src="@StateContainer.itemToCustomize.side.image" alt="" />
         </MudPaper>
     </MudItem>
     <MudItem xs="4">
         <MudPaper Class="d-flex align-center justify-center mud-width-full py-8" style="background-color:#1c1f22;">
-          <MudImage Elevation="16" style="height: 200px; border-radius: 30px; border: 5px solid #7e6fff;" src="@StateContainer.itemToCustomize.drink.imageLg" alt="" />
+          <MudImage Elevation="16" style="height: 200px; border-radius: 30px; border: 5px solid #7e6fff;" src="@StateContainer.itemToCustomize.drink.image" alt="" />
         </MudPaper>
     </MudItem>
   </MudGrid>
@@ -114,10 +118,9 @@
     <MudButton @onclick="() => launchComboPage()" Style="margin-top:5%; margin-right: 50px; width: auto; height: 50px; font-size: large; color: black" Color="Color.Warning">Make it a Combo</MudButton>
     <MudButton OnClick="AddMenuItemToOrder" Style="margin-top:5%; margin-left: 50px; width: auto; height: 50px; font-size: large; color: black" Color="Color.Warning">Add to Order</MudButton>
     -->
-    <MudButton @onclick="() => launchComboPage()" Variant="Variant.Filled" Color="Color.Warning" Class="mx-5 my-10" Size="Size.Large"><b></b>
-      @(StateContainer.itemToCustomize.category != "combo" ? "Make it a Combo" : (StateContainer.itemToCustomize.category == "combo" ? "Edit Combo" : null))
-    </MudButton>
-    <MudButton Variant="Variant.Filled" Color="Color.Warning" Class="mx-5 my-10" Size="Size.Large" @onclick="@(() => {
+    @if (StateContainer.itemToCustomize.category != "combo") {<MudButton @onclick="() => launchComboPage()" Variant="Variant.Filled" Color="Color.Warning" Class="mx-5 my-10" Size="Size.Large"><b>Make it a Combo</b></MudButton>}
+    @if (StateContainer.itemToCustomize.category == "combo") {<MudButton @onclick="() => launchComboPage()" Variant="Variant.Filled" Color="Color.Error" Class="mx-5 my-10" Size="Size.Large"><b>Edit Combo</b></MudButton>}
+    <MudButton Variant="Variant.Filled" Color="Color.Tertiary" Class="mx-5 my-10" Size="Size.Large" @onclick="@(() => {
         Snackbar.Add("This item has been added to your order", Severity.Success);
         AddMenuItemToOrder();
         NavigationManager.NavigateTo("/browse/burgers");
