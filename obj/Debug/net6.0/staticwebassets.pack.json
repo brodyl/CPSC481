@@ -117,6 +117,10 @@
       "PackagePath": "staticwebassets/resources/coffee.png"
     },
     {
+      "Id": "/Users/azhar/Documents/GitHub/Brody1/wwwroot/resources/combo.png",
+      "PackagePath": "staticwebassets/resources/combo.png"
+    },
+    {
       "Id": "/Users/azhar/Documents/GitHub/Brody1/wwwroot/resources/dietcoke.png",
       "PackagePath": "staticwebassets/resources/dietcoke.png"
     },
@@ -227,6 +231,10 @@
     {
       "Id": "/Users/azhar/Documents/GitHub/Brody1/wwwroot/resources/poutine.png",
       "PackagePath": "staticwebassets/resources/poutine.png"
+    },
+    {
+      "Id": "/Users/azhar/Documents/GitHub/Brody1/wwwroot/resources/poutineLg.png",
+      "PackagePath": "staticwebassets/resources/poutineLg.png"
     },
     {
       "Id": "/Users/azhar/Documents/GitHub/Brody1/wwwroot/resources/queenburger.png",

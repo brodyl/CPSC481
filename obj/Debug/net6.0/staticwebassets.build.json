@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "DNVwg1ZnqC2vHw1kjvARwPDhzLnlnL5ASI50pIJBQ8g=",
+  "Hash": "Zf439UxUYu3eRS94dbdwJuHYN3Lm2DlWdl+q64O4WCk=",
   "Source": "MyApplication",
   "BasePath": "/",
   "Mode": "Root",
@@ -7361,6 +7361,23 @@
       "OriginalItemSpec": "wwwroot/resources/Coke.png"
     },
     {
+      "Identity": "/Users/azhar/Documents/GitHub/Brody1/wwwroot/resources/combo.png",
+      "SourceId": "MyApplication",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/azhar/Documents/GitHub/Brody1/wwwroot/",
+      "BasePath": "/",
+      "RelativePath": "resources/combo.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/resources/combo.png"
+    },
+    {
       "Identity": "/Users/azhar/Documents/GitHub/Brody1/wwwroot/resources/dietcoke.png",
       "SourceId": "MyApplication",
       "SourceType": "Discovered",
@@ -7835,6 +7852,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/resources/poutine.png"
+    },
+    {
+      "Identity": "/Users/azhar/Documents/GitHub/Brody1/wwwroot/resources/poutineLg.png",
+      "SourceId": "MyApplication",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/azhar/Documents/GitHub/Brody1/wwwroot/",
+      "BasePath": "/",
+      "RelativePath": "resources/poutineLg.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/resources/poutineLg.png"
     },
     {
       "Identity": "/Users/azhar/Documents/GitHub/Brody1/wwwroot/resources/queenburger.png",

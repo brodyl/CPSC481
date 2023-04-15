@@ -13,7 +13,9 @@
 <link href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" rel="stylesheet">
 
 <MudLayout style="background-color:#1c1f22;">
-    <MudTabs Elevation="4" Rounded="true" Centered="true" Color="@Color.Warning" style="color: #ffffff; position: sticky; top: 0; z-index: 100;">
+    <div style="display: flex; justify-content: flex-start;">
+    <MudIconButton @onclick="HelpDialog" Icon="@Icons.Material.Filled.Help" Variant="Variant.Outlined" Color="Color.Warning" Size="Size.Large" />
+    <MudTabs Elevation="4" Rounded="true" Centered="true" Color="@Color.Warning" style="color: #ffffff; position: sticky; top: 0; z-index: 100; width: 100%;">
         <MudTabPanel @onclick="@(() => NavigationManager.NavigateTo($"/fetchdata", false))" Text="Features" Icon="fas fa-grin-stars" />
         <MudTabPanel @onclick="@(() => NavigationManager.NavigateTo($"/browse/burgers", false))" Text="Burgers" Icon="fas fa-hamburger" />
         <MudTabPanel @onclick="@(() => NavigationManager.NavigateTo($"/browse/sides", false))" Text="Sides" Icon="fas fa-drumstick-bite" />
@@ -21,6 +23,7 @@
         <MudTabPanel @onclick="@(() => NavigationManager.NavigateTo($"/browse/kids", false))" Text="Kids Meal" Icon="fas fa-child" />
         <MudTabPanel @onclick="@(() => NavigationManager.NavigateTo($"/browse/value", false))" Text="Value Deals" Icon="fas fa-piggy-bank" />
     </MudTabs>
+    </div>
 
 @if (open) {
     <MudDrawer @bind-Open="@open" Elevation="1" Variant="@DrawerVariant.Persistent" Color="Color.Primary" Anchor="@_anchor" DisableOverlay="true" Style="left: 0; top:auto; bottom: 0; width: 100%; height: auto">
@@ -94,8 +97,20 @@
         return @StateContainer._items.Sum(item => item.Quantity * item.menuItem.price);
     }
 
-    private void restartOrder() {
-        StateContainer.restartOrder();
-        NavigationManager.NavigateTo("/");
+    private async Task restartOrder() {
+        var options = new DialogOptions { CloseOnEscapeKey = true };
+        var parameters = new DialogParameters();        
+        parameters.Add("ContentText", "Are you sure you want to Restart the order? All items will be removed if you do.");
+        parameters.Add("ButtonText", "Yes");
+        var dialogResult = DialogService.Show <DialogConfirm> ("Confirm", parameters);
+        var result = await dialogResult.Result;
+        if (!result.Cancelled && bool.TryParse(result.Data.ToString(), out bool resultbool)) {
+            StateContainer.restartOrder();
+            NavigationManager.NavigateTo("/");
+        }
+    }
+
+    private void HelpDialog() {
+        
     }
 }

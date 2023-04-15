@@ -67,7 +67,8 @@ td{
   <div style="text-align: center;width:100%; max-height:400px;overflow-y:scroll;">
   <!--<div style="text-align: center;width:100%; max-height:400px;overflow-y:scroll; border: 2px solid black;">-->
 
-
+@if (@StateContainer.itemToCustomize.category == "burger")
+{
     <table id="Ingredients-table" class="table" style="border-collapse: collapse; width:100%;">
       <!--
       <thead>
@@ -118,6 +119,14 @@ td{
 }
       </tbody>
     </table>
+} else if (@StateContainer.itemToCustomize.category == "drinks"){
+
+
+
+
+
+
+}
   </div>
 
   <div style="position: sticky; bottom: 4rem; align-self: flex-end;">

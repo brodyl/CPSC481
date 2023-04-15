@@ -6,16 +6,6 @@
 
 <PageTitle>Menu Browsing</PageTitle>
 
-@*
-<MudTabs Elevation="4" Rounded="true" Centered="true" Color="@Color.Primary">
-    <MudTabPanel Text="Features" Icon="fas fa-grin-stars" Color="Color.Secondary"/>
-    <MudTabPanel @onclick="BurgerMenu" Text="Burgers" Icon="fas fa-hamburger" Color="Color.Secondary"/>
-    <MudTabPanel @onclick="SidesMenu" Text="Sides" Icon="fas fa-drumstick-bite" Color="Color.Secondary"/>
-    <MudTabPanel @onclick="DrinkMenu" Text="Drinks" Icon="fas fa-glass-whiskey" Color="Color.Secondary"/>
-    <MudTabPanel @onclick="KidsMenu" Text="Kids Meal" Icon="fas fa-child" Color="Color.Secondary"/>
-    <MudTabPanel @onclick="ValueMenu" Text="Value Deals" Icon="fas fa-piggy-bank" Color="Color.Secondary"/>
-</MudTabs>
-*@
 
 <MudGrid Class="d-flex align-center overflow-scroll" Height="100">
     <MudItem xs="12" Class="mt-6">
@@ -27,7 +17,7 @@
             <MudLink Href="/Customize">
             <MudCard @onclick="() => {StateContainer.itemToCustomize = item;}">
 
-                <MudCardContent> @*link to feature on click here*@
+                <MudCardContent style="@(item.category != "drinks" ? "height: 150px;" : item.category == "drinks" ? "height: 230px;" : null)"> @*link to feature on click here*@
                     <MudImage Fluid="true" Src="@item.image" Class="d-block mx-auto rounded-lg"/>
                     <MudText Typo="Typo.subtitle1" Align="Align.Center" Class="px-5"><b>@item.name</b></MudText>
                     <table Class="mx-auto">
