@@ -79,6 +79,9 @@
     private Ingredient pickle = new Ingredient { Name = "Pickle", Quantity = "Regular" };
     private Ingredient veganMayo = new Ingredient { Name = "Vegan Mayo", Quantity = "Regular" };
     private Ingredient avocado = new Ingredient { Name = "Avocado", Quantity = "Regular" };
+
+    private Ingredient drinkandside = new Ingredient { Name = "size", Size = "Medium" };
+
     private Ingredient veganChipotleMayo = new Ingredient { Name = "Vegan Chipotle Mayo", Quantity = "Regular" };
 
     public void BurgerMenu() {
@@ -144,20 +147,51 @@
 
 
     public void DrinkMenu() {
-        currentMenu.Clear();
-        featureItem = "/resources/milkshakebanner.png";
-        currentMenu.Add(new MenuItem() { category = "drinks", ID = 1, name = "Hersheys Milkshake", price = 5, image = "/resources/chocolatemilkshake.png", tags="popular"});
-        currentMenu.Add(new MenuItem() { category = "drinks", ID = 1, name = "Vanilla Milkshake", price = 5, image = "/resources/vanillamilkshake.png", tags=""});
-        currentMenu.Add(new MenuItem() { category = "drinks", ID = 1, name = "Oreo Milkshake", price = 5, image = "/resources/oreomilkshake.png", tags="popular"});
-        currentMenu.Add(new MenuItem() { category = "drinks", ID = 1, name = "Strawberry Milkshake", price = 5, image = "/resources/strawberrymilkshake.png", tags="popular"});
-        currentMenu.Add(new MenuItem() { category = "drinks", ID = 1, name = "Coke", price = 2, image = "/resources/coke.png", tags="popular"});
-        currentMenu.Add(new MenuItem() { category = "drinks", ID = 1, name = "Diet Coke", price = 2, image = "/resources/dietcoke.png", tags=""});
-        currentMenu.Add(new MenuItem() { category = "drinks", ID = 1, name = "Sprite", price = 2, image = "/resources/sprite.png", tags=""});
-        currentMenu.Add(new MenuItem() { category = "drinks", ID = 1, name = "Root Beer", price = 2, image = "/resources/rootbeer.png", tags="popular"});
-        currentMenu.Add(new MenuItem() { category = "drinks", ID = 1, name = "Iced Tea", price = 2, image = "/resources/icedtea.png", tags="popular"});
-        currentMenu.Add(new MenuItem() { category = "drinks", ID = 1, name = "Fruitopia", price = 2, image = "/resources/fruitopia.png", tags=""});
-        currentMenu.Add(new MenuItem() { category = "drinks", ID = 1, name = "Bottled Water", price = 2, image = "/resources/water.png", tags=""});
-    }
+    currentMenu.Clear();
+    featureItem = "/resources/milkshakebanner.png";
+
+    currentMenu.Add(new MenuItem() { category = "drinks", ID = 1, name = "Hersheys Milkshake", price = 5, image = "/resources/chocolatemilkshake.png", tags="popular",
+        description = "Indulge in a rich and creamy Hershey's Milkshake made with Hershey's chocolate syrup, blended with smooth vanilla ice cream and milk, topped with a swirl of whipped cream. A chocolate lover's dream come true!",
+        Calories = 640});
+
+    currentMenu.Add(new MenuItem() { category = "drinks", ID = 2, name = "Vanilla Milkshake", price = 5, image = "/resources/vanillamilkshake.png", tags="",
+        description = "Savor the classic taste of a Vanilla Milkshake made with premium vanilla ice cream, cold milk, and a hint of sugar, blended to perfection. Simple, yet satisfying!",
+        Calories = 550});
+
+    currentMenu.Add(new MenuItem() { category = "drinks", ID = 3, name = "Oreo Milkshake", price = 5, image = "/resources/oreomilkshake.png", tags="popular",
+        description = "Experience the irresistible Oreo Milkshake, featuring delicious vanilla ice cream, milk, and crushed Oreo cookies, blended together for a delightful cookies and cream flavor.",
+        Calories = 580});
+
+    currentMenu.Add(new MenuItem() { category = "drinks", ID = 4, name = "Strawberry Milkshake", price = 5, image = "/resources/strawberrymilkshake.png", tags="popular",
+        description = "Enjoy a refreshing Strawberry Milkshake made with sweet strawberries, velvety vanilla ice cream, and milk, blended to create a perfect fruity and creamy delight.",
+        Calories = 490});
+
+    currentMenu.Add(new MenuItem() { category = "drinks", ID = 5, name = "Coke", price = 2, image = "/resources/coke.png", tags="popular",
+        description = "Quench your thirst with an ice-cold Coca-Cola, the classic, bubbly beverage that pairs perfectly with any meal.",
+        Calories = 140});
+
+    currentMenu.Add(new MenuItem() { category = "drinks", ID = 6, name = "Diet Coke", price = 2, image = "/resources/dietcoke.png", tags="",
+        description = "Stay refreshed with Diet Coke, a calorie-free alternative to the classic Coca-Cola, offering the same great taste without the guilt.",
+        Calories = 0});
+
+    currentMenu.Add(new MenuItem() { category = "drinks", ID = 7, name = "Sprite", price = 2, image = "/resources/sprite.png", tags="",
+        description = "Brighten your day with a cool and crisp Sprite, a lemon-lime soda that's perfect for cleansing your palate and energizing your taste buds.",
+        Calories = 140});
+
+    currentMenu.Add(new MenuItem() { category = "drinks", ID = 8, name = "Root Beer", price = 2, image = "/resources/rootbeer.png", tags="popular",
+        description = "Savor the unique flavor of a frosty Root Beer, a timeless carbonated beverage featuring a blend of herbs, spices, and sweeteners that create a rich and satisfying taste.",
+        Calories = 160});
+
+    currentMenu.Add(new MenuItem() { category = "drinks", ID = 9, name = "Iced Tea", price = 2, image = "/resources/icedtea.png", tags="popular",
+description = "Refresh yourself with a glass of Iced Tea, a classic drink made from freshly brewed tea leaves and chilled to perfection. Served with a slice of lemon for a zesty twist.",
+Calories = 90});
+
+currentMenu.Add(new MenuItem() { category = "drinks", ID = 10, name = "Fruitopia", price = 2, image = "/resources/fruitopia.png", tags="",
+    description = "Delight in the fruity taste of Fruitopia, a delicious fruit-flavored beverage that's bursting with a variety of natural fruit flavors. A perfect way to satisfy your sweet cravings.",
+    Calories = 120});
+
+
+}
 
     public void SidesMenu() {
         currentMenu.Clear();

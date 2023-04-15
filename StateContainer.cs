@@ -23,6 +23,7 @@ public class StateContainer
     private static Ingredient veganMayo = new Ingredient { Name = "Vegan Mayo", Quantity = "Regular" };
     private static Ingredient avocado = new Ingredient { Name = "Avocado", Quantity = "Regular" };
     private static Ingredient veganChipotleMayo = new Ingredient { Name = "Vegan Chipotle Mayo", Quantity = "Regular" };
+    private Ingredient drinkandside = new Ingredient { Name = "", Quantity = "Regular" };
 
 
     public List<Customer> _customers = new()
