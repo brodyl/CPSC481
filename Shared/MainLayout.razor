@@ -13,16 +13,18 @@
 <link href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" rel="stylesheet">
 
 <MudLayout style="background-color:#1c1f22;">
-    <div style="display: flex; justify-content: flex-start;">
-    <MudIconButton @onclick="HelpDialog" Icon="@Icons.Material.Filled.Help" Variant="Variant.Outlined" Color="Color.Warning" Size="Size.Large" />
-    <MudTabs Elevation="4" Rounded="true" Centered="true" Color="@Color.Warning" style="color: #ffffff; position: sticky; top: 0; z-index: 100; width: 100%;">
-        <MudTabPanel @onclick="@(() => NavigationManager.NavigateTo($"/fetchdata", false))" Text="Features" Icon="fas fa-grin-stars" />
-        <MudTabPanel @onclick="@(() => NavigationManager.NavigateTo($"/browse/burgers", false))" Text="Burgers" Icon="fas fa-hamburger" />
-        <MudTabPanel @onclick="@(() => NavigationManager.NavigateTo($"/browse/sides", false))" Text="Sides" Icon="fas fa-drumstick-bite" />
-        <MudTabPanel @onclick="@(() => NavigationManager.NavigateTo($"/browse/drinks", false))" Text="Drinks" Icon="fas fa-glass-whiskey" />
-        <MudTabPanel @onclick="@(() => NavigationManager.NavigateTo($"/browse/kids", false))" Text="Kids Meal" Icon="fas fa-child" />
-        <MudTabPanel @onclick="@(() => NavigationManager.NavigateTo($"/browse/value", false))" Text="Value Deals" Icon="fas fa-piggy-bank" />
-    </MudTabs>
+    <div style="background-color: #white; display: flex; justify-content: flex-start;position: sticky; top: 0; z-index: 100;">
+        <MudPaper style="background-color: #FFA000;">
+            <MudIconButton @onclick="HelpDialog" Icon="@Icons.Material.Filled.Help" Variant="Variant.Outlined" Style="height: 100%; border: 0px; color: #E3F2FD;" Size="Size.Large" />
+        </MudPaper>
+        <MudTabs Elevation="4" Rounded="true" Centered="true" Color="@Color.Warning" style="color: #ffffff; position: sticky; top: 0; z-index: 100; width: 100%;">
+            <MudTabPanel @onclick="@(() => NavigationManager.NavigateTo($"/fetchdata", false))" Text="Features" Icon="fas fa-grin-stars" />
+            <MudTabPanel @onclick="@(() => NavigationManager.NavigateTo($"/browse/burgers", false))" Text="Burgers" Icon="fas fa-hamburger" />
+            <MudTabPanel @onclick="@(() => NavigationManager.NavigateTo($"/browse/sides", false))" Text="Sides" Icon="fas fa-drumstick-bite" />
+            <MudTabPanel @onclick="@(() => NavigationManager.NavigateTo($"/browse/drinks", false))" Text="Drinks" Icon="fas fa-glass-whiskey" />
+            <MudTabPanel @onclick="@(() => NavigationManager.NavigateTo($"/browse/kids", false))" Text="Kids Meal" Icon="fas fa-child" />
+            <MudTabPanel @onclick="@(() => NavigationManager.NavigateTo($"/browse/value", false))" Text="Value Deals" Icon="fas fa-piggy-bank" />
+        </MudTabs>
     </div>
 
 @if (open) {
@@ -110,7 +112,23 @@
         }
     }
 
-    private void HelpDialog() {
-        
+    private async Task HelpDialog() {
+        var options = new DialogOptions { CloseOnEscapeKey = true };
+        var parameters = new DialogParameters();        
+        parameters.Add("ContentText", "Would you like to request assistance from an employee?");
+        parameters.Add("ButtonText", "Yes");
+        var dialogResult = DialogService.Show <DialogConfirm> ("Request Assistance", parameters);
+        var result = await dialogResult.Result;
+        if (!result.Cancelled && bool.TryParse(result.Data.ToString(), out bool resultbool)) {
+            //please wait for assistance dialog
+            var parameters2 = new DialogParameters();
+            parameters2.Add("ContentText", "Please wait for assistance. If you change your mind then you can click either 'cancel' or tap anywhere on the screen.");
+            parameters2.Add("ButtonText", "Cancel Request");
+            parameters2.Add("Color", Color.Error);
+
+            var options2 = new DialogOptions() { CloseButton = true, MaxWidth = MaxWidth.ExtraSmall };
+
+            DialogService.Show<DialogConfirm_assistance>("A friendly employee is on their way!", parameters2, options2);
+        }
     }
 }
