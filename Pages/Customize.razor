@@ -165,15 +165,18 @@
       if (Ingredient.Quantity == "Large")
       {
         Ingredient.Quantity = "Medium";
+        StateContainer.itemToCustomize.price-=1;
       }
       else if (Ingredient.Quantity == "Medium")
       {
         Ingredient.Quantity = "Small";
+        StateContainer.itemToCustomize.price-=1;
     }}else
     {
     if (Ingredient.Quantity == "Extra")
     {
       Ingredient.Quantity = "Regular";
+      
     }
     else if (Ingredient.Quantity == "Regular")
     {
@@ -189,10 +192,12 @@
       if (Ingredient.Quantity == "Small")
       {
         Ingredient.Quantity = "Medium";
+        StateContainer.itemToCustomize.price+=1;
       }
       else if (Ingredient.Quantity == "Medium")
       {
         Ingredient.Quantity = "Large";
+        StateContainer.itemToCustomize.price+=1;
     }}else
     {
         if(Ingredient.Quantity == "Less")

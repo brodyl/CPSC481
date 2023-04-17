@@ -138,9 +138,9 @@
     
 
     public void Submit() {
-        if (sizeSelected == 1) {drink.size = "Small";}
+        if (sizeSelected == 1) {drink.size = "Small";StateContainer.itemToCustomize.drink.price-=1;}
         if (sizeSelected == 2) {drink.size = "Medium";}
-        if (sizeSelected == 3) {drink.size = "Large";}
+        if (sizeSelected == 3) {drink.size = "Large";StateContainer.itemToCustomize.drink.price+=1;}
         StateContainer.itemToCustomize.category = "combo";
         NavigationManager.NavigateTo("/Browse");
         NavigationManager.NavigateTo("/Customize");
@@ -152,7 +152,7 @@
                 name = StateContainer.itemToCustomize.name,
                 side = StateContainer.itemToCustomize.side, 
                 drink = StateContainer.itemToCustomize.drink,
-                price = 12.49m, 
+                price = StateContainer.itemToCustomize.price + StateContainer.itemToCustomize.side.price+ StateContainer.itemToCustomize.drink.price - 3,
                 image = "/resources/combo.png",  
                 imageSm = "/resources/combo.png", 
                 imageLg = "/resources/combo.png", 
