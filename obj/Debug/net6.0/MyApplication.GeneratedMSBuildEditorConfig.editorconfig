@@ -48,6 +48,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTWVudUJyb3dzZXIucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/Harrison/OneDrive/Documents/GitHub/CPSC481/Pages/Receipt.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUmVjZWlwdC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Harrison/OneDrive/Documents/GitHub/CPSC481/Pages/Serve.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2VydmUucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
@@ -66,6 +70,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/Harrison/OneDrive/Documents/GitHub/CPSC481/Shared/DialogDescription.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXERpYWxvZ0Rlc2NyaXB0aW9uLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Harrison/OneDrive/Documents/GitHub/CPSC481/Shared/DialogEmail.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXERpYWxvZ0VtYWlsLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Harrison/OneDrive/Documents/GitHub/CPSC481/Shared/EmptyLayout.razor]
