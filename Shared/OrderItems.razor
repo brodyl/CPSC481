@@ -162,7 +162,7 @@ else
                             </TooltipContent>
                         </MudTooltip>
                         &emsp; &emsp; &emsp; &emsp; &emsp; 
-                        @(context.menuItem.category != "combo" ? context.menuItem.name : (context.menuItem.category == "combo" ? context.menuItem.name + " + " + context.menuItem.side.name + " + " + context.menuItem.drink.name : null))
+                        @(context.menuItem.category != "combo" ? context.menuItem.name+context.menuItem.ID : (context.menuItem.category == "combo" ? context.menuItem.name + " + " + context.menuItem.side.name + " + " + context.menuItem.drink.name : null))
                     </span>
                     <span class="item-quantity">
                     <MudStack Row="true">

@@ -151,15 +151,29 @@
   // Method to increase the quantity of an Ingredient
   private void IncreaseQuantity(Ingredient Ingredient)
   {
-    if (Ingredient.Quantity == "Less")
+    if(Ingredient.Name=="Lettuce"){
+      if (Ingredient.Quantity == "Test")
+      {
+        Ingredient.Quantity = "Regular";
+      }
+      else if (Ingredient.Quantity == "Regular")
+      {
+        Ingredient.Quantity = "Test";
+    }}else
     {
-      Ingredient.Quantity = "Regular";
+        if(Ingredient.Quantity == "Less")
+      {
+        Ingredient.Quantity = "Regular";
+      }
+      else if (Ingredient.Quantity == "Regular")
+      {
+        Ingredient.Quantity = "Extra";
+      }
     }
-    else if (Ingredient.Quantity == "Regular")
-    {
-      Ingredient.Quantity = "Extra";
     }
-  }
+  
+  
+
 
   // Method to delete an Ingredient
   private void DeleteIngredient(Ingredient Ingredient)
