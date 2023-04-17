@@ -138,9 +138,9 @@
     
 
     public void Submit() {
-        if (sizeSelected == 1) {drink.size = "Small";}
+        if (sizeSelected == 1) {drink.size = "Small";StateContainer.itemToCustomize.drink.price-=1;}
         if (sizeSelected == 2) {drink.size = "Medium";}
-        if (sizeSelected == 3) {drink.size = "Large";}
+        if (sizeSelected == 3) {drink.size = "Large";StateContainer.itemToCustomize.drink.price+=1;}
         StateContainer.itemToCustomize.category = "combo";
         NavigationManager.NavigateTo("/Browse");
         NavigationManager.NavigateTo("/Customize");
@@ -149,32 +149,16 @@
         MenuItem tempItem = new MenuItem() {  
                 ID = 3, 
                 category = "combo", 
-                name = "Schooper Burger",
-                side = new MenuItem() { 
-                    ID = 3, 
-                    category = "sides", 
-                    name = "Poutine", 
-                    price = 5.99m, 
-                    image = "/resources/frenchfries.png", 
-                    imageSm = "/resources/frenchfries.png", 
-                    imageLg = "/resources/frenchfries.png", 
-                }, 
-                drink = new MenuItem() { 
-                    ID = 3, 
-                    category = "drinks",
-                    name = "Coke", 
-                    price = 5.99m,   
-                    image = "/resources/Coke.png", 
-                    imageSm = "/resources/Coke.png", 
-                    imageLg = "/resources/Coke.png", 
-                },
-                price = 12.49m, 
+                name = StateContainer.itemToCustomize.name,
+                side = StateContainer.itemToCustomize.side, 
+                drink = StateContainer.itemToCustomize.drink,
+                price = StateContainer.itemToCustomize.price + StateContainer.itemToCustomize.side.price+ StateContainer.itemToCustomize.drink.price - 3,
                 image = "/resources/combo.png",  
                 imageSm = "/resources/combo.png", 
                 imageLg = "/resources/combo.png", 
                 Ingredients = new List<Ingredient> {},
-                description = "Our world famous contains cheese curds imported directly from Quebec, hand churned to perfections. The gravy is an in house blend, with a secret recipe to wake up your taste buds",
-                Calories = 450
+                description = StateContainer.itemToCustomize.description +"\r\n" +StateContainer.itemToCustomize.side.description+ StateContainer.itemToCustomize.drink.description,
+                Calories = StateContainer.itemToCustomize.Calories + StateContainer.itemToCustomize.side.Calories+ StateContainer.itemToCustomize.drink.Calories
             };
 
         StateContainer.itemToCustomize = tempItem;
@@ -188,15 +172,52 @@
 
     public void SidesMenu() {
         currentMenu.Clear();
-        currentMenu.Add(new MenuItem() { category = "sides", ID = 1, name = "8pc Chicken Nuggets", price = 6, image = "/resources/chickennuggets.png", tags="popular"});
-        currentMenu.Add(new MenuItem() { category = "sides", ID = 2, name = "Poutine", price = 7, image = "/resources/poutine.png", tags=""});
-        currentMenu.Add(new MenuItem() { category = "sides", ID = 3, name = "Spicy Loaded Poutine", price = 9, image = "/resources/spicyloadedpoutine.png", tags="popular/spicy"});
-        currentMenu.Add(new MenuItem() { category = "sides", ID = 4, name = "French Fries", price = 5, image = "/resources/frenchfries.png", tags=""});
-        currentMenu.Add(new MenuItem() { category = "sides", ID = 5, name = "Onion Rings", price = 5, image = "/resources/onionrings.png", tags=""});
-        currentMenu.Add(new MenuItem() { category = "sides", ID = 6, name = "Chicken Fries", price = 7, image = "/resources/chickenfries.png", tags="popular"});
-        currentMenu.Add(new MenuItem() { category = "sides", ID = 7, name = "8pc Dill Pickle Nuggets", price = 5, image = "/resources/chickennuggets.png", tags="vegetarian"});
-        currentMenu.Add(new MenuItem() { category = "sides", ID = 8, name = "Loaded Baked Potato", price = 8, image = "/resources/bakedpotato.png", tags=""});
-        currentMenu.Add(new MenuItem() { category = "sides", ID = 9, name = "Signature Chilli", price = 6, image = "/resources/chilli.png", tags=""});
+    
+        currentMenu.Add(new MenuItem() { category = "sides", ID = 1, name = "8pc Chicken Nuggets", price = 6, image = "/resources/chickennuggets.png", tags="popular",
+            Ingredients = new List<Ingredient> {},
+            description = "Enjoy 8 of our classic chicken nuggets, made with 100% seasoned chicken breast and no artificial flavours, colours or preservatives.",
+            Calories = 400
+        });
+        currentMenu.Add(new MenuItem() { category = "sides", ID = 2, name = "Poutine", price = 7, image = "/resources/poutine.png", tags="",
+            Ingredients = new List<Ingredient> {},
+            description = "Our world famous poutine contains cheese curds imported directly from Quebec, hand churned to perfection. The gravy is an in house blend, with a secret recipe to wake up your taste buds.",
+            Calories = 850
+        });
+        currentMenu.Add(new MenuItem() { category = "sides", ID = 3, name = "Spicy Loaded Poutine", price = 9, image = "/resources/spicyloadedpoutine.png", tags="popular/spicy",
+            Ingredients = new List<Ingredient> {},
+            description = "Our world famous poutine with a twist. It still contains cheese curds imported directly from Quebec, but now they are paired with spicy pairings that are sure to have you coming back for more.",
+            Calories = 950
+        });
+        currentMenu.Add(new MenuItem() { category = "sides", ID = 4, name = "French Fries", price = 5, image = "/resources/frenchfries.png", tags="",
+            Ingredients = new List<Ingredient> {},
+            description = "Our world famous fries are always a delicious choice. Cut from whole potatoes grown on Canadian farms, our fries are cooked to golden perfection in a vegetable oil blend.",
+            Calories = 350
+        });
+        currentMenu.Add(new MenuItem() { category = "sides", ID = 5, name = "Onion Rings", price = 5, image = "/resources/onionrings.png", tags="",
+            Ingredients = new List<Ingredient> {},
+            description = "Savour our crispy onion rings that you will have you coming back again and again. Sweet onions wrapped in a crunch of perfectly crispy panko breading is sure to satisfy your taste buds.",
+            Calories = 390
+        });
+        currentMenu.Add(new MenuItem() { category = "sides", ID = 6, name = "Chicken Fries", price = 7, image = "/resources/chickenfries.png", tags="popular",
+            Ingredients = new List<Ingredient> {},
+            description = "Our world famous fries meet our classic chicken nuggets in our delicious chicken fries.",
+            Calories = 300
+        });
+        currentMenu.Add(new MenuItem() { category = "sides", ID = 7, name = "8pc Dill Pickle Nuggets", price = 5, image = "/resources/chickennuggets.png", tags="vegetarian",
+            Ingredients = new List<Ingredient> {},
+            description = "A twist on 8 of our classic nuggets, made with pickles for a zesty experience like no other.",
+            Calories = 200
+        });
+        currentMenu.Add(new MenuItem() { category = "sides", ID = 8, name = "Loaded Baked Potato", price = 8, image = "/resources/bakedpotato.png", tags="",
+            Ingredients = new List<Ingredient> {},
+            description = "Craving something a little more filling for your side? Try our loaded baked potato which is sure to satisfy.",
+            Calories = 520
+        });
+        currentMenu.Add(new MenuItem() { category = "sides", ID = 9, name = "Signature Chilli", price = 6, image = "/resources/chilli.png", tags="",
+            Ingredients = new List<Ingredient> {},
+            description = "Our signature Chili speaks for itself!",
+            Calories = 750
+        });
     
         choosingSide = true;
         choosingDrink = false;
@@ -238,18 +259,66 @@
         if (selected != null) { side.dippingSauces = string.Join(" ", selected.Select(chip=>chip.Text));}
 
         currentMenu.Clear();
-        currentMenu.Add(new MenuItem() { category = "drinks", ID = 1, name = "Hersheys Milkshake", price = 5, image = "/resources/chocolatemilkshake.png", tags="popular"});
-        currentMenu.Add(new MenuItem() { category = "drinks", ID = 1, name = "Vanilla Milkshake", price = 5, image = "/resources/vanillamilkshake.png", tags=""});
-        currentMenu.Add(new MenuItem() { category = "drinks", ID = 1, name = "Oreo Milkshake", price = 5, image = "/resources/oreomilkshake.png", tags="popular"});
-        currentMenu.Add(new MenuItem() { category = "drinks", ID = 1, name = "Strawberry Milkshake", price = 5, image = "/resources/strawberrymilkshake.png", tags="popular"});
-        currentMenu.Add(new MenuItem() { category = "drinks", ID = 1, name = "Coke", price = 2, image = "/resources/coke.png", tags="popular"});
-        currentMenu.Add(new MenuItem() { category = "drinks", ID = 1, name = "Diet Coke", price = 2, image = "/resources/dietcoke.png", tags=""});
-        currentMenu.Add(new MenuItem() { category = "drinks", ID = 1, name = "Sprite", price = 2, image = "/resources/sprite.png", tags=""});
-        currentMenu.Add(new MenuItem() { category = "drinks", ID = 1, name = "Root Beer", price = 2, image = "/resources/rootbeer.png", tags="popular"});
-        currentMenu.Add(new MenuItem() { category = "drinks", ID = 1, name = "Iced Tea", price = 2, image = "/resources/icedtea.png", tags="popular"});
-        currentMenu.Add(new MenuItem() { category = "drinks", ID = 1, name = "Fruitopia", price = 2, image = "/resources/fruitopia.png", tags=""});
-        currentMenu.Add(new MenuItem() { category = "drinks", ID = 1, name = "Bottled Water", price = 2, image = "/resources/water.png", tags=""});
+       currentMenu.Add(new MenuItem() { category = "drinks", ID = 1, name = "Hersheys Milkshake", price = 5, image = "/resources/chocolatemilkshake.png", tags="popular", 
+            Ingredients = new List<Ingredient> {},
+            description = "Indulge in a rich and creamy Hershey's Milkshake made with Hershey's chocolate syrup, blended with smooth vanilla ice cream and milk, topped with a swirl of whipped cream. A chocolate lover's dream come true!",
+            Calories = 640
+        });
 
+
+        currentMenu.Add(new MenuItem() { category = "drinks", ID = 1, name = "Vanilla Milkshake", price = 5, image = "/resources/vanillamilkshake.png", tags="",
+            Ingredients = new List<Ingredient> {},
+            description = "Savor the classic taste of a Vanilla Milkshake made with premium vanilla ice cream, cold milk, and a hint of sugar, blended to perfection. Simple, yet satisfying!",
+            Calories = 550
+        });
+
+        currentMenu.Add(new MenuItem() { category = "drinks", ID = 3, name = "Oreo Milkshake", price = 5, image = "/resources/oreomilkshake.png", tags="popular",
+            Ingredients = new List<Ingredient> {},
+            description = "Experience the irresistible Oreo Milkshake, featuring delicious vanilla ice cream, milk, and crushed Oreo cookies, blended together for a delightful cookies and cream flavor.",
+            Calories = 580
+        });
+
+        currentMenu.Add(new MenuItem() { category = "drinks", ID = 4, name = "Strawberry Milkshake", price = 5, image = "/resources/strawberrymilkshake.png", tags="popular",
+            Ingredients = new List<Ingredient> {},
+            description = "Enjoy a refreshing Strawberry Milkshake made with sweet strawberries, velvety vanilla ice cream, and milk, blended to create a perfect fruity and creamy delight.",
+            Calories = 490
+        });
+
+        currentMenu.Add(new MenuItem() { category = "drinks", ID = 5, name = "Coke", price = 2, image = "/resources/coke.png", tags="popular",
+            Ingredients = new List<Ingredient> {},
+            description = "Quench your thirst with an ice-cold Coca-Cola, the classic, bubbly beverage that pairs perfectly with any meal.",
+            Calories = 140
+        });
+
+        currentMenu.Add(new MenuItem() { category = "drinks", ID = 6, name = "Diet Coke", price = 2, image = "/resources/dietcoke.png", tags="",
+            Ingredients = new List<Ingredient> {},
+            description = "Stay refreshed with Diet Coke, a calorie-free alternative to the classic Coca-Cola, offering the same great taste without the guilt.",
+            Calories = 0
+        });
+
+        currentMenu.Add(new MenuItem() { category = "drinks", ID = 7, name = "Sprite", price = 2, image = "/resources/sprite.png", tags="",
+            Ingredients = new List<Ingredient> {},
+            description = "Brighten your day with a cool and crisp Sprite, a lemon-lime soda that's perfect for cleansing your palate and energizing your taste buds.",
+            Calories = 140
+        });
+
+        currentMenu.Add(new MenuItem() { category = "drinks", ID = 8, name = "Root Beer", price = 2, image = "/resources/rootbeer.png", tags="popular",
+            Ingredients = new List<Ingredient> {},
+                description = "Savor the unique flavor of a frosty Root Beer, a timeless carbonated beverage featuring a blend of herbs, spices, and sweeteners that create a rich and satisfying taste.",
+            Calories = 160
+        });
+
+        currentMenu.Add(new MenuItem() { category = "drinks", ID = 9, name = "Iced Tea", price = 2, image = "/resources/icedtea.png", tags="popular",
+            Ingredients = new List<Ingredient> {},
+            description = "Refresh yourself with a glass of Iced Tea, a classic drink made from freshly brewed tea leaves and chilled to perfection. Served with a slice of lemon for a zesty twist.",
+            Calories = 90
+        });
+
+        currentMenu.Add(new MenuItem() { category = "drinks", ID = 10, name = "Fruitopia", price = 2, image = "/resources/fruitopia.png", tags="",
+            Ingredients = new List<Ingredient> {},
+            description = "Delight in the fruity taste of Fruitopia, a delicious fruit-flavored beverage that's bursting with a variety of natural fruit flavors. A perfect way to satisfy your sweet cravings.",
+            Calories = 120
+        });
         choosingSide = false;
         choosingSize = false;
         choosingSalt = false;

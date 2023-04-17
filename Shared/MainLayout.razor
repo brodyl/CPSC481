@@ -83,6 +83,12 @@
         open = !open;
         _anchor = anchor;
     }
+    private void OpenDialog()
+    {    
+        DialogOptions closeOnEscapeKey = new DialogOptions() { CloseOnEscapeKey = true };
+
+        DialogService.Show<DialogEmail>("Simple Dialog", closeOnEscapeKey);
+    }
 
     private void PaymentPrompt()
     {
