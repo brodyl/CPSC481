@@ -9,93 +9,73 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = browser
 build_property.RootNamespace = MyApplication
 build_property.RootNamespace = MyApplication
-build_property.ProjectDir = C:\Users\Harrison\OneDrive\Documents\GitHub\CPSC481\
+build_property.ProjectDir = /Users/azhar/Documents/GitHub/Brody1/
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\Harrison\OneDrive\Documents\GitHub\CPSC481
+build_property.MSBuildProjectDirectory = /Users/azhar/Documents/GitHub/Brody1
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/Harrison/OneDrive/Documents/GitHub/CPSC481/App.razor]
+[/Users/azhar/Documents/GitHub/Brody1/App.razor]
 build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Harrison/OneDrive/Documents/GitHub/CPSC481/Pages/Counter.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ291bnRlci5yYXpvcg==
+[/Users/azhar/Documents/GitHub/Brody1/Pages/Counter.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQ291bnRlci5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Harrison/OneDrive/Documents/GitHub/CPSC481/Pages/Customize.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ3VzdG9taXplLnJhem9y
+[/Users/azhar/Documents/GitHub/Brody1/Pages/Customize.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQ3VzdG9taXplLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Harrison/OneDrive/Documents/GitHub/CPSC481/Pages/Dialog.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRGlhbG9nLnJhem9y
+[/Users/azhar/Documents/GitHub/Brody1/Pages/FetchData.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvRmV0Y2hEYXRhLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Harrison/OneDrive/Documents/GitHub/CPSC481/Pages/Ending.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRW5kaW5nLnJhem9y
+[/Users/azhar/Documents/GitHub/Brody1/Pages/Index.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvSW5kZXgucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Harrison/OneDrive/Documents/GitHub/CPSC481/Pages/FetchData.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRmV0Y2hEYXRhLnJhem9y
+[/Users/azhar/Documents/GitHub/Brody1/Pages/MenuBrowser.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvTWVudUJyb3dzZXIucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Harrison/OneDrive/Documents/GitHub/CPSC481/Pages/Index.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXgucmF6b3I=
+[/Users/azhar/Documents/GitHub/Brody1/Pages/Serve.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvU2VydmUucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Harrison/OneDrive/Documents/GitHub/CPSC481/Pages/MenuBrowser.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTWVudUJyb3dzZXIucmF6b3I=
+[/Users/azhar/Documents/GitHub/Brody1/Shared/DialogConfirmRemoveItem.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkL0RpYWxvZ0NvbmZpcm1SZW1vdmVJdGVtLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Harrison/OneDrive/Documents/GitHub/CPSC481/Pages/Receipt.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUmVjZWlwdC5yYXpvcg==
+[/Users/azhar/Documents/GitHub/Brody1/Shared/EmptyLayout.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkL0VtcHR5TGF5b3V0LnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Harrison/OneDrive/Documents/GitHub/CPSC481/Pages/Serve.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2VydmUucmF6b3I=
+[/Users/azhar/Documents/GitHub/Brody1/Shared/GoToCheckout.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkL0dvVG9DaGVja291dC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Harrison/OneDrive/Documents/GitHub/CPSC481/Shared/DialogConfirm.razor]
-build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXERpYWxvZ0NvbmZpcm0ucmF6b3I=
+[/Users/azhar/Documents/GitHub/Brody1/Shared/MainLayout.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkL01haW5MYXlvdXQucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Harrison/OneDrive/Documents/GitHub/CPSC481/Shared/DialogConfirmRestartOrder.razor]
-build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXERpYWxvZ0NvbmZpcm1SZXN0YXJ0T3JkZXIucmF6b3I=
+[/Users/azhar/Documents/GitHub/Brody1/Shared/OrderItems.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkL09yZGVySXRlbXMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Harrison/OneDrive/Documents/GitHub/CPSC481/Shared/DialogConfirm_assistance.razor]
-build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXERpYWxvZ0NvbmZpcm1fYXNzaXN0YW5jZS5yYXpvcg==
+[/Users/azhar/Documents/GitHub/Brody1/Shared/OrderItems_Backup_.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkL09yZGVySXRlbXNfQmFja3VwXy5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Harrison/OneDrive/Documents/GitHub/CPSC481/Shared/DialogDescription.razor]
-build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXERpYWxvZ0Rlc2NyaXB0aW9uLnJhem9y
+[/Users/azhar/Documents/GitHub/Brody1/Shared/OrderItems_Backup_DraggableItems.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkL09yZGVySXRlbXNfQmFja3VwX0RyYWdnYWJsZUl0ZW1zLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Harrison/OneDrive/Documents/GitHub/CPSC481/Shared/DialogEmail.razor]
-build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXERpYWxvZ0VtYWlsLnJhem9y
+[/Users/azhar/Documents/GitHub/Brody1/Shared/OrderReview.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkL09yZGVyUmV2aWV3LnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Harrison/OneDrive/Documents/GitHub/CPSC481/Shared/EmptyLayout.razor]
-build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXEVtcHR5TGF5b3V0LnJhem9y
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/Harrison/OneDrive/Documents/GitHub/CPSC481/Shared/GoToCheckout.razor]
-build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXEdvVG9DaGVja291dC5yYXpvcg==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/Harrison/OneDrive/Documents/GitHub/CPSC481/Shared/MainLayout.razor]
-build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE1haW5MYXlvdXQucmF6b3I=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/Harrison/OneDrive/Documents/GitHub/CPSC481/Shared/OrderItems.razor]
-build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE9yZGVySXRlbXMucmF6b3I=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/Harrison/OneDrive/Documents/GitHub/CPSC481/Shared/PaymentPrompt.razor]
-build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXFBheW1lbnRQcm9tcHQucmF6b3I=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/Harrison/OneDrive/Documents/GitHub/CPSC481/_Imports.razor]
+[/Users/azhar/Documents/GitHub/Brody1/_Imports.razor]
 build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
