@@ -12,23 +12,30 @@
   {
   <div style="display: flex; justify-content: flex-start;">
     <MudButton style="height: 30px;" Variant="Variant.Filled" Color="Color.Error" Class="mx-5 my-10" Size="Size.Large" @onclick="@(() => { NavigationManager.NavigateTo("/browse/burgers"); })">Back</MudButton>
-    <MudGrid>
-      <MudItem xs="4">
-          <MudPaper Class="d-flex align-center justify-center mud-width-full py-8" style="background-color:#1c1f22;">
-            <MudImage Elevation="16" style="height: 200px; border-radius: 30px; border: 5px solid #7e6fff;" src="@StateContainer.itemToCustomize.imageLg" alt="" />
+    <MudStack>
+        
+          
+           
+            <th style="text-align: center; width: 100%;background-color:rgb(255, 255, 255); border-radius: 10px; border: 4px solid #7e6fff;"><b><h2>@StateContainer.itemToCustomize.name Combo</h2></b></th>
+      <MudGrid>
+     
+      <MudItem style=width:33%;>
+          <MudPaper Class="d-flex align-center justify-center mud-width-full py-8" style="background-color:#1c1f22;height: 200px; border-radius: 30px; border: 5px solid #7e6fff;">
+            <MudImage Elevation="16" style =width:100%; src="@StateContainer.itemToCustomize.imageLg" alt="" />
           </MudPaper>
       </MudItem>
-      <MudItem xs="4">
-          <MudPaper Class="d-flex align-center justify-center mud-width-full py-8" style="background-color:#1c1f22;">
-            <MudImage Elevation="16" style="height: 200px; border-radius: 30px; border: 5px solid #7e6fff;" src="@StateContainer.itemToCustomize.side.image" alt="" />
+      <MudItem style=width:33%;>
+          <MudPaper Class="d-flex align-center justify-center mud-width-full py-8" style="background-color:#1c1f22;height: 200px; border-radius: 30px; border: 5px solid #7e6fff;">
+            <MudImage Elevation="16" style =width:80%; src="@StateContainer.itemToCustomize.side.image" alt="" />
           </MudPaper>
       </MudItem>
-      <MudItem xs="4">
-          <MudPaper Class="d-flex align-center justify-center mud-width-full py-8" style="background-color:#1c1f22;">
-            <MudImage Elevation="16" style="height: 200px; border-radius: 30px; border: 5px solid #7e6fff;" src="@StateContainer.itemToCustomize.drink.image" alt="" />
+      <MudItem style=width:33%;>
+          <MudPaper Class="d-flex align-center justify-center mud-width-full py-8" style="background-color:#1c1f22;height: 200px; border-radius: 30px; border: 5px solid #7e6fff;">
+            <MudImage Elevation="16" style =height:100%; src="@StateContainer.itemToCustomize.drink.image" alt="" />
           </MudPaper>
       </MudItem>
     </MudGrid>
+    </MudStack>
   </div>
   } else 
   {
