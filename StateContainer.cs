@@ -82,7 +82,7 @@ public class StateContainer
             Customer = "Patron 1", 
             menuItem = new MenuItem() { 
                 ID = 100, 
-                category = "burger", 
+                category = "burgers", 
                 name = "Schooper Burger", 
                 price = 10.00m, 
                 size = null, 

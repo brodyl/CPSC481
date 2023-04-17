@@ -11,7 +11,9 @@
   @if (@StateContainer.itemToCustomize.category == "combo")  
   {
   <div style="display: flex; justify-content: flex-start;">
-    <MudButton style="height: 30px;" Variant="Variant.Filled" Color="Color.Error" Class="mx-5 my-10" Size="Size.Large" @onclick="@(() => { NavigationManager.NavigateTo("/browse/burgers"); })">Back</MudButton>
+    
+    @if (StateContainer.itemToCustomize.category != "combo") {<MudButton style="height: 30px;" Variant="Variant.Filled" Color="Color.Error" Class="mx-5 my-10" Size="Size.Large" @onclick="@(() => { NavigationManager.NavigateTo("/browse/"+@StateContainer.itemToCustomize.category); })">Back</MudButton>}
+     @if (StateContainer.itemToCustomize.category == "combo") {<MudButton style="height: 30px;" Variant="Variant.Filled" Color="Color.Error" Class="mx-5 my-10" Size="Size.Large" @onclick="@(() => { NavigationManager.NavigateTo("/browse/burgers"); })">Back</MudButton>}
     <MudStack>
         
           
@@ -40,7 +42,7 @@
   } else 
   {
   <div style="display: flex; justify-content: flex-start;">
-   <MudButton style="height: 30px;" Variant="Variant.Filled" Color="Color.Error" Class="mx-5 my-10" Size="Size.Large" @onclick="@(() => { NavigationManager.NavigateTo("/browse/burgers"); })">Back</MudButton>
+   <MudButton style="height: 30px;" Variant="Variant.Filled" Color="Color.Error" Class="mx-5 my-10" Size="Size.Large" @onclick="@(() => { NavigationManager.NavigateTo("/browse/"+@StateContainer.itemToCustomize.category); })">Back</MudButton>
     <MudStack style="width: 60%;">
         
           
