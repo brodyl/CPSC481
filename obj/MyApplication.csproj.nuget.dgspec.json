@@ -1,26 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "/Users/azhar/Documents/GitHub/Brody1/MyApplication.csproj": {}
+    "C:\\Users\\Harrison\\OneDrive\\Documents\\GitHub\\CPSC481\\MyApplication.csproj": {}
   },
   "projects": {
-    "/Users/azhar/Documents/GitHub/Brody1/MyApplication.csproj": {
+    "C:\\Users\\Harrison\\OneDrive\\Documents\\GitHub\\CPSC481\\MyApplication.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/azhar/Documents/GitHub/Brody1/MyApplication.csproj",
+        "projectUniqueName": "C:\\Users\\Harrison\\OneDrive\\Documents\\GitHub\\CPSC481\\MyApplication.csproj",
         "projectName": "MyApplication",
-        "projectPath": "/Users/azhar/Documents/GitHub/Brody1/MyApplication.csproj",
-        "packagesPath": "/Users/azhar/.nuget/packages/",
-        "outputPath": "/Users/azhar/Documents/GitHub/Brody1/obj/",
+        "projectPath": "C:\\Users\\Harrison\\OneDrive\\Documents\\GitHub\\CPSC481\\MyApplication.csproj",
+        "packagesPath": "C:\\Users\\Harrison\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Harrison\\OneDrive\\Documents\\GitHub\\CPSC481\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/azhar/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\Harrison\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
-          "/usr/local/share/dotnet/library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -66,8 +65,20 @@
           "warn": true,
           "downloadDependencies": [
             {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[6.0.16, 6.0.16]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[6.0.16, 6.0.16]"
+            },
+            {
               "name": "Microsoft.NETCore.App.Runtime.Mono.browser-wasm",
-              "version": "[6.0.15, 6.0.15]"
+              "version": "[6.0.16, 6.0.16]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[6.0.16, 6.0.16]"
             }
           ],
           "frameworkReferences": {
@@ -75,7 +86,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.202/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
         }
       },
       "runtimes": {

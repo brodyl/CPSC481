@@ -15,27 +15,27 @@
     @foreach (var item in currentMenu) {
         <MudItem xs="4" Elevation="0">
             <MudLink Href="/Customize">
-            <MudCard @onclick="() => {StateContainer.itemToCustomize = item;}">
-           
-                <MudCardContent style="@(item.category != "drinks" ? "height: 180px;" : item.category == "drinks" ? "height: 230px;" : item.category == "drinks" ? "height: 230px;" : null)"> @*link to feature on click here*@
-                    <MudImage Fluid="true" Src="@item.image" Class="d-block mx-auto rounded-lg"/>
-                    <MudText Typo="Typo.subtitle1" Align="Align.Center" Class="px-5"><b>@item.name</b></MudText>
-                    <table Class="mx-auto">
-                        <tr>
-                            <td><MudText Typo="Typo.subtitle1" Align="Align.Center" Class="mr-2">$@item.price</MudText></td>
+                <MudCard @onclick="() => {StateContainer.itemToCustomize = item;}">
+            
+                    <MudCardContent style="@(item.category != "drinks" ? "height: 180px;" : item.category == "drinks" ? "height: 230px;" : item.category == "drinks" ? "height: 230px;" : null)"> @*link to feature on click here*@
+                        <MudImage Fluid="true" Src="@item.image" Class="d-block mx-auto rounded-lg"/>
+                        <MudText Typo="Typo.subtitle1" Align="Align.Center" Class="px-5"><b>@item.name</b></MudText>
+                        <table Class="mx-auto">
+                            <tr>
+                                <td><MudText Typo="Typo.subtitle1" Align="Align.Center" Class="mr-2">$@item.price</MudText></td>
 
-                        @if (!string.IsNullOrWhiteSpace(item.tags)) {
-                            @if (item.tags.Contains("pork")) {<td><MudImage Src="/resources/pork-icon.svg" Width="20" Class="d-block mx-auto"/></td>}
-                            @if (item.tags.Contains("spicy")) {<td><MudImage Src="/resources/chilli-pepper-icon.svg" Width="20" Class="d-block mx-auto"/></td>}
-                            @if (item.tags.Contains("popular")) {<td><MudImage Src="/resources/like-button-icon.svg" Width="20" Class="d-block mx-auto"/></td>}
-                            @if (item.tags.Contains("vegetarian")) {<td><MudImage Src="/resources/leaves-icon.svg" Width="20" Class="d-block mx-auto"/></td>}
-                            @if (item.tags.Contains("GF")) {<td><MudImage Src="/resources/gluten-free-icon.svg" Width="20" Class="d-block mx-auto"/></td>}
-                        }
-                                
-                        </tr>
-                    </table>
-                </MudCardContent>
-            </MudCard>
+                            @if (!string.IsNullOrWhiteSpace(item.tags)) {
+                                @if (item.tags.Contains("pork")) {<td><MudImage Src="/resources/pork-icon.svg" Width="20" Class="d-block mx-auto"/></td>}
+                                @if (item.tags.Contains("spicy")) {<td><MudImage Src="/resources/chilli-pepper-icon.svg" Width="20" Class="d-block mx-auto"/></td>}
+                                @if (item.tags.Contains("popular")) {<td><MudImage Src="/resources/like-button-icon.svg" Width="20" Class="d-block mx-auto"/></td>}
+                                @if (item.tags.Contains("vegetarian")) {<td><MudImage Src="/resources/leaves-icon.svg" Width="20" Class="d-block mx-auto"/></td>}
+                                @if (item.tags.Contains("GF")) {<td><MudImage Src="/resources/gluten-free-icon.svg" Width="20" Class="d-block mx-auto"/></td>}
+                            }
+                                    
+                            </tr>
+                        </table>
+                    </MudCardContent>
+                </MudCard>
             </MudLink>
         </MudItem>
     }
@@ -81,60 +81,62 @@
     private Ingredient avocado = new Ingredient { Name = "Avocado", Quantity = "Regular" };
     private Ingredient veganChipotleMayo = new Ingredient { Name = "Vegan Chipotle Mayo", Quantity = "Regular" };
 
+    private Ingredient size = new Ingredient { Name = "Size", Quantity = "Medium" };
+    
     public void BurgerMenu() {
         currentMenu.Clear();
         featureItem = "/resources/burgerbanner.png";
 
-        currentMenu.Add(new MenuItem() {category = "burger", ID = 1, name = "Schooper Burger", price = 10, image = "/resources/whopper.png", imageSm = "/resources/whopper3.png", imageLg = "/resources/whopper3.png", tags = "popular",
+        currentMenu.Add(new MenuItem() {category = "burgers", ID = 1, name = "Schooper Burger", price = 10, image = "/resources/whopper.png", imageSm = "/resources/whopper3.png", imageLg = "/resources/whopper3.png", tags = "popular",
             Ingredients = new List<Ingredient> {lettuce,tomato,pickles,onion,houseSauce},
             description = "Our signature Schooper Burger is a mouthwatering treat loaded with fresh lettuce, juicy tomatoes, crunchy pickles, flavorful onions, and our secret house sauce. This classic burger is sure to satisfy your cravings and keep you coming back for more.",
             Calories = 550
         });
 
-        currentMenu.Add(new MenuItem() { category = "burger", ID = 2, name = "Jr. Schooper", price = 5, image = "/resources/jrschooper.png", imageSm = "/resources/whopper.png", imageLg = "/resources/whopper2.png", tags = "",
+        currentMenu.Add(new MenuItem() { category = "burgers", ID = 2, name = "Jr. Schooper", price = 5, image = "/resources/jrschooper.png", imageSm = "/resources/whopper.png", imageLg = "/resources/whopper2.png", tags = "",
             Ingredients = new List<Ingredient> {lettuce,tomato,mayo,ketchup},
             description = "The Jr. Schooper is a smaller, yet equally delicious alternative to our classic Schooper Burger. With crisp lettuce, ripe tomatoes, smooth mayonnaise, and tangy ketchup, this tasty burger packs a punch without overwhelming your appetite.",
             Calories = 350
         });
 
 
-        currentMenu.Add(new MenuItem() { category = "burger", ID = 3, name = "Spicy King Burger", price = 8, image = "/resources/spicykingburger.png", imageSm = "/resources/whopper.png", imageLg = "/resources/whopper2.png", tags = "spicy",
+        currentMenu.Add(new MenuItem() { category = "burgers", ID = 3, name = "Spicy King Burger", price = 8, image = "/resources/spicykingburger.png", imageSm = "/resources/whopper.png", imageLg = "/resources/whopper2.png", tags = "spicy",
             Ingredients = new List<Ingredient> {lettuce,tomato,jalapenos,pepperJackCheese,spicyMayo},
             description = "The Spicy King Burger is a fiery feast for the adventurous eater. Featuring a blend of spicy jalapenos, zesty pepper jack cheese, and our signature spicy mayo, this burger brings the heat while delivering a satisfying and flavorful experience that will leave you wanting more.",
             Calories = 700
         });
 
-        currentMenu.Add(new MenuItem() { category = "burger", ID = 4, name = "Queen Burger", price = 10, image = "/resources/queenburger.png", imageSm = "/resources/chickenBurger02.png", imageLg = "/resources/chickenBurger02.png", tags = "popular", 
+        currentMenu.Add(new MenuItem() { category = "burgers", ID = 4, name = "Queen Burger", price = 10, image = "/resources/queenburger.png", imageSm = "/resources/chickenBurger02.png", imageLg = "/resources/chickenBurger02.png", tags = "popular", 
             Ingredients = new List<Ingredient> {lettuce,tomato,swissCheese,mushrooms,garlicAioli},
             description = "The Queen Burger is a sumptuous creation made with tender mushrooms, creamy Swiss cheese, and a generous dollop of our rich, homemade garlic aioli. This royal delight is nestled between fresh lettuce and ripe tomatoes, making it a must-try for anyone who enjoys a delectable and indulgent burger experience.",
             Calories = 670
         });
 
-        currentMenu.Add(new MenuItem() { category = "burger", ID = 5, name = "Knight's Bacon Loaded Burger", price = 5, image = "/resources/knightsbaconloaded.png", imageSm = "/resources/whopper.png", imageLg = "/resources/whopper2.png", tags = "pork/popular",
+        currentMenu.Add(new MenuItem() { category = "burgers", ID = 5, name = "Knight's Bacon Loaded Burger", price = 5, image = "/resources/knightsbaconloaded.png", imageSm = "/resources/whopper.png", imageLg = "/resources/whopper2.png", tags = "pork/popular",
             Ingredients = new List<Ingredient> {lettuce,tomato,bacon,cheddarCheese,bbqSauce},
             description = "The Knight's Bacon Loaded Burger is a hearty meal crafted for bacon aficionados. This epic burger features crispy, smoky bacon, sharp cheddar cheese, and tangy BBQ sauce, all served atop a bed of fresh lettuce and ripe tomatoes. Satisfy your hunger with this bacon lover's dream come true.",
             Calories = 720
         });
 
-        currentMenu.Add(new MenuItem() { category = "burger", ID = 6, name = "Chili Chicken Burger", price = 8, image = "/resources/chillichicken.png", imageSm = "/resources/whopper.png", imageLg = "/resources/whopper2.png", tags = "popular/spicy" ,
+        currentMenu.Add(new MenuItem() { category = "burgers", ID = 6, name = "Chili Chicken Burger", price = 8, image = "/resources/chillichicken.png", imageSm = "/resources/whopper.png", imageLg = "/resources/whopper2.png", tags = "popular/spicy" ,
             Ingredients = new List<Ingredient> {lettuce, tomato,chiliSauce,redOnion,ranchSauce},
             description = "Our Chili Chicken Burger offers a delightful fusion of spicy and savory flavors. Topped with zesty chili sauce, crunchy red onions, and a refreshing drizzle of ranch dressing, this burger strikes the perfect balance between heat and cool, making it a must-try for fans of spicy food.",
             Calories = 620
         });
 
-        currentMenu.Add(new MenuItem() { category = "burger", ID = 7, name = "BLT Burger", price = 10, image = "/resources/BLT.png", imageSm = "/resources/whopper.png", imageLg = "/resources/whopper2.png", tags = "pork" ,
+        currentMenu.Add(new MenuItem() { category = "burgers", ID = 7, name = "BLT Burger", price = 10, image = "/resources/BLT.png", imageSm = "/resources/whopper.png", imageLg = "/resources/whopper2.png", tags = "pork" ,
             Ingredients = new List<Ingredient> {lettuce,tomato,bacon,mayo},
             description = "A twist on the classic BLT sandwich, our BLT Burger combines crispy bacon, fresh lettuce, and juicy tomatoes with a dollop of creamy mayonnaise. This simple, yet satisfying burger is perfect for those seeking a classic taste with a modern spin.",
             Calories = 600
         });
 
-        currentMenu.Add(new MenuItem() { category = "burger", ID = 8, name = "Beyond Meat Schooper", price = 5, image = "/resources/beyondschooper.png", imageSm = "/resources/whopper.png", imageLg = "/resources/whopper2.png", tags = "vegetarian",
+        currentMenu.Add(new MenuItem() { category = "burgers", ID = 8, name = "Beyond Meat Schooper", price = 5, image = "/resources/beyondschooper.png", imageSm = "/resources/whopper.png", imageLg = "/resources/whopper2.png", tags = "vegetarian",
             Ingredients = new List<Ingredient> {lettuce,tomato,onion,pickle,veganMayo},
             description = "The Beyond Meat Schooper is a delicious and eco-friendly alternative for burger enthusiasts. This plant-based delight features a mouthwatering Beyond Meat patty, crisp lettuce, juicy tomatoes, tangy pickles, and a dollop of vegan mayo. Satisfy your burger cravings without compromising your values with this vegetarian favorite.",
             Calories = 580
         });
 
-        currentMenu.Add(new MenuItem() { category = "burger", ID = 9, name = "King Vegan Burger", price = 8, image = "/resources/kingvegan.png", imageSm = "/resources/whopper.png", imageLg = "/resources/whopper2.png", tags = "vegetarian/popular" ,
+        currentMenu.Add(new MenuItem() { category = "burgers", ID = 9, name = "King Vegan Burger", price = 8, image = "/resources/kingvegan.png", imageSm = "/resources/whopper.png", imageLg = "/resources/whopper2.png", tags = "vegetarian/popular" ,
             Ingredients = new List<Ingredient> {lettuce,tomato,onion,avocado,veganChipotleMayo},
             description = "The King Vegan Burger is a scrumptious and satisfying plant-based option that will leave you craving more. This burger is topped with creamy avocado, crunchy onions, and a zesty vegan chipotle mayo that adds a hint of spice. Indulge in the flavors of this irresistible vegan burger, and you'll understand why it's a crowd favorite.",
             Calories = 640
@@ -146,48 +148,166 @@
     public void DrinkMenu() {
         currentMenu.Clear();
         featureItem = "/resources/milkshakebanner.png";
-        currentMenu.Add(new MenuItem() { category = "drinks", ID = 1, name = "Hersheys Milkshake", price = 5, image = "/resources/chocolatemilkshake.png", tags="popular"});
-        currentMenu.Add(new MenuItem() { category = "drinks", ID = 1, name = "Vanilla Milkshake", price = 5, image = "/resources/vanillamilkshake.png", tags=""});
-        currentMenu.Add(new MenuItem() { category = "drinks", ID = 1, name = "Oreo Milkshake", price = 5, image = "/resources/oreomilkshake.png", tags="popular"});
-        currentMenu.Add(new MenuItem() { category = "drinks", ID = 1, name = "Strawberry Milkshake", price = 5, image = "/resources/strawberrymilkshake.png", tags="popular"});
-        currentMenu.Add(new MenuItem() { category = "drinks", ID = 1, name = "Coke", price = 2, image = "/resources/coke.png", tags="popular"});
-        currentMenu.Add(new MenuItem() { category = "drinks", ID = 1, name = "Diet Coke", price = 2, image = "/resources/dietcoke.png", tags=""});
-        currentMenu.Add(new MenuItem() { category = "drinks", ID = 1, name = "Sprite", price = 2, image = "/resources/sprite.png", tags=""});
-        currentMenu.Add(new MenuItem() { category = "drinks", ID = 1, name = "Root Beer", price = 2, image = "/resources/rootbeer.png", tags="popular"});
-        currentMenu.Add(new MenuItem() { category = "drinks", ID = 1, name = "Iced Tea", price = 2, image = "/resources/icedtea.png", tags="popular"});
-        currentMenu.Add(new MenuItem() { category = "drinks", ID = 1, name = "Fruitopia", price = 2, image = "/resources/fruitopia.png", tags=""});
-        currentMenu.Add(new MenuItem() { category = "drinks", ID = 1, name = "Bottled Water", price = 2, image = "/resources/water.png", tags=""});
+        
+        currentMenu.Add(new MenuItem() { size = "Medium", category = "drinks", ID = 1, name = "Hersheys Milkshake", price = 5, image = "/resources/chocolatemilkshake.png", imageSm = "/resources/chocolatemilkshake.png", imageLg = "/resources/chocolatemilkshake.png",tags="popular", 
+            Ingredients = new List<Ingredient> {size},
+            description = "Indulge in a rich and creamy Hershey's Milkshake made with Hershey's chocolate syrup, blended with smooth vanilla ice cream and milk, topped with a swirl of whipped cream. A chocolate lover's dream come true!",
+            Calories = 640
+        });
+
+
+        currentMenu.Add(new MenuItem() {  size = "Medium",category = "drinks", ID = 1, name = "Vanilla Milkshake", price = 5, image = "/resources/vanillamilkshake.png", imageSm = "/resources/vanillamilkshake.png", imageLg = "/resources/vanillamilkshake.png", tags="",
+            Ingredients = new List<Ingredient> {size},
+            description = "Savor the classic taste of a Vanilla Milkshake made with premium vanilla ice cream, cold milk, and a hint of sugar, blended to perfection. Simple, yet satisfying!",
+            Calories = 550
+        });
+
+        currentMenu.Add(new MenuItem() {  size = "Medium",category = "drinks", ID = 3, name = "Oreo Milkshake", price = 5, image = "/resources/oreomilkshake.png", imageSm = "/resources/oreomilkshake.png", imageLg = "/resources/oreomilkshake.png",tags="popular",
+            Ingredients = new List<Ingredient> {size},
+            description = "Experience the irresistible Oreo Milkshake, featuring delicious vanilla ice cream, milk, and crushed Oreo cookies, blended together for a delightful cookies and cream flavor.",
+            Calories = 580
+        });
+
+        currentMenu.Add(new MenuItem() { size = "Medium", category = "drinks", ID = 4, name = "Strawberry Milkshake", price = 5, image = "/resources/strawberrymilkshake.png", imageSm = "/resources/strawberrymilkshake.png", imageLg = "/resources/strawberrymilkshake.png",tags="popular",
+            Ingredients = new List<Ingredient> {size},
+            description = "Enjoy a refreshing Strawberry Milkshake made with sweet strawberries, velvety vanilla ice cream, and milk, blended to create a perfect fruity and creamy delight.",
+            Calories = 490
+        });
+
+        currentMenu.Add(new MenuItem() { size = "Medium", category = "drinks", ID = 5, name = "Coke", price = 2, image = "/resources/coke.png", imageSm = "/resources/coke.png", imageLg = "/resources/coke.png",tags="popular",
+            Ingredients = new List<Ingredient> {size},
+            description = "Quench your thirst with an ice-cold Coca-Cola, the classic, bubbly beverage that pairs perfectly with any meal.",
+            Calories = 140
+        });
+
+        currentMenu.Add(new MenuItem() { size = "Medium", category = "drinks", ID = 6, name = "Diet Coke", price = 2, image = "/resources/dietcoke.png", imageSm = "/resources/dietcoke.png", imageLg = "/resources/dietcoke.png",tags="",
+            Ingredients = new List<Ingredient> {size},
+            description = "Stay refreshed with Diet Coke, a calorie-free alternative to the classic Coca-Cola, offering the same great taste without the guilt.",
+            Calories = 0
+        });
+
+        currentMenu.Add(new MenuItem() { size = "Medium", category = "drinks", ID = 7, name = "Sprite", price = 2, image = "/resources/sprite.png", imageSm = "/resources/sprite.png", imageLg = "/resources/sprite.png",tags="",
+            Ingredients = new List<Ingredient> {size},
+            description = "Brighten your day with a cool and crisp Sprite, a lemon-lime soda that's perfect for cleansing your palate and energizing your taste buds.",
+            Calories = 140
+        });
+
+        currentMenu.Add(new MenuItem() { size = "Medium", category = "drinks", ID = 8, name = "Root Beer", price = 2, image = "/resources/rootbeer.png", imageSm = "/resources/rootbeer.png", imageLg = "/resources/rootbeer.png",tags="popular",
+            Ingredients = new List<Ingredient> {size},
+                description = "Savor the unique flavor of a frosty Root Beer, a timeless carbonated beverage featuring a blend of herbs, spices, and sweeteners that create a rich and satisfying taste.",
+            Calories = 160
+        });
+
+        currentMenu.Add(new MenuItem() { size = "Medium", category = "drinks", ID = 9, name = "Iced Tea", price = 2, image = "/resources/icedtea.png", imageSm = "/resources/icedtea.png", imageLg = "/resources/icedtea.png",tags="popular",
+            Ingredients = new List<Ingredient> {size},
+            description = "Refresh yourself with a glass of Iced Tea, a classic drink made from freshly brewed tea leaves and chilled to perfection. Served with a slice of lemon for a zesty twist.",
+            Calories = 90
+        });
+
+        currentMenu.Add(new MenuItem() { size = "Medium", category = "drinks", ID = 10, name = "Fruitopia", price = 2, image = "/resources/fruitopia.png", imageSm = "/resources/fruitopia.png", imageLg = "/resources/fruitopia.png",tags="",
+            Ingredients = new List<Ingredient> {size},
+            description = "Delight in the fruity taste of Fruitopia, a delicious fruit-flavored beverage that's bursting with a variety of natural fruit flavors. A perfect way to satisfy your sweet cravings.",
+            Calories = 120
+        });
     }
 
     public void SidesMenu() {
         currentMenu.Clear();
         featureItem = "/resources/chickenfriesbanner.png";
-        currentMenu.Add(new MenuItem() { category = "sides", ID = 1, name = "8pc Chicken Nuggets", price = 6, image = "/resources/chickennuggets.png", tags="popular"});
-        currentMenu.Add(new MenuItem() { category = "sides", ID = 2, name = "Poutine", price = 7, image = "/resources/poutine.png", tags=""});
-        currentMenu.Add(new MenuItem() { category = "sides", ID = 3, name = "Spicy Loaded Poutine", price = 9, image = "/resources/spicyloadedpoutine.png", tags="popular/spicy"});
-        currentMenu.Add(new MenuItem() { category = "sides", ID = 4, name = "French Fries", price = 5, image = "/resources/frenchfries.png", tags=""});
-        currentMenu.Add(new MenuItem() { category = "sides", ID = 5, name = "Onion Rings", price = 5, image = "/resources/onionrings.png", tags=""});
-        currentMenu.Add(new MenuItem() { category = "sides", ID = 6, name = "Chicken Fries", price = 7, image = "/resources/chickenfries.png", tags="popular"});
-        currentMenu.Add(new MenuItem() { category = "sides", ID = 7, name = "8pc Dill Pickle Nuggets", price = 5, image = "/resources/chickennuggets.png", tags="vegetarian"});
-        currentMenu.Add(new MenuItem() { category = "sides", ID = 8, name = "Loaded Baked Potato", price = 8, image = "/resources/bakedpotato.png", tags=""});
-        currentMenu.Add(new MenuItem() { category = "sides", ID = 9, name = "Signature Chilli", price = 6, image = "/resources/chilli.png", tags=""});
+        
+        currentMenu.Add(new MenuItem() { category = "sides", ID = 1, name = "8pc Chicken Nuggets", price = 6, image = "/resources/chickennuggets.png", imageSm = "/resources/chickennuggets.png", imageLg = "/resources/chickennuggets.png",tags="popular",
+            Ingredients = new List<Ingredient> {},
+            description = "Enjoy 8 of our classic chicken nuggets, made with 100% seasoned chicken breast and no artificial flavours, colours or preservatives.",
+            Calories = 400
+        });
+        currentMenu.Add(new MenuItem() { size = "Medium", category = "sides", ID = 2, name = "Poutine", price = 7, image = "/resources/poutine.png", imageSm = "/resources/poutine.png", imageLg = "/resources/poutine.png",tags="",
+            Ingredients = new List<Ingredient> {size},
+            description = "Our world famous poutine contains cheese curds imported directly from Quebec, hand churned to perfection. The gravy is an in house blend, with a secret recipe to wake up your taste buds",
+            Calories = 850
+        });
+        currentMenu.Add(new MenuItem() { size = "Medium", category = "sides", ID = 3, name = "Spicy Loaded Poutine", price = 9, image = "/resources/spicyloadedpoutine.png", imageSm = "/resources/spicyloadedpoutine.png", imageLg = "/resources/spicyloadedpoutine.png",tags="popular/spicy",
+            Ingredients = new List<Ingredient> {size},
+            description = "Our world famous poutine famous with a twist. It still contains cheese curds imported directly from Quebec, but now they are paired with spicy pairings that are sure to have you coming back for more",
+            Calories = 950
+        });
+        currentMenu.Add(new MenuItem() {size = "Medium", category = "sides", ID = 4, name = "French Fries", price = 5, image = "/resources/frenchfries.png",  imageSm = "/resources/frenchfries.png", imageLg = "/resources/frenchfries.png",tags="",
+            Ingredients = new List<Ingredient> {size},
+            description = "Our world famous fries are always a delicious choice. Cut from whole potatoes grown on Canadian farms, our fries are cooked to golden perfection in a vegetable oil blend",
+            Calories = 350
+        });
+        currentMenu.Add(new MenuItem() {size = "Medium", category = "sides", ID = 5, name = "Onion Rings", price = 5, image = "/resources/onionrings.png",  imageSm = "/resources/onionrings.png", imageLg = "/resources/onionrings.png",tags="",
+            Ingredients = new List<Ingredient> {size},
+            description = "Savour our crispy onion rings that you will have you coming back again and again. Sweet onions wrapped in a crunch of perfectly crispy panko breading is sure to satisfy your taste buds",
+            Calories = 390
+        });
+        currentMenu.Add(new MenuItem() {size = "Medium", category = "sides", ID = 6, name = "Chicken Fries", price = 7, image = "/resources/chickenfries.png",  imageSm = "/resources/chickenfries.png", imageLg = "/resources/chickenfries.png",tags="popular",
+            Ingredients = new List<Ingredient> {size},
+            description = "Our world famous fries meet our classic chicken nuggets in our delicious chicken fries.",
+            Calories = 300
+        });
+        currentMenu.Add(new MenuItem() { category = "sides", ID = 7, name = "8pc Dill Pickle Nuggets", price = 5, image = "/resources/chickennuggets.png",  imageSm = "/resources/chickennuggets.png", imageLg = "/resources/chickennuggets.png",tags="vegetarian",
+            Ingredients = new List<Ingredient> {},
+            description = "A twist on 8 of our classic nuggets, made with pickles for a zesty experience like no other",
+            Calories = 200
+        });
+        currentMenu.Add(new MenuItem() { size = "Medium", category = "sides", ID = 8, name = "Loaded Baked Potato", price = 8, image = "/resources/bakedpotato.png", imageSm = "/resources/bakedpotato.png", imageLg = "/resources/bakedpotato.png", tags="",
+            Ingredients = new List<Ingredient> {size},
+            description = "Craving something a little more filling for your side? Try our loaded baked potato which is sure to satisfy",
+            Calories = 520
+        });
+        currentMenu.Add(new MenuItem() { size = "Medium", category = "sides", ID = 9, name = "Signature Chilli", price = 6, image = "/resources/chilli.png", imageSm = "/resources/chili.png", imageLg = "/resources/chili.png", tags="",
+            Ingredients = new List<Ingredient> {size},
+            description = "Our signature Chili speaks for itself",
+            Calories = 750
+        });
     }
 
      private void KidsMenu() {
         currentMenu.Clear();
         featureItem = "/resources/nuggets4pcbanner.png";
-        currentMenu.Add(new MenuItem() { category = "kids", ID = 1, name = "4pc Chicken Nuggets", price = 3, image = "/resources/nuggets4pc.png", tags="popular"});
-        currentMenu.Add(new MenuItem() { category = "kids", ID = 2, name = "Cheeseburger", price = 4, image = "/resources/cheeseburger.png", tags=""});
-        currentMenu.Add(new MenuItem() { category = "kids", ID = 3, name = "Hamburger", price = 4, image = "/resources/hamburger.png", tags=""});
+
+        currentMenu.Add(new MenuItem() { category = "kids", ID = 1, name = "4pc Chicken Nuggets", price = 3, image = "/resources/nuggets4pc.png",  imageSm = "/resources/nuggets4pc.png", imageLg = "/resources/nuggets4pc.png",tags="popular",
+            Ingredients = new List<Ingredient> {},
+            description = "Enjoy 4 of our classic chicken nuggets, made with 100% seasoned chicken breast and no artificial flavours, colours or preservatives.",
+            Calories = 200
+        });
+        currentMenu.Add(new MenuItem() { category = "kids", ID = 2, name = "Cheeseburger", price = 4, image = "/resources/cheeseburger.png",  imageSm = "/resources/cheeseburger.png", imageLg = "/resources/cheeseburger.png",tags="",
+            Ingredients = new List<Ingredient> {lettuce,tomato,pickles,onion,houseSauce},
+            description = "Our signature Schooper Burger is a mouthwatering treat loaded with fresh lettuce, juicy tomatoes, crunchy pickles, flavorful onions, and our secret house sauce. This classic burger is sure to satisfy your cravings and keep you coming back for more.",
+            Calories = 550
+        });
+        currentMenu.Add(new MenuItem() { category = "kids", ID = 3, name = "Hamburger", price = 4, image = "/resources/hamburger.png",  imageSm = "/resources/hamburger.png", imageLg = "/resources/hamburger.png",tags="",
+            Ingredients = new List<Ingredient> {lettuce,tomato,pickles,onion,houseSauce},
+            description = "Our signature Schooper Burger is a mouthwatering treat loaded with fresh lettuce, juicy tomatoes, crunchy pickles, flavorful onions, and our secret house sauce. This classic burger is sure to satisfy your cravings and keep you coming back for more.",
+            Calories = 550
+        });
      }
 
      private void ValueMenu() {
         currentMenu.Clear();
         featureItem = "/resources/valuebanner.png";
-        currentMenu.Add(new MenuItem() { category = "value", ID = 1, name = "4pc Chicken Nuggets", price = 3, image = "/resources/nuggets4pc.png", tags="popular"});
-        currentMenu.Add(new MenuItem() { category = "value", ID = 2, name = "Jr. Schooper", price = 5, image = "/resources/jrschooper.png", tags = "" });
-        currentMenu.Add(new MenuItem() { category = "burger", ID = 3, name = "Prince Vegan Burger", price = 8, image = "/resources/kingvegan.png", tags = "vegetarian/popular" });
-        currentMenu.Add(new MenuItem() { category = "value", ID = 4, name = "Snack Poutine", price = 4, image = "/resources/poutine.png", tags=""});
+
+        currentMenu.Add(new MenuItem() { category = "value", ID = 1, name = "4pc Chicken Nuggets", price = 3, image = "/resources/nuggets4pc.png",  imageSm = "/resources/nuggets4pc.png", imageLg = "/resources/nuggets4pc.png",tags="popular",
+            Ingredients = new List<Ingredient> {},
+            description = "Enjoy 4 of our classic chicken nuggets, made with 100% seasoned chicken breast and no artificial flavours, colours or preservatives.",
+            Calories = 200
+        });
+        currentMenu.Add(new MenuItem() { category = "value", ID = 2, name = "Jr. Schooper", price = 5, image = "/resources/jrschooper.png", imageSm = "/resources/jrschooper.png", imageLg = "/resources/jrschooper.png", tags = "",
+            Ingredients = new List<Ingredient> {lettuce,tomato,mayo,ketchup},
+            description = "The Jr. Schooper is a smaller, yet equally delicious alternative to our classic Schooper Burger. With crisp lettuce, ripe tomatoes, smooth mayonnaise, and tangy ketchup, this tasty burger packs a punch without overwhelming your appetite.",
+            Calories = 350
+        });
+         currentMenu.Add(new MenuItem() { category = "value", ID = 3, name = "Prince Vegan Burger", price = 8, image = "/resources/kingvegan.png", imageSm = "/resources/whopper.png", imageLg = "/resources/whopper2.png", tags = "vegetarian/popular" ,
+            Ingredients = new List<Ingredient> {lettuce,tomato,onion,avocado,veganChipotleMayo},
+            description = "The Prince Vegan Burger is a scrumptious and satisfying plant-based option that will leave you craving more. This burger is topped with creamy avocado, crunchy onions, and a zesty vegan chipotle mayo that adds a hint of spice. Indulge in the flavors of this irresistible vegan burger, and you'll understand why it's a crowd favorite.",
+            Calories = 640
+        });
+        
+        currentMenu.Add(new MenuItem() { category = "value", ID = 4, name = "Snack Poutine", price = 4, image = "/resources/poutine.png",  imageSm = "/resources/poutine.png", imageLg = "/resources/poutine.png",tags="",
+            Ingredients = new List<Ingredient> {},
+            description = "Our world famous poutine contains cheese curds imported directly from Quebec, hand churned to perfection. The gravy is an in house blend, with a secret recipe to wake up your taste buds",
+            Calories = 550
+        });
         
      }
     
