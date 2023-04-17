@@ -1,339 +1,307 @@
 {
   "Files": [
     {
-      "Id": "C:\\Users\\Harrison\\OneDrive\\Documents\\GitHub\\CPSC481\\bin\\Debug\\net6.0\\wwwroot\\_framework\\blazor.webassembly.js",
-      "PackagePath": "staticwebassets\\_framework\\blazor.webassembly.js"
+      "Id": "/Users/azhar/Documents/GitHub/Brody1/bin/Debug/net6.0/wwwroot/_framework/blazor.webassembly.js",
+      "PackagePath": "staticwebassets/_framework/blazor.webassembly.js"
     },
     {
-      "Id": "C:\\Users\\Harrison\\OneDrive\\Documents\\GitHub\\CPSC481\\obj\\Debug\\net6.0\\build-gz\\LhkNYOjW.gz",
-      "PackagePath": "staticwebassets\\_framework\\blazor.webassembly.js.gz"
+      "Id": "/Users/azhar/Documents/GitHub/Brody1/obj/Debug/net6.0/build-gz/96PmLqw2.gz",
+      "PackagePath": "staticwebassets/_framework/blazor.webassembly.js.gz"
     },
     {
-      "Id": "C:\\Users\\Harrison\\OneDrive\\Documents\\GitHub\\CPSC481\\wwwroot\\dinein.png",
-      "PackagePath": "staticwebassets\\dinein.png"
+      "Id": "/Users/azhar/Documents/GitHub/Brody1/wwwroot/dinein.png",
+      "PackagePath": "staticwebassets/dinein.png"
     },
     {
-      "Id": "C:\\Users\\Harrison\\OneDrive\\Documents\\GitHub\\CPSC481\\wwwroot\\favicon.ico",
-      "PackagePath": "staticwebassets\\favicon.ico"
+      "Id": "/Users/azhar/Documents/GitHub/Brody1/wwwroot/favicon.ico",
+      "PackagePath": "staticwebassets/favicon.ico"
     },
     {
-      "Id": "C:\\Users\\Harrison\\OneDrive\\Documents\\GitHub\\CPSC481\\wwwroot\\index.html",
-      "PackagePath": "staticwebassets\\index.html"
+      "Id": "/Users/azhar/Documents/GitHub/Brody1/wwwroot/index.html",
+      "PackagePath": "staticwebassets/index.html"
     },
     {
-      "Id": "C:\\Users\\Harrison\\OneDrive\\Documents\\GitHub\\CPSC481\\wwwroot\\logo.jpg",
-      "PackagePath": "staticwebassets\\logo.jpg"
+      "Id": "/Users/azhar/Documents/GitHub/Brody1/wwwroot/logo.jpg",
+      "PackagePath": "staticwebassets/logo.jpg"
     },
     {
-      "Id": "C:\\Users\\Harrison\\OneDrive\\Documents\\GitHub\\CPSC481\\wwwroot\\resources\\BLT.png",
-      "PackagePath": "staticwebassets\\resources\\BLT.png"
+      "Id": "/Users/azhar/Documents/GitHub/Brody1/wwwroot/resources/BLT.png",
+      "PackagePath": "staticwebassets/resources/BLT.png"
     },
     {
-      "Id": "C:\\Users\\Harrison\\OneDrive\\Documents\\GitHub\\CPSC481\\wwwroot\\resources\\Coke.png",
-      "PackagePath": "staticwebassets\\resources\\Coke.png"
+      "Id": "/Users/azhar/Documents/GitHub/Brody1/wwwroot/resources/Coke.png",
+      "PackagePath": "staticwebassets/resources/Coke.png"
     },
     {
-      "Id": "C:\\Users\\Harrison\\OneDrive\\Documents\\GitHub\\CPSC481\\wwwroot\\resources\\applePie.png",
-      "PackagePath": "staticwebassets\\resources\\applePie.png"
+      "Id": "/Users/azhar/Documents/GitHub/Brody1/wwwroot/resources/applePie.png",
+      "PackagePath": "staticwebassets/resources/applePie.png"
     },
     {
-      "Id": "C:\\Users\\Harrison\\OneDrive\\Documents\\GitHub\\CPSC481\\wwwroot\\resources\\bakedpotato.png",
-      "PackagePath": "staticwebassets\\resources\\bakedpotato.png"
+      "Id": "/Users/azhar/Documents/GitHub/Brody1/wwwroot/resources/bakedpotato.png",
+      "PackagePath": "staticwebassets/resources/bakedpotato.png"
     },
     {
-      "Id": "C:\\Users\\Harrison\\OneDrive\\Documents\\GitHub\\CPSC481\\wwwroot\\resources\\beyondschooper.png",
-      "PackagePath": "staticwebassets\\resources\\beyondschooper.png"
+      "Id": "/Users/azhar/Documents/GitHub/Brody1/wwwroot/resources/beyondschooper.png",
+      "PackagePath": "staticwebassets/resources/beyondschooper.png"
     },
     {
-      "Id": "C:\\Users\\Harrison\\OneDrive\\Documents\\GitHub\\CPSC481\\wwwroot\\resources\\breakfastChicken.png",
-      "PackagePath": "staticwebassets\\resources\\breakfastChicken.png"
+      "Id": "/Users/azhar/Documents/GitHub/Brody1/wwwroot/resources/breakfastChicken.png",
+      "PackagePath": "staticwebassets/resources/breakfastChicken.png"
     },
     {
-      "Id": "C:\\Users\\Harrison\\OneDrive\\Documents\\GitHub\\CPSC481\\wwwroot\\resources\\breakfastCrouisant.png",
-      "PackagePath": "staticwebassets\\resources\\breakfastCrouisant.png"
+      "Id": "/Users/azhar/Documents/GitHub/Brody1/wwwroot/resources/breakfastCrouisant.png",
+      "PackagePath": "staticwebassets/resources/breakfastCrouisant.png"
     },
     {
-      "Id": "C:\\Users\\Harrison\\OneDrive\\Documents\\GitHub\\CPSC481\\wwwroot\\resources\\breakfastSandwich.png",
-      "PackagePath": "staticwebassets\\resources\\breakfastSandwich.png"
+      "Id": "/Users/azhar/Documents/GitHub/Brody1/wwwroot/resources/breakfastSandwich.png",
+      "PackagePath": "staticwebassets/resources/breakfastSandwich.png"
     },
     {
-      "Id": "C:\\Users\\Harrison\\OneDrive\\Documents\\GitHub\\CPSC481\\wwwroot\\resources\\breakfastSandwich2.png",
-      "PackagePath": "staticwebassets\\resources\\breakfastSandwich2.png"
+      "Id": "/Users/azhar/Documents/GitHub/Brody1/wwwroot/resources/breakfastSandwich2.png",
+      "PackagePath": "staticwebassets/resources/breakfastSandwich2.png"
     },
     {
-      "Id": "C:\\Users\\Harrison\\OneDrive\\Documents\\GitHub\\CPSC481\\wwwroot\\resources\\burgerbanner.png",
-      "PackagePath": "staticwebassets\\resources\\burgerbanner.png"
+      "Id": "/Users/azhar/Documents/GitHub/Brody1/wwwroot/resources/burgerbanner.png",
+      "PackagePath": "staticwebassets/resources/burgerbanner.png"
     },
     {
-      "Id": "C:\\Users\\Harrison\\OneDrive\\Documents\\GitHub\\CPSC481\\wwwroot\\resources\\cheeseburger.png",
-      "PackagePath": "staticwebassets\\resources\\cheeseburger.png"
+      "Id": "/Users/azhar/Documents/GitHub/Brody1/wwwroot/resources/chickenBurger00.png",
+      "PackagePath": "staticwebassets/resources/chickenBurger00.png"
     },
     {
-      "Id": "C:\\Users\\Harrison\\OneDrive\\Documents\\GitHub\\CPSC481\\wwwroot\\resources\\chickenBurger00.png",
-      "PackagePath": "staticwebassets\\resources\\chickenBurger00.png"
+      "Id": "/Users/azhar/Documents/GitHub/Brody1/wwwroot/resources/chickenBurger01.png",
+      "PackagePath": "staticwebassets/resources/chickenBurger01.png"
     },
     {
-      "Id": "C:\\Users\\Harrison\\OneDrive\\Documents\\GitHub\\CPSC481\\wwwroot\\resources\\chickenBurger01.png",
-      "PackagePath": "staticwebassets\\resources\\chickenBurger01.png"
+      "Id": "/Users/azhar/Documents/GitHub/Brody1/wwwroot/resources/chickenBurger02.png",
+      "PackagePath": "staticwebassets/resources/chickenBurger02.png"
     },
     {
-      "Id": "C:\\Users\\Harrison\\OneDrive\\Documents\\GitHub\\CPSC481\\wwwroot\\resources\\chickenBurger02.png",
-      "PackagePath": "staticwebassets\\resources\\chickenBurger02.png"
+      "Id": "/Users/azhar/Documents/GitHub/Brody1/wwwroot/resources/chickenNugs.png",
+      "PackagePath": "staticwebassets/resources/chickenNugs.png"
     },
     {
-      "Id": "C:\\Users\\Harrison\\OneDrive\\Documents\\GitHub\\CPSC481\\wwwroot\\resources\\chickenNugs.png",
-      "PackagePath": "staticwebassets\\resources\\chickenNugs.png"
+      "Id": "/Users/azhar/Documents/GitHub/Brody1/wwwroot/resources/chickenfries.png",
+      "PackagePath": "staticwebassets/resources/chickenfries.png"
     },
     {
-      "Id": "C:\\Users\\Harrison\\OneDrive\\Documents\\GitHub\\CPSC481\\wwwroot\\resources\\chickenfries.png",
-      "PackagePath": "staticwebassets\\resources\\chickenfries.png"
+      "Id": "/Users/azhar/Documents/GitHub/Brody1/wwwroot/resources/chickenfriesbanner.png",
+      "PackagePath": "staticwebassets/resources/chickenfriesbanner.png"
     },
     {
-      "Id": "C:\\Users\\Harrison\\OneDrive\\Documents\\GitHub\\CPSC481\\wwwroot\\resources\\chickenfriesbanner.png",
-      "PackagePath": "staticwebassets\\resources\\chickenfriesbanner.png"
+      "Id": "/Users/azhar/Documents/GitHub/Brody1/wwwroot/resources/chickennuggets.png",
+      "PackagePath": "staticwebassets/resources/chickennuggets.png"
     },
     {
-      "Id": "C:\\Users\\Harrison\\OneDrive\\Documents\\GitHub\\CPSC481\\wwwroot\\resources\\chickennuggets.png",
-      "PackagePath": "staticwebassets\\resources\\chickennuggets.png"
+      "Id": "/Users/azhar/Documents/GitHub/Brody1/wwwroot/resources/chilli-pepper-icon.svg",
+      "PackagePath": "staticwebassets/resources/chilli-pepper-icon.svg"
     },
     {
-      "Id": "C:\\Users\\Harrison\\OneDrive\\Documents\\GitHub\\CPSC481\\wwwroot\\resources\\chilli-pepper-icon.svg",
-      "PackagePath": "staticwebassets\\resources\\chilli-pepper-icon.svg"
+      "Id": "/Users/azhar/Documents/GitHub/Brody1/wwwroot/resources/chilli.png",
+      "PackagePath": "staticwebassets/resources/chilli.png"
     },
     {
-      "Id": "C:\\Users\\Harrison\\OneDrive\\Documents\\GitHub\\CPSC481\\wwwroot\\resources\\chilli.png",
-      "PackagePath": "staticwebassets\\resources\\chilli.png"
+      "Id": "/Users/azhar/Documents/GitHub/Brody1/wwwroot/resources/chillichicken.png",
+      "PackagePath": "staticwebassets/resources/chillichicken.png"
     },
     {
-      "Id": "C:\\Users\\Harrison\\OneDrive\\Documents\\GitHub\\CPSC481\\wwwroot\\resources\\chillichicken.png",
-      "PackagePath": "staticwebassets\\resources\\chillichicken.png"
+      "Id": "/Users/azhar/Documents/GitHub/Brody1/wwwroot/resources/chocolatemilkshake.png",
+      "PackagePath": "staticwebassets/resources/chocolatemilkshake.png"
     },
     {
-      "Id": "C:\\Users\\Harrison\\OneDrive\\Documents\\GitHub\\CPSC481\\wwwroot\\resources\\chocolatemilkshake.png",
-      "PackagePath": "staticwebassets\\resources\\chocolatemilkshake.png"
+      "Id": "/Users/azhar/Documents/GitHub/Brody1/wwwroot/resources/coffee.png",
+      "PackagePath": "staticwebassets/resources/coffee.png"
     },
     {
-      "Id": "C:\\Users\\Harrison\\OneDrive\\Documents\\GitHub\\CPSC481\\wwwroot\\resources\\coffee.png",
-      "PackagePath": "staticwebassets\\resources\\coffee.png"
+      "Id": "/Users/azhar/Documents/GitHub/Brody1/wwwroot/resources/dietcoke.png",
+      "PackagePath": "staticwebassets/resources/dietcoke.png"
     },
     {
-      "Id": "C:\\Users\\Harrison\\OneDrive\\Documents\\GitHub\\CPSC481\\wwwroot\\resources\\combo.png",
-      "PackagePath": "staticwebassets\\resources\\combo.png"
+      "Id": "/Users/azhar/Documents/GitHub/Brody1/wwwroot/resources/frenchfries.png",
+      "PackagePath": "staticwebassets/resources/frenchfries.png"
     },
     {
-      "Id": "C:\\Users\\Harrison\\OneDrive\\Documents\\GitHub\\CPSC481\\wwwroot\\resources\\dietcoke.png",
-      "PackagePath": "staticwebassets\\resources\\dietcoke.png"
+      "Id": "/Users/azhar/Documents/GitHub/Brody1/wwwroot/resources/fries.png",
+      "PackagePath": "staticwebassets/resources/fries.png"
     },
     {
-      "Id": "C:\\Users\\Harrison\\OneDrive\\Documents\\GitHub\\CPSC481\\wwwroot\\resources\\frenchfries.png",
-      "PackagePath": "staticwebassets\\resources\\frenchfries.png"
+      "Id": "/Users/azhar/Documents/GitHub/Brody1/wwwroot/resources/fruitopia.png",
+      "PackagePath": "staticwebassets/resources/fruitopia.png"
     },
     {
-      "Id": "C:\\Users\\Harrison\\OneDrive\\Documents\\GitHub\\CPSC481\\wwwroot\\resources\\fries.png",
-      "PackagePath": "staticwebassets\\resources\\fries.png"
+      "Id": "/Users/azhar/Documents/GitHub/Brody1/wwwroot/resources/gluten-free-icon.svg",
+      "PackagePath": "staticwebassets/resources/gluten-free-icon.svg"
     },
     {
-      "Id": "C:\\Users\\Harrison\\OneDrive\\Documents\\GitHub\\CPSC481\\wwwroot\\resources\\fruitopia.png",
-      "PackagePath": "staticwebassets\\resources\\fruitopia.png"
+      "Id": "/Users/azhar/Documents/GitHub/Brody1/wwwroot/resources/hotChocolate.png",
+      "PackagePath": "staticwebassets/resources/hotChocolate.png"
     },
     {
-      "Id": "C:\\Users\\Harrison\\OneDrive\\Documents\\GitHub\\CPSC481\\wwwroot\\resources\\full_description.png",
-      "PackagePath": "staticwebassets\\resources\\full_description.png"
+      "Id": "/Users/azhar/Documents/GitHub/Brody1/wwwroot/resources/iceCream.png",
+      "PackagePath": "staticwebassets/resources/iceCream.png"
     },
     {
-      "Id": "C:\\Users\\Harrison\\OneDrive\\Documents\\GitHub\\CPSC481\\wwwroot\\resources\\gluten-free-icon.svg",
-      "PackagePath": "staticwebassets\\resources\\gluten-free-icon.svg"
+      "Id": "/Users/azhar/Documents/GitHub/Brody1/wwwroot/resources/iceCreamSundae.png",
+      "PackagePath": "staticwebassets/resources/iceCreamSundae.png"
     },
     {
-      "Id": "C:\\Users\\Harrison\\OneDrive\\Documents\\GitHub\\CPSC481\\wwwroot\\resources\\hamburger.png",
-      "PackagePath": "staticwebassets\\resources\\hamburger.png"
+      "Id": "/Users/azhar/Documents/GitHub/Brody1/wwwroot/resources/icedtea.png",
+      "PackagePath": "staticwebassets/resources/icedtea.png"
     },
     {
-      "Id": "C:\\Users\\Harrison\\OneDrive\\Documents\\GitHub\\CPSC481\\wwwroot\\resources\\hotChocolate.png",
-      "PackagePath": "staticwebassets\\resources\\hotChocolate.png"
+      "Id": "/Users/azhar/Documents/GitHub/Brody1/wwwroot/resources/jrschooper.png",
+      "PackagePath": "staticwebassets/resources/jrschooper.png"
     },
     {
-      "Id": "C:\\Users\\Harrison\\OneDrive\\Documents\\GitHub\\CPSC481\\wwwroot\\resources\\iceCream.png",
-      "PackagePath": "staticwebassets\\resources\\iceCream.png"
+      "Id": "/Users/azhar/Documents/GitHub/Brody1/wwwroot/resources/kingvegan.png",
+      "PackagePath": "staticwebassets/resources/kingvegan.png"
     },
     {
-      "Id": "C:\\Users\\Harrison\\OneDrive\\Documents\\GitHub\\CPSC481\\wwwroot\\resources\\iceCreamSundae.png",
-      "PackagePath": "staticwebassets\\resources\\iceCreamSundae.png"
+      "Id": "/Users/azhar/Documents/GitHub/Brody1/wwwroot/resources/knightsbaconloaded.png",
+      "PackagePath": "staticwebassets/resources/knightsbaconloaded.png"
     },
     {
-      "Id": "C:\\Users\\Harrison\\OneDrive\\Documents\\GitHub\\CPSC481\\wwwroot\\resources\\icedtea.png",
-      "PackagePath": "staticwebassets\\resources\\icedtea.png"
+      "Id": "/Users/azhar/Documents/GitHub/Brody1/wwwroot/resources/leaves-icon.svg",
+      "PackagePath": "staticwebassets/resources/leaves-icon.svg"
     },
     {
-      "Id": "C:\\Users\\Harrison\\OneDrive\\Documents\\GitHub\\CPSC481\\wwwroot\\resources\\jrschooper.png",
-      "PackagePath": "staticwebassets\\resources\\jrschooper.png"
+      "Id": "/Users/azhar/Documents/GitHub/Brody1/wwwroot/resources/like-button-icon.svg",
+      "PackagePath": "staticwebassets/resources/like-button-icon.svg"
     },
     {
-      "Id": "C:\\Users\\Harrison\\OneDrive\\Documents\\GitHub\\CPSC481\\wwwroot\\resources\\kingvegan.png",
-      "PackagePath": "staticwebassets\\resources\\kingvegan.png"
+      "Id": "/Users/azhar/Documents/GitHub/Brody1/wwwroot/resources/milkshakebanner.png",
+      "PackagePath": "staticwebassets/resources/milkshakebanner.png"
     },
     {
-      "Id": "C:\\Users\\Harrison\\OneDrive\\Documents\\GitHub\\CPSC481\\wwwroot\\resources\\knightsbaconloaded.png",
-      "PackagePath": "staticwebassets\\resources\\knightsbaconloaded.png"
+      "Id": "/Users/azhar/Documents/GitHub/Brody1/wwwroot/resources/number1.png",
+      "PackagePath": "staticwebassets/resources/number1.png"
     },
     {
-      "Id": "C:\\Users\\Harrison\\OneDrive\\Documents\\GitHub\\CPSC481\\wwwroot\\resources\\leaves-icon.svg",
-      "PackagePath": "staticwebassets\\resources\\leaves-icon.svg"
+      "Id": "/Users/azhar/Documents/GitHub/Brody1/wwwroot/resources/number2.png",
+      "PackagePath": "staticwebassets/resources/number2.png"
     },
     {
-      "Id": "C:\\Users\\Harrison\\OneDrive\\Documents\\GitHub\\CPSC481\\wwwroot\\resources\\like-button-icon.svg",
-      "PackagePath": "staticwebassets\\resources\\like-button-icon.svg"
+      "Id": "/Users/azhar/Documents/GitHub/Brody1/wwwroot/resources/number3.png",
+      "PackagePath": "staticwebassets/resources/number3.png"
     },
     {
-      "Id": "C:\\Users\\Harrison\\OneDrive\\Documents\\GitHub\\CPSC481\\wwwroot\\resources\\milkshakebanner.png",
-      "PackagePath": "staticwebassets\\resources\\milkshakebanner.png"
+      "Id": "/Users/azhar/Documents/GitHub/Brody1/wwwroot/resources/number4.png",
+      "PackagePath": "staticwebassets/resources/number4.png"
     },
     {
-      "Id": "C:\\Users\\Harrison\\OneDrive\\Documents\\GitHub\\CPSC481\\wwwroot\\resources\\nuggets4pc.png",
-      "PackagePath": "staticwebassets\\resources\\nuggets4pc.png"
+      "Id": "/Users/azhar/Documents/GitHub/Brody1/wwwroot/resources/onionrings.png",
+      "PackagePath": "staticwebassets/resources/onionrings.png"
     },
     {
-      "Id": "C:\\Users\\Harrison\\OneDrive\\Documents\\GitHub\\CPSC481\\wwwroot\\resources\\nuggets4pcbanner.png",
-      "PackagePath": "staticwebassets\\resources\\nuggets4pcbanner.png"
+      "Id": "/Users/azhar/Documents/GitHub/Brody1/wwwroot/resources/oreomilkshake.png",
+      "PackagePath": "staticwebassets/resources/oreomilkshake.png"
     },
     {
-      "Id": "C:\\Users\\Harrison\\OneDrive\\Documents\\GitHub\\CPSC481\\wwwroot\\resources\\number1.png",
-      "PackagePath": "staticwebassets\\resources\\number1.png"
+      "Id": "/Users/azhar/Documents/GitHub/Brody1/wwwroot/resources/pancakes.png",
+      "PackagePath": "staticwebassets/resources/pancakes.png"
     },
     {
-      "Id": "C:\\Users\\Harrison\\OneDrive\\Documents\\GitHub\\CPSC481\\wwwroot\\resources\\number2.png",
-      "PackagePath": "staticwebassets\\resources\\number2.png"
+      "Id": "/Users/azhar/Documents/GitHub/Brody1/wwwroot/resources/pork-icon.svg",
+      "PackagePath": "staticwebassets/resources/pork-icon.svg"
     },
     {
-      "Id": "C:\\Users\\Harrison\\OneDrive\\Documents\\GitHub\\CPSC481\\wwwroot\\resources\\number3.png",
-      "PackagePath": "staticwebassets\\resources\\number3.png"
+      "Id": "/Users/azhar/Documents/GitHub/Brody1/wwwroot/resources/poutine.png",
+      "PackagePath": "staticwebassets/resources/poutine.png"
     },
     {
-      "Id": "C:\\Users\\Harrison\\OneDrive\\Documents\\GitHub\\CPSC481\\wwwroot\\resources\\number4.png",
-      "PackagePath": "staticwebassets\\resources\\number4.png"
+      "Id": "/Users/azhar/Documents/GitHub/Brody1/wwwroot/resources/queenburger.png",
+      "PackagePath": "staticwebassets/resources/queenburger.png"
     },
     {
-      "Id": "C:\\Users\\Harrison\\OneDrive\\Documents\\GitHub\\CPSC481\\wwwroot\\resources\\onionrings.png",
-      "PackagePath": "staticwebassets\\resources\\onionrings.png"
+      "Id": "/Users/azhar/Documents/GitHub/Brody1/wwwroot/resources/rootBeer.png",
+      "PackagePath": "staticwebassets/resources/rootBeer.png"
     },
     {
-      "Id": "C:\\Users\\Harrison\\OneDrive\\Documents\\GitHub\\CPSC481\\wwwroot\\resources\\oreomilkshake.png",
-      "PackagePath": "staticwebassets\\resources\\oreomilkshake.png"
+      "Id": "/Users/azhar/Documents/GitHub/Brody1/wwwroot/resources/salad.png",
+      "PackagePath": "staticwebassets/resources/salad.png"
     },
     {
-      "Id": "C:\\Users\\Harrison\\OneDrive\\Documents\\GitHub\\CPSC481\\wwwroot\\resources\\pancakes.png",
-      "PackagePath": "staticwebassets\\resources\\pancakes.png"
+      "Id": "/Users/azhar/Documents/GitHub/Brody1/wwwroot/resources/shakeChocolate.png",
+      "PackagePath": "staticwebassets/resources/shakeChocolate.png"
     },
     {
-      "Id": "C:\\Users\\Harrison\\OneDrive\\Documents\\GitHub\\CPSC481\\wwwroot\\resources\\pork-icon.svg",
-      "PackagePath": "staticwebassets\\resources\\pork-icon.svg"
+      "Id": "/Users/azhar/Documents/GitHub/Brody1/wwwroot/resources/shakeStrawberry.png",
+      "PackagePath": "staticwebassets/resources/shakeStrawberry.png"
     },
     {
-      "Id": "C:\\Users\\Harrison\\OneDrive\\Documents\\GitHub\\CPSC481\\wwwroot\\resources\\poutine.png",
-      "PackagePath": "staticwebassets\\resources\\poutine.png"
+      "Id": "/Users/azhar/Documents/GitHub/Brody1/wwwroot/resources/shakeVanilla.png",
+      "PackagePath": "staticwebassets/resources/shakeVanilla.png"
     },
     {
-      "Id": "C:\\Users\\Harrison\\OneDrive\\Documents\\GitHub\\CPSC481\\wwwroot\\resources\\poutineLg.png",
-      "PackagePath": "staticwebassets\\resources\\poutineLg.png"
+      "Id": "/Users/azhar/Documents/GitHub/Brody1/wwwroot/resources/spicykingburger.png",
+      "PackagePath": "staticwebassets/resources/spicykingburger.png"
     },
     {
-      "Id": "C:\\Users\\Harrison\\OneDrive\\Documents\\GitHub\\CPSC481\\wwwroot\\resources\\queenburger.png",
-      "PackagePath": "staticwebassets\\resources\\queenburger.png"
+      "Id": "/Users/azhar/Documents/GitHub/Brody1/wwwroot/resources/spicyloadedpoutine.png",
+      "PackagePath": "staticwebassets/resources/spicyloadedpoutine.png"
     },
     {
-      "Id": "C:\\Users\\Harrison\\OneDrive\\Documents\\GitHub\\CPSC481\\wwwroot\\resources\\rootBeer.png",
-      "PackagePath": "staticwebassets\\resources\\rootBeer.png"
+      "Id": "/Users/azhar/Documents/GitHub/Brody1/wwwroot/resources/sprite.png",
+      "PackagePath": "staticwebassets/resources/sprite.png"
     },
     {
-      "Id": "C:\\Users\\Harrison\\OneDrive\\Documents\\GitHub\\CPSC481\\wwwroot\\resources\\salad.png",
-      "PackagePath": "staticwebassets\\resources\\salad.png"
+      "Id": "/Users/azhar/Documents/GitHub/Brody1/wwwroot/resources/star-rating-icon.svg",
+      "PackagePath": "staticwebassets/resources/star-rating-icon.svg"
     },
     {
-      "Id": "C:\\Users\\Harrison\\OneDrive\\Documents\\GitHub\\CPSC481\\wwwroot\\resources\\shakeChocolate.png",
-      "PackagePath": "staticwebassets\\resources\\shakeChocolate.png"
+      "Id": "/Users/azhar/Documents/GitHub/Brody1/wwwroot/resources/strawberrymilkshake.png",
+      "PackagePath": "staticwebassets/resources/strawberrymilkshake.png"
     },
     {
-      "Id": "C:\\Users\\Harrison\\OneDrive\\Documents\\GitHub\\CPSC481\\wwwroot\\resources\\shakeStrawberry.png",
-      "PackagePath": "staticwebassets\\resources\\shakeStrawberry.png"
+      "Id": "/Users/azhar/Documents/GitHub/Brody1/wwwroot/resources/tea.png",
+      "PackagePath": "staticwebassets/resources/tea.png"
     },
     {
-      "Id": "C:\\Users\\Harrison\\OneDrive\\Documents\\GitHub\\CPSC481\\wwwroot\\resources\\shakeVanilla.png",
-      "PackagePath": "staticwebassets\\resources\\shakeVanilla.png"
+      "Id": "/Users/azhar/Documents/GitHub/Brody1/wwwroot/resources/vanillamilkshake.png",
+      "PackagePath": "staticwebassets/resources/vanillamilkshake.png"
     },
     {
-      "Id": "C:\\Users\\Harrison\\OneDrive\\Documents\\GitHub\\CPSC481\\wwwroot\\resources\\spicykingburger.png",
-      "PackagePath": "staticwebassets\\resources\\spicykingburger.png"
+      "Id": "/Users/azhar/Documents/GitHub/Brody1/wwwroot/resources/water.png",
+      "PackagePath": "staticwebassets/resources/water.png"
     },
     {
-      "Id": "C:\\Users\\Harrison\\OneDrive\\Documents\\GitHub\\CPSC481\\wwwroot\\resources\\spicyloadedpoutine.png",
-      "PackagePath": "staticwebassets\\resources\\spicyloadedpoutine.png"
+      "Id": "/Users/azhar/Documents/GitHub/Brody1/wwwroot/resources/whopper.png",
+      "PackagePath": "staticwebassets/resources/whopper.png"
     },
     {
-      "Id": "C:\\Users\\Harrison\\OneDrive\\Documents\\GitHub\\CPSC481\\wwwroot\\resources\\sprite.png",
-      "PackagePath": "staticwebassets\\resources\\sprite.png"
+      "Id": "/Users/azhar/Documents/GitHub/Brody1/wwwroot/resources/whopper2.png",
+      "PackagePath": "staticwebassets/resources/whopper2.png"
     },
     {
-      "Id": "C:\\Users\\Harrison\\OneDrive\\Documents\\GitHub\\CPSC481\\wwwroot\\resources\\star-rating-icon.svg",
-      "PackagePath": "staticwebassets\\resources\\star-rating-icon.svg"
+      "Id": "/Users/azhar/Documents/GitHub/Brody1/wwwroot/resources/whopper3.png",
+      "PackagePath": "staticwebassets/resources/whopper3.png"
     },
     {
-      "Id": "C:\\Users\\Harrison\\OneDrive\\Documents\\GitHub\\CPSC481\\wwwroot\\resources\\strawberrymilkshake.png",
-      "PackagePath": "staticwebassets\\resources\\strawberrymilkshake.png"
+      "Id": "/Users/azhar/Documents/GitHub/Brody1/wwwroot/resources/whopper4.png",
+      "PackagePath": "staticwebassets/resources/whopper4.png"
     },
     {
-      "Id": "C:\\Users\\Harrison\\OneDrive\\Documents\\GitHub\\CPSC481\\wwwroot\\resources\\tea.png",
-      "PackagePath": "staticwebassets\\resources\\tea.png"
+      "Id": "/Users/azhar/Documents/GitHub/Brody1/wwwroot/sample-data/weather.json",
+      "PackagePath": "staticwebassets/sample-data/weather.json"
     },
     {
-      "Id": "C:\\Users\\Harrison\\OneDrive\\Documents\\GitHub\\CPSC481\\wwwroot\\resources\\valuebanner.png",
-      "PackagePath": "staticwebassets\\resources\\valuebanner.png"
+      "Id": "/Users/azhar/Documents/GitHub/Brody1/wwwroot/takeout.png",
+      "PackagePath": "staticwebassets/takeout.png"
     },
     {
-      "Id": "C:\\Users\\Harrison\\OneDrive\\Documents\\GitHub\\CPSC481\\wwwroot\\resources\\vanillamilkshake.png",
-      "PackagePath": "staticwebassets\\resources\\vanillamilkshake.png"
-    },
-    {
-      "Id": "C:\\Users\\Harrison\\OneDrive\\Documents\\GitHub\\CPSC481\\wwwroot\\resources\\water.png",
-      "PackagePath": "staticwebassets\\resources\\water.png"
-    },
-    {
-      "Id": "C:\\Users\\Harrison\\OneDrive\\Documents\\GitHub\\CPSC481\\wwwroot\\resources\\whopper.png",
-      "PackagePath": "staticwebassets\\resources\\whopper.png"
-    },
-    {
-      "Id": "C:\\Users\\Harrison\\OneDrive\\Documents\\GitHub\\CPSC481\\wwwroot\\resources\\whopper2.png",
-      "PackagePath": "staticwebassets\\resources\\whopper2.png"
-    },
-    {
-      "Id": "C:\\Users\\Harrison\\OneDrive\\Documents\\GitHub\\CPSC481\\wwwroot\\resources\\whopper3.png",
-      "PackagePath": "staticwebassets\\resources\\whopper3.png"
-    },
-    {
-      "Id": "C:\\Users\\Harrison\\OneDrive\\Documents\\GitHub\\CPSC481\\wwwroot\\resources\\whopper4.png",
-      "PackagePath": "staticwebassets\\resources\\whopper4.png"
-    },
-    {
-      "Id": "C:\\Users\\Harrison\\OneDrive\\Documents\\GitHub\\CPSC481\\wwwroot\\sample-data\\weather.json",
-      "PackagePath": "staticwebassets\\sample-data\\weather.json"
-    },
-    {
-      "Id": "C:\\Users\\Harrison\\OneDrive\\Documents\\GitHub\\CPSC481\\wwwroot\\takeout.png",
-      "PackagePath": "staticwebassets\\takeout.png"
-    },
-    {
-      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.MyApplication.Microsoft.AspNetCore.StaticWebAssets.props",
+      "Id": "obj/Debug/net6.0/staticwebassets/msbuild.MyApplication.Microsoft.AspNetCore.StaticWebAssets.props",
       "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
     },
     {
-      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.build.MyApplication.props",
+      "Id": "obj/Debug/net6.0/staticwebassets/msbuild.build.MyApplication.props",
       "PackagePath": "build\\MyApplication.props"
     },
     {
-      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.buildMultiTargeting.MyApplication.props",
+      "Id": "obj/Debug/net6.0/staticwebassets/msbuild.buildMultiTargeting.MyApplication.props",
       "PackagePath": "buildMultiTargeting\\MyApplication.props"
     },
     {
-      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.buildTransitive.MyApplication.props",
+      "Id": "obj/Debug/net6.0/staticwebassets/msbuild.buildTransitive.MyApplication.props",
       "PackagePath": "buildTransitive\\MyApplication.props"
     }
   ],

@@ -1,6 +1,5 @@
 @using System.Collections.Generic
 @using MudBlazor
-@inject NavigationManager NavigationManager
 
 
 
@@ -32,9 +31,9 @@
                 <h3 style="text-align:right; margin:10px;">Total: $@string.Format("{0:0.00}", GrandTotal)</h3>
                 <h1 style="text-align:center; margin:10px;">How would you like to pay?</h1>
                 <div style="display: flex; width: 100%;">
-                    <MudButton style="height: 80px;width:120px;padding:10px;margin:10px;" Color="Color.Tertiary" Variant="Variant.Filled" @onclick="@(() => { NavigationManager.NavigateTo("/receipt"); })">Debit/Credit</MudButton>
-                    <MudButton style="width:120px;height: 80px;padding:10px;margin:10px;" Color="Color.Tertiary" Variant="Variant.Filled" @onclick="@(() => { NavigationManager.NavigateTo("/receipt"); })">Gift Card</MudButton>
-                    <MudButton style="width:120px;padding:10px;height: 80px;margin:10px;" Color="Color.Tertiary" Variant="Variant.Filled" @onclick="@(() => { NavigationManager.NavigateTo("/receipt"); })">Pay at Counter</MudButton>
+                    <MudLink Href="/"> <MudButton style="height: 80px;width:120px;padding:10px;margin:10px;" Color="Color.Tertiary" Variant="Variant.Filled">Debit/Credit</MudButton></MudLink>
+                    <MudLink Href="/"> <MudButton style="width:120px;height: 80px;padding:10px;margin:10px;" Color="Color.Tertiary" Variant="Variant.Filled">Gift Card</MudButton></MudLink>
+                    <MudLink Href="/"> <MudButton style="width:120px;padding:10px;height: 80px;margin:10px;" Color="Color.Tertiary" Variant="Variant.Filled">Pay at Counter</MudButton></MudLink>
                 </div>
             </div>
         </div>

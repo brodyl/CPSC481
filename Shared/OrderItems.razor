@@ -9,7 +9,7 @@
 {
 <MudDropContainer T="DropItem" Items="@StateContainer._items" ItemsSelector="@((item, dropzone) => item.Customer == dropzone)" ItemDropped="ItemUpdated" Elevation="16">
     <ChildContent>
-        <MudPaper MinHeight="750px" Class="d-flex flex-column flex-1">
+        <MudPaper MinHeight="500px" Class="d-flex flex-column flex-1">
             <MudSimpleTable style="background-color: #7e6fff; color: #fffeff;">
                 <thead>
                     <tr>
@@ -70,7 +70,7 @@
                             </TooltipContent>
                         </MudTooltip>
                         &emsp; &emsp; &emsp; &emsp; &emsp; 
-                        @(context.menuItem.category != "combo" ? context.menuItem.size+" "+context.menuItem.name : (context.menuItem.category == "combo" ? context.menuItem.name + " + " + context.menuItem.side.size+" "+context.menuItem.side.name + " + " +context.menuItem.drink.size+" "+ context.menuItem.drink.name : null))
+                        @(context.menuItem.category != "combo" ? context.menuItem.name : (context.menuItem.category == "combo" ? context.menuItem.name + " + " + context.menuItem.side.name + " + " + context.menuItem.drink.name : null))
                     </span>
                     <span class="item-quantity">
                     <MudStack Row="true">
@@ -97,7 +97,7 @@ else
 {
 <MudDropContainer T="DropItem" Items="@StateContainer._items" ItemsSelector="@((item, dropzone) => item.Customer == dropzone)" ItemDropped="ItemUpdated" Elevation="16">
     <ChildContent>
-        <MudPaper MinHeight="750px" Class="d-flex flex-column flex-1">
+        <MudPaper MinHeight="500px" Class="d-flex flex-column flex-1">
             <MudSimpleTable style="background-color: #7e6fff; color: #fffeff;">
                 <thead>
                     <tr>
@@ -108,7 +108,7 @@ else
                     </tr>
                 </thead>
             </MudSimpleTable>
-            <MudList Class="mudlist-single-patron-mode" style="height:600px;background-color: #7e6fff;">
+            <MudList Class="mudlist-single-patron-mode" style="background-color: #7e6fff;">
                 @foreach (var customer in @StateContainer._customers) 
                 {
                     <MudListItem Icon="@Icons.Material.Filled.EmojiEmotions"  Color="Color.Success" Text="@customer.Name" InitiallyExpanded="true" Class="customer-name" style="color: #ffffff">
@@ -162,7 +162,7 @@ else
                             </TooltipContent>
                         </MudTooltip>
                         &emsp; &emsp; &emsp; &emsp; &emsp; 
-                        @(context.menuItem.category != "combo" ? context.menuItem.size+" "+context.menuItem.name : (context.menuItem.category == "combo" ? context.menuItem.name + " + " + context.menuItem.side.size+" "+context.menuItem.side.name + " + " +context.menuItem.drink.size+" "+ context.menuItem.drink.name : null))
+                        @(context.menuItem.category != "combo" ? context.menuItem.name : (context.menuItem.category == "combo" ? context.menuItem.name + " + " + context.menuItem.side.name + " + " + context.menuItem.drink.name : null))
                     </span>
                     <span class="item-quantity">
                     <MudStack Row="true">
@@ -216,8 +216,6 @@ else
     private Ingredient avocado = new Ingredient { Name = "Avocado", Quantity = "Regular" };
     private Ingredient veganChipotleMayo = new Ingredient { Name = "Vegan Chipotle Mayo", Quantity = "Regular" };
 
-    private Ingredient size = new Ingredient { Name = "Size", Quantity = "Medium" };
-
 
     private string tableBackground_dark = "background-color: #7e6fff";
     private bool _isOrderImageOpen = false;
@@ -249,8 +247,6 @@ else
             { "GrandTotal", GetGrandTotal() }
         }, options);
     }
-
-    
 
     private async Task ConfirmRemoveItem()
     {
