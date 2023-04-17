@@ -15,7 +15,7 @@
     <div style="padding:20px"></div>
    <MudButton style="border-radius:40px; background-color:#EABC45;margin: 50px; height:100px; width:300px" Variant="Variant.Filled" Size="Size.Large"  Color="Color.Tertiary" @onclick="@(() => { NavigationManager.NavigateTo("/"); StateContainer.restartOrder();})"><h2>Print Receipt</h2></MudButton>
     
-    <MudButton style="border-radius:40px; background-color:#EABC45;margin: 50px; height:100px; width:300px" Variant="Variant.Filled" Size="Size.Large"  Color="Color.Tertiary" @onclick="@(() => { OpenDialog(); StateContainer.restartOrder();})"><h2>Email Receipt</h2></MudButton>
+    <MudButton style="border-radius:40px; background-color:#EABC45;margin: 50px; height:100px; width:300px" Variant="Variant.Filled" Size="Size.Large"  Color="Color.Tertiary" @onclick="@(() => { NavigationManager.NavigateTo("/"); StateContainer.restartOrder();})"><h2>Email Receipt</h2></MudButton>
     
 
     </div>
