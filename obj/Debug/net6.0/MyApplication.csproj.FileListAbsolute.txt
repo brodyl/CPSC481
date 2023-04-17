@@ -2456,6 +2456,7 @@
 /Users/azhar/Documents/GitHub/Brody1/obj/Debug/net6.0/refint/MyApplication.dll
 /Users/azhar/Documents/GitHub/Brody1/obj/Debug/net6.0/MyApplication.pdb
 /Users/azhar/Documents/GitHub/Brody1/obj/Debug/net6.0/ref/MyApplication.dll
+<<<<<<< Updated upstream
 C:\Users\Harrison\OneDrive\Documents\GitHub\CPSC481\bin\Debug\net6.0\wwwroot\_framework\blazor.webassembly.js
 C:\Users\Harrison\OneDrive\Documents\GitHub\CPSC481\bin\Debug\net6.0\wwwroot\_framework\dotnet.6.0.16.u5x6eu7g3w.js
 C:\Users\Harrison\OneDrive\Documents\GitHub\CPSC481\bin\Debug\net6.0\wwwroot\_framework\dotnet.timezones.blat
@@ -3277,3 +3278,5 @@ C:\Users\Harrison\OneDrive\Documents\GitHub\CPSC481\obj\Debug\net6.0\MyApplicati
 C:\Users\Harrison\OneDrive\Documents\GitHub\CPSC481\obj\Debug\net6.0\refint\MyApplication.dll
 C:\Users\Harrison\OneDrive\Documents\GitHub\CPSC481\obj\Debug\net6.0\MyApplication.pdb
 C:\Users\Harrison\OneDrive\Documents\GitHub\CPSC481\obj\Debug\net6.0\ref\MyApplication.dll
+=======
+>>>>>>> Stashed changes
