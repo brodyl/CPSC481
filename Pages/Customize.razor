@@ -33,8 +33,20 @@
   } else 
   {
   <div style="display: flex; justify-content: flex-start;">
-    <MudButton style="height: 30px;" Variant="Variant.Filled" Color="Color.Error" Class="mx-5 my-10" Size="Size.Large" @onclick="@(() => { NavigationManager.NavigateTo("/browse/burgers"); })">Back</MudButton>
-    <MudImage Elevation="16" style="width: 60%; border-radius: 100px; border: 15px solid #7e6fff;" src="@StateContainer.itemToCustomize.imageLg" alt="" />
+   <MudButton style="height: 30px;" Variant="Variant.Filled" Color="Color.Error" Class="mx-5 my-10" Size="Size.Large" @onclick="@(() => { NavigationManager.NavigateTo("/browse/burgers"); })">Back</MudButton>
+    <MudStack style="width: 60%;">
+        
+          
+           
+            <th style="text-align: center; width: 100%;background-color:rgb(255, 255, 255); border-radius: 10px; border: 4px solid #7e6fff;"><b><h2>@StateContainer.itemToCustomize.name</h2></b></th>
+            
+          
+           
+          <MudImage Elevation="16" style="width: 100%; border-radius: 100px; border: 15px solid #7e6fff;" src="@StateContainer.itemToCustomize.imageLg" alt="" />
+       </MudStack>
+      
+    
+    
   </div>
   }
   
