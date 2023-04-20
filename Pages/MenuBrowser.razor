@@ -17,23 +17,27 @@
             <MudLink Href="/Customize">
                 <MudCard @onclick="() => {StateContainer.itemToCustomize = item;}">
             
-                    <MudCardContent style="@(item.category != "drinks" ? "height: 180px;" : item.category == "drinks" ? "height: 230px;" : item.category == "drinks" ? "height: 230px;" : null)"> @*link to feature on click here*@
-                        <MudImage Fluid="true" Src="@item.image" Class="d-block mx-auto rounded-lg"/>
-                        <MudText Typo="Typo.subtitle1" Align="Align.Center" Class="px-5"><b>@item.name</b></MudText>
-                        <table Class="mx-auto">
+                    <MudCardContent style="@(item.category != "drinks" ? "height: 350px;" : item.category == "drinks" ? "height: 420px;" : item.category == "drinks" ? "height: 230px;" : null)"> @*link to feature on click here*@
+                        <table Class="mx-auto"> 
                             <tr>
-                                <td><MudText Typo="Typo.subtitle1" Align="Align.Center" Class="mr-2">$@item.price</MudText></td>
+                                <MudPaper Elevation="10">
+                                <td><MudText Typo="Typo.h4" Align="Align.Right" Class="mr-2">$@item.price</MudText></td>
+                                </MudPaper>
 
                             @if (!string.IsNullOrWhiteSpace(item.tags)) {
-                                @if (item.tags.Contains("pork")) {<td><MudImage Src="/resources/pork-icon.svg" Width="20" Class="d-block mx-auto"/></td>}
-                                @if (item.tags.Contains("spicy")) {<td><MudImage Src="/resources/chilli-pepper-icon.svg" Width="20" Class="d-block mx-auto"/></td>}
-                                @if (item.tags.Contains("popular")) {<td><MudImage Src="/resources/like-button-icon.svg" Width="20" Class="d-block mx-auto"/></td>}
-                                @if (item.tags.Contains("vegetarian")) {<td><MudImage Src="/resources/leaves-icon.svg" Width="20" Class="d-block mx-auto"/></td>}
-                                @if (item.tags.Contains("GF")) {<td><MudImage Src="/resources/gluten-free-icon.svg" Width="20" Class="d-block mx-auto"/></td>}
+                                @if (item.tags.Contains("pork")) {<td><MudPaper Elevation="10"><MudImage Src="/resources/pork-icon.svg" Width="45" Class="d-block mx-auto"/></MudPaper></td>}
+                                @if (item.tags.Contains("spicy")) {<td><MudPaper Elevation="10"><MudImage Src="/resources/chilli-pepper-icon.svg" Width="45" Class="d-block mx-auto"/></MudPaper></td>}
+                                @if (item.tags.Contains("popular")) {<td> <MudPaper Elevation="10"><MudImage Src="/resources/like-button-icon.svg" Width="45" Class="d-block mx-auto"/></MudPaper></td>}
+                                @if (item.tags.Contains("vegetarian")) {<td><MudPaper Elevation="10"><MudImage Src="/resources/leaves-icon.svg" Width="45" Class="d-block mx-auto"/></MudPaper></td>}
+                                @if (item.tags.Contains("GF")) {<td><MudPaper Elevation="10"><MudImage Src="/resources/gluten-free-icon.svg" Width="45" Class="d-block mx-auto"/></MudPaper>></td>}
                             }
                                     
                             </tr>
                         </table>
+                        
+                        <MudImage Fluid="true" Src="@item.image" Class="d-block mx-auto rounded-lg" Width="200"/>
+                        <MudText Typo="Typo.h5" Align="Align.Center" Class="px-5"><b>@item.name</b></MudText>
+                        
                     </MudCardContent>
                 </MudCard>
             </MudLink>

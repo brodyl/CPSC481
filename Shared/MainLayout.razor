@@ -14,24 +14,24 @@
 
 <MudLayout style="background-color:#1c1f22;">
     <div style="background-color: #white; display: flex; justify-content: flex-start;position: sticky; top: 0; z-index: 100;">
-        <MudPaper style="background-color: #FFA000;">
-            <MudIconButton @onclick="HelpDialog" Icon="@Icons.Material.Filled.Help" Variant="Variant.Outlined" Style="height: 100%; border: 0px; color: #E3F2FD;" Size="Size.Large" />
+        <MudPaper style="background-color: #FFA000; width: 60px;">
+            <MudIconButton @onclick="HelpDialog" Icon="@Icons.Material.Filled.Help" Variant="Variant.Outlined" Style="height: 100%; border: 0px; color: #E3F2FD; width: 100%" Size="Size.Large" />
         </MudPaper>
         <MudTabs Elevation="4" Rounded="true" Centered="true" Color="@Color.Warning" style="color: #ffffff; position: sticky; top: 0; z-index: 100; width: 100%;">
-            <MudTabPanel @onclick="@(() => NavigationManager.NavigateTo($"/fetchdata", false))" Text="Features" Icon="fas fa-grin-stars" />
-            <MudTabPanel @onclick="@(() => NavigationManager.NavigateTo($"/browse/burgers", false))" Text="Burgers" Icon="fas fa-hamburger" />
-            <MudTabPanel @onclick="@(() => NavigationManager.NavigateTo($"/browse/sides", false))" Text="Sides" Icon="fas fa-drumstick-bite" />
-            <MudTabPanel @onclick="@(() => NavigationManager.NavigateTo($"/browse/drinks", false))" Text="Drinks" Icon="fas fa-glass-whiskey" />
-            <MudTabPanel @onclick="@(() => NavigationManager.NavigateTo($"/browse/kids", false))" Text="Kids Meal" Icon="fas fa-child" />
-            <MudTabPanel @onclick="@(() => NavigationManager.NavigateTo($"/browse/value", false))" Text="Value Deals" Icon="fas fa-piggy-bank" />
+            <MudTabPanel Class="menuTabs" @onclick="@(() => NavigationManager.NavigateTo($"/fetchdata", false))" Text="Features" Icon="fas fa-grin-stars" style="height: 60px;" />
+            <MudTabPanel Class="menuTabs" @onclick="@(() => NavigationManager.NavigateTo($"/browse/burgers", false))" Text="Burgers" Icon="fas fa-hamburger" style="height: 60px;" />
+            <MudTabPanel Class="menuTabs" @onclick="@(() => NavigationManager.NavigateTo($"/browse/sides", false))" Text="Sides" Icon="fas fa-drumstick-bite" style="height: 60px;" />
+            <MudTabPanel Class="menuTabs" @onclick="@(() => NavigationManager.NavigateTo($"/browse/drinks", false))" Text="Drinks" Icon="fas fa-glass-whiskey" style="height: 60px;" />
+            <MudTabPanel Class="menuTabs" @onclick="@(() => NavigationManager.NavigateTo($"/browse/kids", false))" Text="Kids Meal" Icon="fas fa-child" style="height: 60px;" />
+            <MudTabPanel Class="menuTabs" @onclick="@(() => NavigationManager.NavigateTo($"/browse/value", false))" Text="Value Deals" Icon="fas fa-piggy-bank" style="height: 60px;" />
         </MudTabs>
     </div>
 
 @if (open) {
     <MudDrawer @bind-Open="@open" Elevation="1" Variant="@DrawerVariant.Persistent" Color="Color.Primary" Anchor="@_anchor" DisableOverlay="true" Style="left: 0; top:auto; bottom: 0; width: 100%; height: auto">
-        <MudContainer Class="pa-0 ma-0 d-flex justify-start align-center" Style="width: 100%;" Row="true">
+        <MudContainer Class="d-flex justify-start align-center" Style="width: 100%;" Row="true">
             <MudButton OnClick="@restartOrder" Color="Color.Error" Variant="Variant.Filled" Style="width: 20%;" Margin="Margin.Normal">
-                Restart Order
+                <MudText Typo="Typo.button">Restart Order</MudText>
             </MudButton>
             <MudButton  OnClick="@(() => OpenDrawer(Anchor.Bottom))" Color="Color.Primary" Variant="Variant.Filled" Style="width: 60%;">
                 <MudIcon Icon="@Icons.Material.Filled.KeyboardDoubleArrowDown" Title="Add" />
@@ -46,17 +46,17 @@
     </MudDrawer>
 } else {
     <MudDrawer @bind-Open="@open" Elevation="1" Variant="@DrawerVariant.Mini" Color="Color.Primary" Anchor="@_anchor" DisableOverlay="true" Style="left: 0; top:auto; bottom: 0; width: 100%; height: auto;">
-        <MudContainer Class="pa-0 ma-0 d-flex justify-start align-center" Style="width: 100%;  height: 60px;" Row="true">
-            <MudButton OnClick="@restartOrder" Color="Color.Error" Variant="Variant.Filled" Style="width: 20%; height: 60px;" Margin="Margin.Normal">
-                Restart Order
+        <MudContainer Class="d-flex justify-center align-center" Style="width: 100%;  height: 60px;" Row="true">
+            <MudButton OnClick="@restartOrder" Color="Color.Error" Variant="Variant.Filled" Style="width: 25%; height: 60px;" Margin="Margin.Normal">
+                <MudText Class="menuTabs" Typo="Typo.button">Restart Order</MudText>
             </MudButton>
-            <MudButton  OnClick="@(() => OpenDrawer(Anchor.Bottom))" Color="Color.Primary" Variant="Variant.Filled" Style="width: 60%; height: 60px;">
+            <MudButton  OnClick="@(() => OpenDrawer(Anchor.Bottom))" Color="Color.Primary" Variant="Variant.Filled" Style="width: 50%; height: 60px;">
                 <MudIcon Icon="@Icons.Material.Filled.KeyboardDoubleArrowUp" Title="Add" />
-                    &emsp; &emsp; View Order &emsp; &emsp;
+                    <MudText Class="menuTabs" Typo="Typo.button">&emsp; &emsp; View Order &emsp; &emsp;</MudText>
                 <MudIcon Icon="@Icons.Material.Filled.KeyboardDoubleArrowUp" Title="Add" />
             </MudButton>
-            <MudButton  @onclick="PaymentPrompt" Color="Color.Tertiary" Variant="Variant.Filled" Style="float: right; width: 20%; text-align: right; height: 60px;">
-                Pay Now &emsp; &emsp; $@string.Format("{0:0.00}", GetGrandTotal())
+            <MudButton  @onclick="PaymentPrompt" Color="Color.Tertiary" Variant="Variant.Filled" Style="float: right; width: 25%; text-align: right; height: 60px;">
+                <MudText Class="menuTabs" Typo="Typo.button">Pay Now &emsp; &emsp; $@string.Format("{0:0.00}", GetGrandTotal())</MudText>
             </MudButton>
         </MudContainer>
     </MudDrawer> 
@@ -138,3 +138,9 @@
         }
     }
 }
+
+<style>
+    .menuTabs {
+         font-size: 1.5em;
+    }
+</style>
